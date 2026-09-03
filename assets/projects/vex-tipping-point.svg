@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg-tp" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0f1d"/>
+      <stop offset="100%" stop-color="#141e33"/>
+    </linearGradient>
+    <linearGradient id="cyan-tp" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0284c7"/>
+      <stop offset="100%" stop-color="#38bdf8"/>
+    </linearGradient>
+    <linearGradient id="gold-tp" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#d97706"/>
+      <stop offset="100%" stop-color="#fbbf24"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="400" fill="url(#bg-tp)"/>
+  
+  <g stroke="rgba(56, 189, 248, 0.08)" stroke-width="1">
+    <line x1="50" y1="0" x2="50" y2="400"/>
+    <line x1="150" y1="0" x2="150" y2="400"/>
+    <line x1="250" y1="0" x2="250" y2="400"/>
+    <line x1="350" y1="0" x2="350" y2="400"/>
+    <line x1="450" y1="0" x2="450" y2="400"/>
+    <line x1="550" y1="0" x2="550" y2="400"/>
+    <line x1="0" y1="50" x2="600" y2="50"/>
+    <line x1="0" y1="150" x2="600" y2="150"/>
+    <line x1="0" y1="250" x2="600" y2="250"/>
+    <line x1="0" y1="350" x2="600" y2="350"/>
+  </g>
+
+  <rect x="180" y="220" width="240" height="70" rx="6" fill="#1e293b" stroke="#38bdf8" stroke-width="2"/>
+  <circle cx="210" cy="290" r="32" fill="#0f172a" stroke="#38bdf8" stroke-width="2.5"/>
+  <circle cx="210" cy="290" r="14" fill="#38bdf8" opacity="0.3"/>
+  <circle cx="390" cy="290" r="32" fill="#0f172a" stroke="#38bdf8" stroke-width="2.5"/>
+  <circle cx="390" cy="290" r="14" fill="#38bdf8" opacity="0.3"/>
+  
+  <polygon points="270,220 290,140 310,140 290,220" fill="#334155" stroke="#94a3b8" stroke-width="1.5"/>
+  <line x1="290" y1="145" x2="160" y2="105" stroke="#38bdf8" stroke-width="4" stroke-linecap="round"/>
+  <line x1="285" y1="175" x2="155" y2="135" stroke="#38bdf8" stroke-width="4" stroke-linecap="round"/>
+  <polygon points="150,90 170,150 120,130" fill="url(#cyan-tp)" stroke="#ffffff" stroke-width="1.5"/>
+  
+  <polygon points="80,240 140,240 130,200 90,200" fill="url(#gold-tp)" opacity="0.85"/>
+  <polygon points="95,200 125,200 120,130 100,130" fill="url(#gold-tp)"/>
+  <circle cx="110" cy="125" r="8" fill="#fbbf24"/>
+  
+  <path d="M420,245 L470,245 L480,270" fill="none" stroke="#ef4444" stroke-width="3.5" stroke-linecap="round"/>
+  <circle cx="475" cy="245" r="4" fill="#ef4444"/>
+
+  <line x1="180" y1="340" x2="420" y2="340" stroke="rgba(56, 189, 248, 0.4)" stroke-width="1.5" stroke-dasharray="4 4"/>
+  <text x="300" y="355" font-family="monospace" font-size="12" fill="#38bdf8" text-anchor="middle">CHASSIS TRACK: 18.0 IN (457 MM)</text>
+  
+  <text x="30" y="45" font-family="'Space Grotesk', sans-serif" font-size="20" font-weight="700" fill="#f8fafc" letter-spacing="1">VEX TIPPING POINT</text>
+  <text x="30" y="70" font-family="monospace" font-size="12" fill="#38bdf8">SEASON 2021–2022 · MOBILE GOAL CLAMP &amp; 4-BAR</text>
+</svg>

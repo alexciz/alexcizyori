@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VEX High Stakes Robot — Alexander Ciz Yori</title>
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="../css/project.css">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <header class="navbar">
+    <div class="container navbar-inner">
+      <a href="../index.html" class="brand-logo">
+        <span>ALEXANDER CIZ YORI</span>
+        <span class="brand-tag">IMPERIAL MECH ENG</span>
+      </a>
+
+      <nav>
+        <ul class="nav-links">
+          <li><a href="../index.html#projects">← All Projects</a></li>
+          <li><a href="../index.html#experience">Experience</a></li>
+          <li><a href="../index.html#skills">Skills</a></li>
+          <li><a href="../index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="theme-toggle-btn" id="theme-toggle-btn" title="Toggle Theme">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Project Header -->
+  <div class="project-page-header">
+    <div class="container">
+      <div class="breadcrumb-nav">
+        <a href="../index.html#projects" class="back-link">← Back to All Projects</a>
+        <div class="top-project-nav">
+          <a href="vex-over-under.html" class="top-nav-btn">← Prev: VEX Over Under</a>
+          <a href="rebar-bender-drivetrain.html" class="top-nav-btn">Next: Rebar Bender →</a>
+        </div>
+      </div>
+
+      <h1 class="project-hero-title">VEX High Stakes Competition Robot</h1>
+      <p class="project-hero-subtitle">
+        Instant-latching pneumatic mobile goal clamp, dual-stage floating belt ring intake with active color sorting redirect, articulated wall stake scorer, and multi-tier ladder climb.
+      </p>
+
+      <div class="project-meta-strip">
+        <div class="project-meta-item">
+          <span>ROLE:</span>
+          <strong>Team Lead &amp; Build / Design Lead</strong>
+        </div>
+        <div class="project-meta-item">
+          <span>GAME:</span>
+          <strong>VEX High Stakes</strong>
+        </div>
+        <div class="project-meta-item">
+          <span>INTAKE:</span>
+          <strong>Dual-Stage Floating Belt with Optical Color Redirect</strong>
+        </div>
+        <div class="project-meta-item">
+          <span>TEAM SOCIALS:</span>
+          <a href="https://www.instagram.com/282spectrum/" target="_blank" rel="noopener" style="color:var(--accent); font-weight:600; text-decoration:none; margin-right:0.65rem">Instagram @282spectrum ↗</a>
+          <a href="https://www.youtube.com/@vexspectrum-282sexsixfours7" target="_blank" rel="noopener" style="color:#ef4444; font-weight:600; text-decoration:none">YouTube Channel ↗</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Key Specs Banner -->
+  <div class="container">
+    <div class="project-specs-banner">
+      <div class="spec-banner-item">
+        <span class="spec-banner-val">&lt; 0.2s</span>
+        <span class="spec-banner-lbl">Pneumatic Mogo Latch</span>
+      </div>
+      <div class="spec-banner-item">
+        <span class="spec-banner-val">Dual-Stage</span>
+        <span class="spec-banner-lbl">Floating Ring Intake</span>
+      </div>
+      <div class="spec-banner-item">
+        <span class="spec-banner-val">Optical</span>
+        <span class="spec-banner-lbl">Active Color Sorting</span>
+      </div>
+      <div class="spec-banner-item">
+        <span class="spec-banner-val">High-Torque</span>
+        <span class="spec-banner-lbl">Wall Stake Articulated Arm</span>
+      </div>
+      <div class="spec-banner-item">
+        <span class="spec-banner-val">Tier 3</span>
+        <span class="spec-banner-lbl">Central Ladder Climb</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Case Study Body -->
+  <main class="container case-study-body">
+
+    <!-- 01 Strategy & Concept -->
+    <section class="case-section">
+      <span class="case-section-kicker">01 — Strategy &amp; Mechatronics</span>
+      <h2 class="case-section-title">Continuous Ring Flow &amp; Mobile Goal Management</h2>
+
+      <div class="case-split">
+        <div>
+          <p class="case-text">
+            High Stakes requires capturing mobile goals on the run, ingesting plastic ring elements, stacking them on goal posts, placing bonus rings on neutral wall stakes, and ascending a central pyramid ladder.
+          </p>
+          <p class="case-text">
+            Engineered a <strong>self-centering pneumatic clamp</strong> and a <strong>floating belt intake</strong> featuring compliant 3D-printed TPU fingers and optical color sensors to automatically eject opponent rings in under 15ms.
+          </p>
+        </div>
+
+        <div style="background:var(--bg-card); border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:1.5rem;">
+          <h3 style="font-size:0.95rem; font-family:var(--font-mono); color:var(--accent); margin-bottom:0.75rem;">CORE SUBSYSTEMS</h3>
+          <ul class="timeline-list">
+            <li><strong>Pneumatic Mogo Clamp:</strong> Self-centering chamfered jaws with toggle linkage locking upon impact.</li>
+            <li><strong>Two-Stage Ring Intake:</strong> Floating top roller assembly with polyurethane O-ring drive belts.</li>
+            <li><strong>Active Color Sorter:</strong> High-speed optical sensor triggering pneumatic divert gate to reject opposing rings.</li>
+            <li><strong>Wall Stake Arm:</strong> High-gear-ratio compound pivot scoring top-tier neutral wall stakes.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 02 Design Evolution & Versions -->
+    <section class="case-section">
+      <span class="case-section-kicker">02 — Iterative Engineering &amp; Rebuilds</span>
+      <h2 class="case-section-title">Design Evolution: V1 Baseline vs V2 Subsystem Refinements Rebuild</h2>
+
+      <p class="case-text">
+        The overarching robot chassis architecture remained fundamentally robust across the season; the major rebuild focused on systematic subsystem redesigns: compliant 3D-printed intake interfaces, active optical sorting gates, and chamfered clamp kinematics.
+      </p>
+
+      <div class="version-showcase-container">
+        
+        <!-- VERSION 1.0 -->
+        <div class="version-card v1-card">
+          <div class="version-header">
+            <div class="version-header-left">
+              <span class="version-badge v1">VERSION 1.0</span>
+              <span class="version-title">Early-Season Baseline Architecture</span>
+            </div>
+            <span class="version-tagline">Initial Concept Setup · Core Subsystems Testbed</span>
+          </div>
+
+          <p class="case-text">
+            Initial build proved the multi-subsystem integration: rear mogo clamp, continuous conveyor belt intake, compound pivot arm, and high hang ladder hooks.
+          </p>
+
+          <!-- V1 Media Frame -->
+          <div class="version-media-frame">
+            <img src="../assets/projects/vex-high-stakes.svg" alt="V1 High Stakes Subsystems Schematic">
+            <div class="version-media-caption">
+              <span>FIGURE 2.1 — V1 ARCHITECTURE: MOGO CLAMP, CONVEYOR &amp; WALL STAKE ARM SCHEMATIC</span>
+              <span style="color:var(--accent)">V1 PROTOTYPE</span>
+            </div>
+          </div>
+
+          <div class="version-details-grid">
+            <div class="version-block">
+              <div class="version-block-title warn">⚠ Identified Failure Modes &amp; Bottlenecks</div>
+              <ul style="font-size:0.9rem; color:var(--text-secondary); padding-left:1.2rem; line-height:1.65">
+                <li><strong>Rigid Intake Bounce:</strong> Plastic ring elements bounced off rigid intake plates during high-speed drive approaches, dropping intake rate to ~78%.</li>
+                <li><strong>Manual Color Sorting:</strong> Ingesting opponent rings into the conveyor required manual driver reversal, costing precious match seconds.</li>
+                <li><strong>Alignment Sensitivity:</strong> Standard rear clamp jaws required strict perpendicular alignment to latch onto mobile goals cleanly.</li>
+              </ul>
+            </div>
+
+            <div class="version-block">
+              <div class="version-block-title tech">⚙ V1 Technical Specifications</div>
+              <ul style="font-size:0.9rem; color:var(--text-secondary); padding-left:1.2rem; line-height:1.65">
+                <li><strong>Intake Geometry:</strong> Rigid aluminum channel backing.</li>
+                <li><strong>Color Filtering:</strong> Manual driver reaction.</li>
+                <li><strong>Clamp Lead-ins:</strong> Unchamfered aluminum plates.</li>
+                <li><strong>Wall Stake Scorer:</strong> Fixed torque pivot.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- The Pivot Divider -->
+        <div class="pivot-divider">
+          <div class="pivot-icon">⚡</div>
+          <div class="pivot-text-wrap">
+            <div class="pivot-label">THE REBUILD TRIGGER — CHAMPIONSHIP SUBSYSTEM OVERHAUL</div>
+            <div class="pivot-desc">
+              Preserved the validated core chassis geometry while executing a comprehensive subsystem overhaul to achieve zero-jam intake compliance, automated optical color ejection, and omni-directional goal capture.
+            </div>
+          </div>
+        </div>
+
+        <!-- VERSION 2.0 (COMPETITION REBUILD) -->
+        <div class="version-card v2-card">
+          <div class="version-header">
+            <div class="version-header-left">
+              <span class="version-badge v2">VERSION 2.0</span>
+              <span class="version-title">Championship Subsystem Refinements Rebuild</span>
+            </div>
+            <span class="version-tagline" style="color:var(--accent); font-weight:600">Current Generation System · High-Efficiency Subsystems</span>
+          </div>
+
+          <p class="case-text">
+            Executed an intensive subsystem redesign: integrated compliant 3D-printed TPU flexible intake fingers, a two-stage floating top-roller belt, closed-loop optical color sorting with pneumatic redirect divert gate, and self-centering clamp lead-ins.
+          </p>
+
+          <!-- V2 Media Frame -->
+          <div class="version-media-frame">
+            <img src="../assets/projects/vex-high-stakes.jpg" alt="V2 High Stakes Robot on Arena Floor">
+            <div class="version-media-caption">
+              <span>FIGURE 2.2 — V2 COMPETITION ROBOT: FLOATING TPU INTAKE, OPTICAL REDIRECT &amp; CHAMFERED CLAMP</span>
+              <span style="color:var(--brand-green); font-weight:700">✓ V2 COMPETITION ROBOT</span>
+            </div>
+          </div>
+
+          <div class="version-details-grid">
+            <div class="version-block">
+              <div class="version-block-title success">✓ Rebuild Engineering Solutions</div>
+              <ul style="font-size:0.9rem; color:var(--text-secondary); padding-left:1.2rem; line-height:1.65">
+                <li><strong>Compliant TPU Intake Fingers:</strong> 3D-printed flexible TPU spools flex around ring deformities, creating instant positive friction grab.</li>
+                <li><strong>Automated Optical Color Redirect:</strong> V5 optical sensor triggers high-speed pneumatic divert gate in &lt; 15ms, ejecting opponent rings automatically.</li>
+                <li><strong>Self-Centering Clamp Jaws:</strong> Chamfered guide ramps capture and center mobile goals from approach angles up to ±25°.</li>
+              </ul>
+            </div>
+
+            <div class="version-block">
+              <div class="version-block-title tech">📈 Performance Deltas (V1 → V2)</div>
+              <ul style="font-size:0.9rem; color:var(--text-secondary); padding-left:1.2rem; line-height:1.65">
+                <li><strong>Intake Success Rate:</strong> 78% → <strong>99%</strong> at 400 RPM continuous drive speeds.</li>
+                <li><strong>Opponent Ring Rejection:</strong> <strong>100% automated</strong> without driver intervention.</li>
+                <li><strong>Mogo Latch Time:</strong> Sub-<strong>0.2s</strong> from any approach angle.</li>
+                <li><strong>Ladder Climb:</strong> Reliable Tier 3 lock in <strong>2.5s</strong>.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+        <!-- Project Bottom Navigation Buttons -->
+    <div class="project-bottom-nav">
+      <a href="vex-over-under.html" class="nav-page-btn prev-btn" aria-label="Previous project: VEX Over Under Robot">
+        <div class="nav-page-btn-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/></svg>
+        </div>
+        <div class="nav-page-btn-text">
+          <span class="nav-page-btn-sub">← PREVIOUS PROJECT</span>
+          <span class="nav-page-btn-title">VEX Over Under Robot</span>
+        </div>
+      </a>
+
+      <a href="../index.html#projects" class="nav-page-btn home-btn" aria-label="Back to all projects">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+        <span>All Projects</span>
+      </a>
+
+      <a href="rebar-bender-drivetrain.html" class="nav-page-btn next-btn" aria-label="Next project: Commercial Rebar Bender Transmission">
+        <div class="nav-page-btn-text">
+          <span class="nav-page-btn-sub">NEXT PROJECT →</span>
+          <span class="nav-page-btn-title">Commercial Rebar Bender Transmission</span>
+        </div>
+        <div class="nav-page-btn-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+        </div>
+      </a>
+    </div>
+
+  </main>
+
+  <!-- Scripts -->
+  <script src="../js/data/portfolio-data.js"></script>
+  <script src="../js/app.js"></script>
+</body>
+</html>

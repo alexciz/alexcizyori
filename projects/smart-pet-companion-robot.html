@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Pet Companion Robot — Alexander Ciz Yori</title>
+  <meta name="description" content="Engineering case study for an ESP32 & Arduino holonomic pet robot with custom CNC-routed PCB by Alexander Ciz Yori (Imperial College London).">
+  
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="../css/project.css">
+
+  <!-- Three.js, OrbitControls & GLTFLoader for Real-time 3D CAD Visualization -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+</head>
+<body>
+
+  <div class="tech-grid-bg" aria-hidden="true"></div>
+
+  <!-- Navigation -->
+  <header class="navbar">
+    <div class="container navbar-inner">
+      <a href="../index.html" class="brand-logo">
+        <span>ALEXANDER CIZ YORI</span>
+        <span class="brand-tag">IMPERIAL MECH ENG</span>
+      </a>
+
+      <nav>
+        <ul class="nav-links">
+          <li><a href="../index.html#projects">← All Projects</a></li>
+          <li><a href="../index.html#experience">Experience</a></li>
+          <li><a href="../index.html#skills">Skills</a></li>
+          <li><a href="../index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="theme-toggle-btn" id="theme-toggle-btn" title="Toggle Theme">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Project Header -->
+  <div class="project-page-header">
+    <div class="container">
+      <div class="breadcrumb-nav">
+        <a href="../index.html#projects" class="back-link">← Back to All Projects</a>
+        <div class="top-project-nav">
+          <a href="rebar-bender-drivetrain.html" class="top-nav-btn">← Prev: Rebar Bender</a>
+          <a href="vex-tipping-point.html" class="top-nav-btn">Next: VEX Tipping Point →</a>
+        </div>
+      </div>
+
+      <h1 class="project-hero-title">Smart Pet Companion Robot</h1>
+      <p class="project-hero-subtitle">
+        Holonomic 4-wheel X-drive mobile robot featuring a modular 3D-printed prolate spheroid enclosure, centrifugal treat launcher, ESP32 Wi-Fi camera with LED lighting, motorised feather teaser, and a custom CNC-routed PCB.
+      </p>
+
+      <div class="project-meta-strip">
+        <div class="project-meta-item">
+          <span>CATEGORY:</span>
+          <strong>Robotics, Mechatronics &amp; PCB Design</strong>
+        </div>
+        <div class="project-meta-item">
+          <span>TOOLS:</span>
+          <strong>Autodesk Fusion, ESP32, Arduino IDE, CNC PCB Routing, 3D Printing</strong>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Key Specs Banner -->
+  <div class="container">
+    <div class="project-specs-banner">
+      <div class="spec-banner-item">
+        <span class="spec-banner-val">X-Drive</span>
+        <span class="spec-banner-lbl">Holonomic Omni Drivetrain</span>
+      </div>
+      <div class="spec-banner-item">
+        <span class="spec-banner-val">Dual MCU</span>
+        <span class="spec-banner-lbl">ESP32 + Arduino Pro Mini</span>
+      </div>
+      <div class="spec-banner-item">
+        <span class="spec-banner-val">Wi-Fi Teleop</span>
+        <span class="spec-banner-lbl">Live Camera Stream &amp; Web UI</span>
+      </div>
+      <div class="spec-banner-item">
+        <span class="spec-banner-val">Custom CNC</span>
+        <span class="spec-banner-lbl">In-House Routed PCB</span>
+      </div>
+      <div class="spec-banner-item">
+        <span class="spec-banner-val">6-Layer</span>
+        <span class="spec-banner-lbl">Modular 3D-Printed Enclosure</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Case Study Body -->
+  <main class="container case-study-body">
+
+    <!-- Hero Photography Frame -->
+    <div class="case-media-frame">
+      <img src="../assets/projects/smart-pet-companion-robot.jpg" alt="Smart Pet Companion Robot Physical Prototype" style="max-height:540px; object-fit:contain; background:#0b0f19;">
+      <div class="case-media-caption">
+        FIGURE 1.0 — FINAL SMART PET COMPANION ROBOT: ASSEMBLED MODULAR PROLATE SPHEROID ENCLOSURE WITH CAMERA PORT, LED HEADLIGHTS &amp; MOTORISED FEATHER TEASER
+      </div>
+    </div>
+
+    <!-- 01 Problem & Requirements -->
+    <section class="case-section">
+      <span class="case-section-kicker">01 — Problem &amp; Concept</span>
+      <h2 class="case-section-title">Design Brief &amp; Mobile Robotics Objective</h2>
+
+      <div class="case-split">
+        <div>
+          <p class="case-text">
+            Commercial home pet cameras are static and unable to interact with pets moving through different rooms. Conventional 2-wheel differential drive robots struggle to navigate tight living room spaces and furniture without awkward turning arcs.
+          </p>
+          <p class="case-text">
+            The goal was to design an <strong>agile, low-cost holonomic companion robot</strong> with zero-turning-radius omnidirectional translation, low-latency live video streaming over local Wi-Fi, custom integrated PCB electronics, and an active remote treat dispenser.
+          </p>
+        </div>
+
+        <div style="background:var(--bg-card); border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:1.5rem;">
+          <h3 style="font-size:0.95rem; font-family:var(--font-mono); color:var(--accent); margin-bottom:0.75rem;">KEY CONSTRAINTS &amp; TARGETS</h3>
+          <ul class="timeline-list">
+            <li><strong>Holonomic Mobility:</strong> 4-wheel X-drive configuration using 45° offset omni wheels for instantaneous translation in any direction while rotating.</li>
+            <li><strong>Dual-Microcontroller Architecture:</strong> Dedicated ESP32 for camera encoding &amp; web UI server; Arduino Pro Mini for real-time motor PWM kinematics.</li>
+            <li><strong>In-House PCB Manufacturing:</strong> Single/double-sided PCB routed on a desktop CNC mill with integrated H-bridge drivers and buck voltage regulation.</li>
+            <li><strong>Modular 3D-Printed Chassis:</strong> 6-layer PLA enclosure modeled in Autodesk Fusion with internal mounting brackets and battery access door.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 02 Interactive 3D CAD & Modular Assembly Architecture -->
+    <section class="case-section">
+      <span class="case-section-kicker">02 — Interactive 3D CAD &amp; Mechanisms</span>
+      <h2 class="case-section-title">Modular Assembly &amp; Internal Mechanisms</h2>
+
+      <p class="case-text">
+        Interactive 3D CAD assembly generated directly from the Autodesk Fusion STEP model. Drag to orbit and inspect the internal modular architecture. Use the <strong>Exploded Assembly</strong> slider to separate the 6 tiers (drive base, electronics bay, centrifugal treat launcher, battery &amp; camera module, and top dome). You can toggle between <strong>Solid CAD, Wireframe, and X-Ray Ghost mode</strong> to view the internal mechanisms while assembled, or experiment with the <strong>interactive material &amp; color palettes</strong> below.
+      </p>
+
+      <!-- Embedded 3D CAD Workbench -->
+      <div class="case-cad-workbench">
+        <div class="case-cad-toolbar">
+          <div style="display:flex; gap:0.4rem; flex-wrap:wrap;">
+            <button class="cad-control-pill active" id="pet-cad-mode-solid">Solid CAD</button>
+            <button class="cad-control-pill" id="pet-cad-mode-wire">Wireframe</button>
+            <button class="cad-control-pill" id="pet-cad-mode-xray">X-Ray Ghost</button>
+          </div>
+
+          <div style="display:flex; align-items:center; gap:0.6rem; font-family:var(--font-mono); font-size:0.75rem; flex-wrap:wrap;">
+            <span>EXPLODED ASSEMBLY:</span>
+            <input type="range" id="pet-cad-explode-slider" min="0" max="1" step="0.01" value="0" style="accent-color:var(--accent); width:110px; cursor:pointer;">
+            <button class="cad-control-pill" id="pet-cad-toggle-rotate">AUTO ROTATE</button>
+            <button class="cad-control-pill" id="pet-cad-toggle-rotor">SPIN ROTOR</button>
+            <button class="cad-control-pill" id="pet-cad-toggle-gate">OPEN GATE</button>
+            <button class="cad-control-pill" id="pet-cad-reset-cam">RESET VIEW</button>
+          </div>
+        </div>
+
+        <!-- Color & Material Customiser Toolbar -->
+        <div class="case-cad-toolbar" style="background:var(--bg-secondary); border-top:1px solid var(--border-color); font-size:0.78rem; font-family:var(--font-mono);">
+          <div style="display:flex; align-items:center; gap:0.75rem; flex-wrap:wrap;">
+            <span style="color:var(--accent); font-weight:600;">MATERIAL CUSTOMISER:</span>
+
+            <!-- Shell Color -->
+            <div class="cad-color-picker-group">
+              <span style="color:var(--text-muted);">SHELL:</span>
+              <button class="cad-color-dot active" style="background:#f8fafc;" data-target="shell" data-color="#f8fafc" title="Clean White (Default)"></button>
+              <button class="cad-color-dot" style="background:#18181b;" data-target="shell" data-color="#18181b" title="Matte Stealth Black"></button>
+              <button class="cad-color-dot" style="background:#334155;" data-target="shell" data-color="#334155" title="Slate Grey"></button>
+              <button class="cad-color-dot" style="background:#0284c7;" data-target="shell" data-color="#0284c7" title="Imperial Blue"></button>
+            </div>
+
+            <!-- Acrylic Base -->
+            <div class="cad-color-picker-group" style="margin-left:0.5rem;">
+              <span style="color:var(--text-muted);">ACRYLIC BASE:</span>
+              <button class="cad-color-dot active" style="background:#7c3aed;" data-target="acrylic" data-color="#7c3aed" title="Purple Tint (Original Laser-Cut)"></button>
+              <button class="cad-color-dot" style="background:#1e293b;" data-target="acrylic" data-color="#1e293b" title="Smoked Glass"></button>
+              <button class="cad-color-dot" style="background:#e2e8f0;" data-target="acrylic" data-color="#e2e8f0" title="Clear Acrylic"></button>
+              <button class="cad-color-dot" style="background:#06b6d4;" data-target="acrylic" data-color="#06b6d4" title="Neon Cyan"></button>
+            </div>
+
+            <!-- Rotor Accent -->
+            <div class="cad-color-picker-group" style="margin-left:0.5rem;">
+              <span style="color:var(--text-muted);">LAUNCHER ROTOR:</span>
+              <button class="cad-color-dot active" style="background:#f97316;" data-target="rotor" data-color="#f97316" title="Safety Orange (Original)"></button>
+              <button class="cad-color-dot" style="background:#ef4444;" data-target="rotor" data-color="#ef4444" title="Anodized Red"></button>
+              <button class="cad-color-dot" style="background:#84cc16;" data-target="rotor" data-color="#84cc16" title="Lime Green"></button>
+              <button class="cad-color-dot" style="background:#cbd5e1;" data-target="rotor" data-color="#cbd5e1" title="Brushed Aluminum"></button>
+            </div>
+          </div>
+        </div>
+
+        <div class="case-cad-canvas-wrap">
+          <div id="pet-cad-loader" style="position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; background:#0a0e17; z-index:10; color:var(--text-muted); font-family:var(--font-mono); font-size:0.85rem;">
+            <div style="width:36px; height:36px; border:3px solid rgba(56,189,248,0.2); border-top-color:var(--accent); border-radius:50%; animation:spin 1s linear infinite; margin-bottom:0.75rem;"></div>
+            <span>INITIALIZING 3D CAD ASSEMBLY...</span>
+          </div>
+          <canvas id="pet-cad-canvas" aria-label="Interactive 3D Pet Robot Assembly CAD"></canvas>
+        </div>
+        <div class="case-media-caption">
+          INTERACTIVE 3D CAD ASSEMBLY (AUTODESK FUSION) — DRAG TO ORBIT · SCROLL TO ZOOM · DRAG SLIDER TO EXPLODE · CLICK SWATCHES TO CHANGE COLORS
+        </div>
+      </div>
+    </section>
+
+    <!-- 03 Mechanical & Holonomic Architecture -->
+    <section class="case-section">
+      <span class="case-section-kicker">03 — Mechatronics Architecture</span>
+      <h2 class="case-section-title">Holonomic X-Drive &amp; Kinematics</h2>
+
+      <div class="case-media-frame">
+        <img src="../assets/projects/pet-robot-xdrive-chassis.jpg" alt="Underside Purple Acrylic Chassis with 4 Omni Wheels" style="max-height:480px; object-fit:contain; background:#0b0f19;">
+        <div class="case-media-caption">
+          FIGURE 3.1 — UNDERSIDE DRIVETRAIN ASSEMBLY: CNC LASER-CUT ACRYLIC BASE PLATE WITH FOUR 45° OFFSET OMNI WHEELS &amp; GEARED MOTORS
+        </div>
+      </div>
+
+      <div class="case-split equal">
+        <div>
+          <h3 style="font-size:1.1rem; margin-bottom:0.75rem">Inverse Kinematics of 4-Wheel X-Drive</h3>
+          <p class="case-text">
+            The four 48mm rubber-roller omni wheels are arranged at 90° intervals (45° offset to chassis axes). The motor velocity vector equations for planar translation \((V_x, V_y)\) and rotation \(\omega\) are resolved in real-time on the Arduino microcontroller:
+          </p>
+          <div style="background:var(--bg-secondary); border:1px solid var(--border-color); border-radius:var(--radius-sm); padding:1rem; font-family:var(--font-mono); font-size:0.82rem; margin-bottom:1rem;">
+            V_FL = (V_x · cos(45°) + V_y · sin(45°) + ω · R)<br>
+            V_FR = (-V_x · sin(45°) + V_y · cos(45°) + ω · R)<br>
+            V_BL = (V_x · sin(45°) - V_y · cos(45°) + ω · R)<br>
+            V_BR = (-V_x · cos(45°) - V_y · sin(45°) + ω · R)
+          </div>
+        </div>
+
+        <div>
+          <h3 style="font-size:1.1rem; margin-bottom:0.75rem">Centrifugal Treat Dispenser &amp; Wand Teaser</h3>
+          <p class="case-text">
+            Modeled a high-speed centrifugal treat launcher in Autodesk Fusion. A DC motor accelerates an internal slotted rotor, building centrifugal force to fling treats out through a servo-actuated door up to 2.5 meters. The top dome houses a motorized feather teaser driven by randomized trajectory code to simulate real prey.
+          </p>
+          <div class="case-media-frame" style="margin-top:0.75rem">
+            <img src="../assets/projects/pet-robot-top-teaser.jpg" alt="Top Dome Feather Wand">
+            <div class="case-media-caption">FIGURE 3.2 — TOP DOME: MOTORIZED FEATHER TEASER WAND</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 04 Custom PCB & Teleoperation -->
+    <section class="case-section">
+      <span class="case-section-kicker">04 — Electronics &amp; Web Teleoperation</span>
+      <h2 class="case-section-title">In-House CNC PCB Fabrication &amp; Wi-Fi Streaming</h2>
+
+      <div class="case-split equal">
+        <div>
+          <div class="case-media-frame" style="margin-top:0">
+            <img src="../assets/projects/pet-robot-pcb-cnc-milling.jpg" alt="CNC PCB Isolation Milling">
+            <div class="case-media-caption">FIGURE 4.1 — IN-HOUSE CNC ISOLATION MILLING OF CIRCUIT BOARD USING MACH3</div>
+          </div>
+          <h3 style="font-size:1.1rem; margin-bottom:0.5rem">In-House PCB Manufacturing</h3>
+          <p class="case-text">
+            Designed schematic and 2-layer PCB layout using EasyPC, then exported Gerber files to CopperCAM. Machined the board on a desktop CNC router using a 0.8mm drill and 30° V-engraving isolation bit, eliminating offshore lead times. Integrated TB6612FNG dual motor drivers, LM2596 buck converter, and transistor switching circuits.
+          </p>
+        </div>
+
+        <div>
+          <div class="case-media-frame" style="margin-top:0">
+            <img src="../assets/projects/pet-robot-web-stream-ui.jpg" alt="ESP32-CAM Web Teleoperation UI">
+            <div class="case-media-caption">FIGURE 4.2 — BROWSER TELEOPERATION DASHBOARD WITH LIVE STREAM &amp; 8-DIRECTION CONTROLS</div>
+          </div>
+          <h3 style="font-size:1.1rem; margin-bottom:0.5rem">Embedded Web Server &amp; Video Stream</h3>
+          <p class="case-text">
+            The ESP32-CAM hosts an HTTP server on local Wi-Fi, streaming 25 FPS JPEG video frames directly to any web browser. Touch buttons send instant AJAX commands over serial to the Arduino Pro Mini, providing 8-direction omnidirectional driving, treat firing, and teaser activation.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 05 Modular Assembly & Real-World Validation -->
+    <section class="case-section">
+      <span class="case-section-kicker">05 — Testing &amp; Validation</span>
+      <h2 class="case-section-title">Modular Assembly &amp; Real-World Testing</h2>
+
+      <div class="case-media-frame">
+        <img src="../assets/projects/pet-robot-modular-assembly.jpg" alt="6-Layer Modular 3D-Printed Assembly Stack">
+        <div class="case-media-caption">
+          FIGURE 5.1 — MODULAR 6-LAYER ASSEMBLY STACK: DRIVE BASE, ELECTRONICS TRAY, TREAT SHOOTER, ESP32/BATTERY TRAY, DOME HOUSING
+        </div>
+      </div>
+
+      <div class="case-split equal">
+        <div>
+          <div class="case-media-frame" style="margin-top:0">
+            <img src="../assets/projects/pet-robot-with-cat.jpg" alt="Robot Testing with Cat">
+            <div class="case-media-caption">FIGURE 5.2 — LIVING ROOM TESTING: REAL-WORLD INTERACTION WITH CAT</div>
+          </div>
+        </div>
+        <div>
+          <div class="case-media-frame" style="margin-top:0">
+            <img src="../assets/projects/pet-robot-leds-glowing.jpg" alt="Robot Headlights Glowing in Dark">
+            <div class="case-media-caption">FIGURE 5.3 — DUAL LED HEADLIGHTS ILLUMINATING IN LOW-LIGHT CONDITIONS</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 06 Engineering Lessons -->
+    <section class="case-section">
+      <span class="case-section-kicker">06 — Engineering Lessons</span>
+      <h2 class="case-section-title">Key Engineering Takeaways &amp; Iterations</h2>
+
+      <div class="case-callout-box">
+        <div class="case-callout-title">MICROCONTROLLER TIMING JITTER &amp; ARCHITECTURE SPLIT</div>
+        <p class="case-text" style="color:var(--text-primary); margin-bottom:0;">
+          The initial prototype attempted to execute HTTP video streaming, JPEG encoding, and 4-wheel PWM motor timers simultaneously on a single ESP32. Whenever Wi-Fi packets dropped, the CPU interrupt latency caused noticeable motor jitter and drift. <strong>Separating the tasks—dedicating an Arduino Pro Mini exclusively for motor inverse kinematics via high-frequency hardware timers while the ESP32 served purely as a video &amp; command bridge—completely eliminated control latency and jitter.</strong>
+        </p>
+      </div>
+    </section>
+
+    <!-- Project Bottom Navigation Buttons -->
+    <div class="project-bottom-nav">
+      <a href="rebar-bender-drivetrain.html" class="nav-page-btn prev-btn" aria-label="Previous project: Commercial Rebar Bender Transmission">
+        <div class="nav-page-btn-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/></svg>
+        </div>
+        <div class="nav-page-btn-text">
+          <span class="nav-page-btn-sub">← PREVIOUS PROJECT</span>
+          <span class="nav-page-btn-title">Commercial Rebar Bender Transmission</span>
+        </div>
+      </a>
+
+      <a href="../index.html#projects" class="nav-page-btn home-btn" aria-label="Back to all projects">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+        <span>All Projects</span>
+      </a>
+
+      <a href="vex-tipping-point.html" class="nav-page-btn next-btn" aria-label="Next project: VEX Tipping Point Robot">
+        <div class="nav-page-btn-text">
+          <span class="nav-page-btn-sub">NEXT PROJECT →</span>
+          <span class="nav-page-btn-title">VEX Tipping Point Robot</span>
+        </div>
+        <div class="nav-page-btn-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+        </div>
+      </a>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <div>© 2026 ALEXANDER CIZ YORI · IMPERIAL COLLEGE LONDON</div>
+      <div><a href="../index.html" style="color:var(--accent)">← RETURN TO PORTFOLIO HOME</a></div>
+    </div>
+  </footer>
+
+  <script src="../js/data/portfolio-data.js"></script>
+  <script src="../js/data/pet-robot-model-data.js"></script>
+  <script src="../js/app.js"></script>
+  <script src="../js/pet-robot-cad-viewer.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Initialize Pet Robot 3D CAD Viewer
+      if (typeof PetRobotCadViewer !== 'undefined') {
+        const viewer = new PetRobotCadViewer('pet-cad-canvas', '../assets/models/pet-robot-assembly.glb');
+        window.petViewer = viewer;
+
+        // Display Mode Buttons (Solid, Wireframe, X-Ray)
+        const solidBtn = document.getElementById('pet-cad-mode-solid');
+        const wireBtn = document.getElementById('pet-cad-mode-wire');
+        const xrayBtn = document.getElementById('pet-cad-mode-xray');
+
+        if (solidBtn && wireBtn && xrayBtn) {
+          const clearModePills = () => [solidBtn, wireBtn, xrayBtn].forEach(p => p.classList.remove('active'));
+          solidBtn.onclick = () => { clearModePills(); solidBtn.classList.add('active'); viewer.setDisplayMode('solid'); };
+          wireBtn.onclick = () => { clearModePills(); wireBtn.classList.add('active'); viewer.setDisplayMode('wireframe'); };
+          xrayBtn.onclick = () => { clearModePills(); xrayBtn.classList.add('active'); viewer.setDisplayMode('xray'); };
+        }
+
+        // Exploded View Slider
+        const slider = document.getElementById('pet-cad-explode-slider');
+        if (slider) {
+          slider.oninput = (e) => viewer.setExplodedView(parseFloat(e.target.value));
+        }
+
+        // Turntable Auto-Rotate
+        const rotateBtn = document.getElementById('pet-cad-toggle-rotate');
+        if (rotateBtn) {
+          rotateBtn.onclick = () => {
+            const isRotating = viewer.toggleTurntable();
+            rotateBtn.textContent = isRotating ? 'PAUSE ROTATION' : 'AUTO ROTATE';
+            rotateBtn.classList.toggle('active', isRotating);
+          };
+        }
+
+        // Spin Centrifugal Rotor
+        const rotorBtn = document.getElementById('pet-cad-toggle-rotor');
+        if (rotorBtn) {
+          rotorBtn.onclick = () => {
+            const isSpinning = viewer.toggleRotorSpin();
+            rotorBtn.textContent = isSpinning ? 'STOP ROTOR' : 'SPIN ROTOR';
+            rotorBtn.classList.toggle('active', isSpinning);
+          };
+        }
+
+        // Open / Close Dispenser Gate in front of Rotor
+        const gateBtn = document.getElementById('pet-cad-toggle-gate') || document.getElementById('pet-cad-toggle-door');
+        if (gateBtn) {
+          gateBtn.onclick = () => {
+            const isOpen = viewer.toggleGate();
+            gateBtn.textContent = isOpen ? 'CLOSE GATE' : 'OPEN GATE';
+            gateBtn.classList.toggle('active', isOpen);
+          };
+        }
+
+        // Reset Camera
+        const resetBtn = document.getElementById('pet-cad-reset-cam');
+        if (resetBtn) {
+          resetBtn.onclick = () => viewer.resetCamera();
+        }
+
+        // Material Color Swatches
+        const swatches = document.querySelectorAll('.cad-color-dot');
+        swatches.forEach((swatch) => {
+          swatch.addEventListener('click', (e) => {
+            const target = swatch.getAttribute('data-target');
+            const color = swatch.getAttribute('data-color');
+
+            // Toggle active state within the same picker group
+            const group = swatch.closest('.cad-color-picker-group');
+            if (group) {
+              group.querySelectorAll('.cad-color-dot').forEach(dot => dot.classList.remove('active'));
+              swatch.classList.add('active');
+            }
+
+            if (target === 'shell') {
+              viewer.setShellColor(color);
+            } else if (target === 'acrylic') {
+              viewer.setAcrylicColor(color);
+            } else if (target === 'rotor') {
+              viewer.setRotorColor(color);
+            }
+          });
+        });
+      }
+    });
+  </script>
+</body>
+</html>

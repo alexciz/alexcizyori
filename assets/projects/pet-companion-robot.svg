@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="100%" height="100%">
+  <defs>
+    <linearGradient id="chassisMat" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#334155" />
+      <stop offset="50%" stop-color="#1e293b" />
+      <stop offset="100%" stop-color="#0f172a" />
+    </linearGradient>
+    <pattern id="cleanGrid" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#38bdf8" stroke-width="0.5" stroke-opacity="0.08" />
+    </pattern>
+  </defs>
+
+  <rect width="100%" height="100%" fill="#090d16" />
+  <rect width="100%" height="100%" fill="url(#cleanGrid)" />
+
+  <rect x="20" y="20" width="760" height="460" fill="none" stroke="#38bdf8" stroke-width="1" stroke-opacity="0.25" />
+  <text x="35" y="45" font-family="'IBM Plex Mono', monospace" font-size="12" fill="#38bdf8" font-weight="600">SMART PET COMPANION ROBOT (HOLONOMIC X-DRIVE)</text>
+  <text x="35" y="65" font-family="'IBM Plex Mono', monospace" font-size="10" fill="#94a3b8">ESP32-CAM WI-FI SERVER | ARDUINO PRO MINI | CNC-ROUTED CUSTOM PCB | OMNI WHEELS</text>
+
+  <!-- Robot Top-Down Schematic -->
+  <g transform="translate(400, 260)">
+    <!-- 4-Wheel Holonomic X-Drive Chassis Frame -->
+    <!-- Diagonal Arms for X-Drive -->
+    <line x1="-120" y1="-120" x2="120" y2="120" stroke="#475569" stroke-width="16" stroke-linecap="round" />
+    <line x1="120" y1="-120" x2="-120" y2="120" stroke="#475569" stroke-width="16" stroke-linecap="round" />
+
+    <!-- 4 Omni Wheels (45 deg angle) -->
+    <!-- Top-Left Wheel -->
+    <g transform="translate(-130, -130) rotate(-45)">
+      <rect x="-12" y="-30" width="24" height="60" rx="6" fill="#1e293b" stroke="#38bdf8" stroke-width="2" />
+      <circle cx="0" cy="-15" r="4" fill="#0ea5e9" />
+      <circle cx="0" cy="0" r="4" fill="#0ea5e9" />
+      <circle cx="0" cy="15" r="4" fill="#0ea5e9" />
+    </g>
+
+    <!-- Top-Right Wheel -->
+    <g transform="translate(130, -130) rotate(45)">
+      <rect x="-12" y="-30" width="24" height="60" rx="6" fill="#1e293b" stroke="#38bdf8" stroke-width="2" />
+      <circle cx="0" cy="-15" r="4" fill="#0ea5e9" />
+      <circle cx="0" cy="0" r="4" fill="#0ea5e9" />
+      <circle cx="0" cy="15" r="4" fill="#0ea5e9" />
+    </g>
+
+    <!-- Bottom-Left Wheel -->
+    <g transform="translate(-130, 130) rotate(45)">
+      <rect x="-12" y="-30" width="24" height="60" rx="6" fill="#1e293b" stroke="#38bdf8" stroke-width="2" />
+      <circle cx="0" cy="-15" r="4" fill="#0ea5e9" />
+      <circle cx="0" cy="0" r="4" fill="#0ea5e9" />
+      <circle cx="0" cy="15" r="4" fill="#0ea5e9" />
+    </g>
+
+    <!-- Bottom-Right Wheel -->
+    <g transform="translate(130, 130) rotate(-45)">
+      <rect x="-12" y="-30" width="24" height="60" rx="6" fill="#1e293b" stroke="#38bdf8" stroke-width="2" />
+      <circle cx="0" cy="-15" r="4" fill="#0ea5e9" />
+      <circle cx="0" cy="0" r="4" fill="#0ea5e9" />
+      <circle cx="0" cy="15" r="4" fill="#0ea5e9" />
+    </g>
+
+    <!-- Central 3D Printed Modular Body Enclosure -->
+    <circle cx="0" cy="0" r="110" fill="url(#chassisMat)" stroke="#38bdf8" stroke-width="2" />
+
+    <!-- Custom CNC Routed Mainboard PCB -->
+    <rect x="-70" y="-70" width="140" height="140" rx="6" fill="#064e3b" stroke="#10b981" stroke-width="1.5" />
+    <text x="0" y="-50" font-family="'IBM Plex Mono', monospace" font-size="8" fill="#a7f3d0" text-anchor="middle">CUSTOM CNC ROUTED PCB</text>
+
+    <!-- ESP32-CAM Module -->
+    <rect x="-35" y="-35" width="70" height="40" rx="3" fill="#1e293b" stroke="#38bdf8" stroke-width="1.5" />
+    <circle cx="0" cy="-15" r="9" fill="#070b12" stroke="#38bdf8" stroke-width="1.5" />
+    <circle cx="0" cy="-15" r="4" fill="#38bdf8" />
+    <text x="0" y="2" font-family="'IBM Plex Mono', monospace" font-size="7" fill="#38bdf8" text-anchor="middle">ESP32-CAM</text>
+
+    <!-- Arduino Pro Mini Kinematics Controller -->
+    <rect x="-30" y="15" width="60" height="35" rx="3" fill="#0f172a" stroke="#eab308" stroke-width="1.2" />
+    <text x="0" y="35" font-family="'IBM Plex Mono', monospace" font-size="7" fill="#eab308" text-anchor="middle">ARDUINO PRO MINI</text>
+
+    <!-- Centrifugal Treat Launcher Nozzle -->
+    <path d="M 0 -110 L -20 -150 L 20 -150 Z" fill="#f59e0b" stroke="#38bdf8" stroke-width="1.5" />
+    <text x="0" y="-158" font-family="'IBM Plex Mono', monospace" font-size="9" fill="#f59e0b" text-anchor="middle">TREAT SHOOTER</text>
+  </g>
+</svg>

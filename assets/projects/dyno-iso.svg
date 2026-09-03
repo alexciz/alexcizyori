@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="100%" height="100%">
+  <defs>
+    <linearGradient id="dynoBase" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#334155" />
+      <stop offset="50%" stop-color="#1e293b" />
+      <stop offset="100%" stop-color="#0f172a" />
+    </linearGradient>
+    <pattern id="isoGrid" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#38bdf8" stroke-width="0.5" stroke-opacity="0.1" />
+    </pattern>
+  </defs>
+
+  <rect width="100%" height="100%" fill="#0a0f18" />
+  <rect width="100%" height="100%" fill="url(#isoGrid)" />
+
+  <rect x="20" y="20" width="760" height="460" fill="none" stroke="#38bdf8" stroke-width="1" stroke-opacity="0.3" />
+  <text x="35" y="45" font-family="'JetBrains Mono', monospace" font-size="12" fill="#38bdf8">EDDY-CURRENT MOTOR DYNAMOMETER &amp; DAQ TEST STAND</text>
+  <text x="35" y="65" font-family="'JetBrains Mono', monospace" font-size="10" fill="#94a3b8">MAX POWER: 5.0 kW | 0-25 N·m (±0.05 N·m) | 12,000 RPM OPTICAL ENCODER</text>
+
+  <!-- Dyno Assembly Drawing -->
+  <g transform="translate(400, 260)">
+    <!-- Base Extrusion Subframe -->
+    <rect x="-260" y="70" width="520" height="50" rx="4" fill="url(#dynoBase)" stroke="#38bdf8" stroke-width="2" />
+    <line x1="-260" y1="95" x2="260" y2="95" stroke="#38bdf8" stroke-width="1" stroke-dasharray="8 4" opacity="0.4" />
+    <text x="0" y="105" font-family="'JetBrains Mono', monospace" font-size="10" fill="#94a3b8" text-anchor="middle">45x90mm STRUCTURAL ALUMINUM EXTRUSION BED</text>
+
+    <!-- Test Motor Under Test (Left Side) -->
+    <g transform="translate(-150, 0)">
+      <rect x="-60" y="-45" width="120" height="90" rx="8" fill="#1e293b" stroke="#38bdf8" stroke-width="2" />
+      <circle cx="0" cy="0" r="28" fill="#0f172a" stroke="#0ea5e9" stroke-width="1.5" />
+      <text x="0" y="4" font-family="'JetBrains Mono', monospace" font-size="9" fill="#0ea5e9" text-anchor="middle">TEST BLDC MOTOR</text>
+      <!-- Shaft -->
+      <rect x="60" y="-6" width="30" height="12" fill="#64748b" stroke="#38bdf8" stroke-width="1" />
+    </g>
+
+    <!-- Flexible Jaw Coupling in Center -->
+    <g transform="translate(-60, 0)">
+      <rect x="-15" y="-18" width="30" height="36" rx="4" fill="#eab308" stroke="#38bdf8" stroke-width="1.5" />
+      <text x="0" y="-24" font-family="'JetBrains Mono', monospace" font-size="8" fill="#eab308" text-anchor="middle">JAW COUPLING</text>
+    </g>
+
+    <!-- Torque Arm & Eddy Current Brake (Right Side) -->
+    <g transform="translate(90, 0)">
+      <!-- Copper Rotor Disc -->
+      <ellipse cx="0" cy="0" rx="14" ry="70" fill="#b45309" stroke="#f59e0b" stroke-width="2" />
+      
+      <!-- Stator Magnet Caliper Array -->
+      <rect x="-35" y="-65" width="70" height="40" rx="4" fill="#334155" stroke="#ef4444" stroke-width="2" />
+      <text x="0" y="-42" font-family="'JetBrains Mono', monospace" font-size="8" fill="#ef4444" text-anchor="middle">N52 MAGNETS</text>
+
+      <!-- Torque Reaction Arm extending Down to Load Cell -->
+      <line x1="0" y1="0" x2="0" y2="70" stroke="#f8fafc" stroke-width="6" stroke-linecap="round" />
+      <!-- S-Beam Load Cell -->
+      <rect x="-16" y="55" width="32" height="24" rx="2" fill="#0f172a" stroke="#22c55e" stroke-width="1.5" />
+      <text x="50" y="68" font-family="'JetBrains Mono', monospace" font-size="9" fill="#22c55e">S-BEAM LOAD CELL (±0.05 N·m)</text>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VEX Spin Up World Championships Robot — Alexander Ciz Yori</title>
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="../css/project.css">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <header class="navbar">
+    <div class="container navbar-inner">
+      <a href="../index.html" class="brand-logo">
+        <span>ALEXANDER CIZ YORI</span>
+        <span class="brand-tag">IMPERIAL MECH ENG</span>
+      </a>
+
+      <nav>
+        <ul class="nav-links">
+          <li><a href="../index.html#projects">← All Projects</a></li>
+          <li><a href="../index.html#experience">Experience</a></li>
+          <li><a href="../index.html#skills">Skills</a></li>
+          <li><a href="../index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="theme-toggle-btn" id="theme-toggle-btn" title="Toggle Theme">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Project Header -->
+  <div class="project-page-header">
+    <div class="container">
+      <div class="breadcrumb-nav">
+        <a href="../index.html#projects" class="back-link">← Back to All Projects</a>
+        <div class="top-project-nav">
+          <a href="vex-tipping-point.html" class="top-nav-btn">← Prev: VEX Tipping Point</a>
+          <a href="vex-over-under.html" class="top-nav-btn">Next: VEX Over Under →</a>
+        </div>
+      </div>
+
+      <h1 class="project-hero-title">VEX Spin Up World Championships Robot</h1>
+      <p class="project-hero-subtitle">
+        High-speed dual-motor flywheel disc launching mechanism with a pneumatically actuated angle deflector for disc trajectory control, alongside custom 4-bar linkages and chain-driven intakes, representing the UK at the World Championships in Dallas, Texas.
+      </p>
+
+      <div class="project-meta-strip">
+        <div class="project-meta-item">
+          <span>ROLE:</span>
+          <strong>Team Lead &amp; Build / Design Lead</strong>
+        </div>
+        <div class="project-meta-item">
+          <span>EVENT:</span>
+          <strong>VEX World Championships (Dallas, Texas)</strong>
+        </div>
+        <div class="project-meta-item">
+          <span>AWARDS:</span>
+          <strong>22 Regional &amp; National Awards</strong>
+        </div>
+        <div class="project-meta-item">
+          <span>TEAM SOCIALS:</span>
+          <a href="https://www.instagram.com/282spectrum/" target="_blank" rel="noopener" style="color:var(--accent); font-weight:600; text-decoration:none; margin-right:0.65rem">Instagram @282spectrum ↗</a>
+          <a href="https://www.youtube.com/@vexspectrum-282sexsixfours7" target="_blank" rel="noopener" style="color:#ef4444; font-weight:600; text-decoration:none">YouTube Channel ↗</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Key Specs Banner -->
+  <div class="container">
+    <div class="project-specs-banner">
+      <div class="spec-banner-item">
+        <span class="spec-banner-val">3,000+ RPM</span>
+        <span class="spec-banner-lbl">Compound Flywheel</span>
+      </div>
+      <div class="spec-banner-item">
+        <span class="spec-banner-val">Pneumatic</span>
+        <span class="spec-banner-lbl">Actuated Angle Deflector</span>
+      </div>
+      <div class="spec-banner-item">
+        <span class="spec-banner-val">&lt; 0.1s</span>
+        <span class="spec-banner-lbl">Indexing Cycle Time</span>
+      </div>
+      <div class="spec-banner-item">
+        <span class="spec-banner-val">World Qual</span>
+        <span class="spec-banner-lbl">Dallas, Texas (Team UK)</span>
+      </div>
+      <div class="spec-banner-item">
+        <span class="spec-banner-val">22 Total</span>
+        <span class="spec-banner-lbl">Regional &amp; National Awards</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Case Study Body -->
+  <main class="container case-study-body">
+
+    <!-- 01 Ballistic Dynamics -->
+    <section class="case-section">
+      <span class="case-section-kicker">01 — Ballistic Engineering</span>
+      <h2 class="case-section-title">Flywheel Kinematics &amp; Trajectory Control</h2>
+
+      <div class="case-split">
+        <div>
+          <p class="case-text">
+            Spin Up presented an intense ballistic challenge: rapid shooting of high-density foam discs into elevated high-goal baskets from dynamic match coordinates across a 12ft field.
+          </p>
+          <p class="case-text">
+            Engineered a <strong>36:1 compound gear reduction</strong> driven by dual 11W brushless DC motors. Implemented closed-loop velocity PID control to recover launch velocity in under 80ms between shots.
+          </p>
+        </div>
+
+        <div style="background:var(--bg-card); border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:1.5rem;">
+          <h3 style="font-size:0.95rem; font-family:var(--font-mono); color:var(--accent); margin-bottom:0.75rem;">MECHANISM HIGHLIGHTS</h3>
+          <ul class="timeline-list">
+            <li><strong>Compound Flywheel:</strong> High-speed 3000 RPM wheel with steel ballast weights to store kinetic energy.</li>
+            <li><strong>Actuated Deflector:</strong> Pneumatic angle hood shifting trajectory between high-basket shots and cross-field snipes.</li>
+            <li><strong>Chain-Driven Intake &amp; 4-Bar:</strong> Rapid disc collection direct from floor tiles and match loaders.</li>
+            <li><strong>Pneumatic Endgame:</strong> High-velocity string projectile launch covering 40+ field tiles.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 02 Design Evolution & Versions -->
+    <section class="case-section">
+      <span class="case-section-kicker">02 — Iterative Engineering &amp; Rebuilds</span>
+      <h2 class="case-section-title">Design Evolution: V1 Fixed-Hood Prototype vs V2 Nationals &amp; Worlds Rebuild</h2>
+
+      <p class="case-text">
+        Early regional tournaments exposed critical limits in shot dispersion, velocity recovery time, and trajectory versatility, prompting a complete launcher teardown and major rebuild leading up to Nationals and Worlds in Dallas.
+      </p>
+
+      <div class="version-showcase-container">
+        
+        <!-- VERSION 1.0 -->
+        <div class="version-card v1-card">
+          <div class="version-header">
+            <div class="version-header-left">
+              <span class="version-badge v1">VERSION 1.0</span>
+              <span class="version-title">Regional Qualifier Launcher Prototype</span>
+            </div>
+            <span class="version-tagline">Early Season Setup · Single-Angle Static Hood</span>
+          </div>
+
+          <p class="case-text">
+            Initial design featured a single-stage spur gear flywheel with a fixed-angle compression hood lined with foam padding, accompanied by a simple top-roller intake.
+          </p>
+
+          <!-- V1 Media Frame -->
+          <div class="version-media-frame">
+            <img src="../assets/projects/vex-spin-up.svg" alt="V1 Spin Up Launcher Schematic">
+            <div class="version-media-caption">
+              <span>FIGURE 2.1 — V1 ARCHITECTURE: STATIC HOOD FLYWHEEL LAUNCHER SCHEMATIC</span>
+              <span style="color:var(--accent)">V1 PROTOTYPE</span>
+            </div>
+          </div>
+
+          <div class="version-details-grid">
+            <div class="version-block">
+              <div class="version-block-title warn">⚠ Identified Failure Modes &amp; Bottlenecks</div>
+              <ul style="font-size:0.9rem; color:var(--text-secondary); padding-left:1.2rem; line-height:1.65">
+                <li><strong>Fixed Trajectory Arc:</strong> Locked the robot to a single shooting distance, forcing precise repositioning under heavy defensive ramming.</li>
+                <li><strong>High Energy Sag:</strong> Insufficient flywheel rotational inertia caused ~350ms recovery time between consecutive shots, losing 3-disc burst cycles.</li>
+                <li><strong>Foam Degradation:</strong> Static foam backing suffered permanent compression set after repeated matches, creating high shot dispersion.</li>
+              </ul>
+            </div>
+
+            <div class="version-block">
+              <div class="version-block-title tech">⚙ V1 Technical Specifications</div>
+              <ul style="font-size:0.9rem; color:var(--text-secondary); padding-left:1.2rem; line-height:1.65">
+                <li><strong>Gear Ratio:</strong> 25:1 spur gearing without ballast mass.</li>
+                <li><strong>Velocity Recovery:</strong> ~350 ms per disc.</li>
+                <li><strong>Hood Construction:</strong> Fixed foam-backed aluminum.</li>
+                <li><strong>Intake:</strong> Single-stage top roller with indexing jams.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- The Pivot Divider -->
+        <div class="pivot-divider">
+          <div class="pivot-icon">⚡</div>
+          <div class="pivot-text-wrap">
+            <div class="pivot-label">THE REBUILD TRIGGER — NATIONALS &amp; WORLDS CHAMPIONSHIP OVERHAUL</div>
+            <div class="pivot-desc">
+              To compete on the world stage against elite international teams, re-engineered the launcher with compound ballast gearing, spring-loaded polycarbonate compression, and pneumatic trajectory angling.
+            </div>
+          </div>
+        </div>
+
+        <!-- VERSION 2.0 (WORLD CHAMPIONSHIPS ROBOT) -->
+        <div class="version-card v2-card">
+          <div class="version-header">
+            <div class="version-header-left">
+              <span class="version-badge v2">VERSION 2.0</span>
+              <span class="version-title">Nationals &amp; World Championships Major Rebuild</span>
+            </div>
+            <span class="version-tagline" style="color:var(--accent); font-weight:600">World Championship Qualifier · Dallas, Texas</span>
+          </div>
+
+          <p class="case-text">
+            Completely redesigned launcher and intake architecture: implemented 36:1 compound gearing, high-inertia steel ballast flywheel, dual-state pneumatic angle deflector hood, and a 4-bar chain-driven intake.
+          </p>
+
+          <!-- V2 Media Frame -->
+          <div class="version-media-frame">
+            <img src="../assets/projects/vex-spin-up.jpg" alt="V2 Spin Up Robot at World Championships">
+            <div class="version-media-caption">
+              <span>FIGURE 2.2 — V2 WORLDS ROBOT: 3000 RPM BALLAST FLYWHEEL, PNEUMATIC DEFLECTOR &amp; 4-BAR CHAIN INTAKE</span>
+              <span style="color:var(--brand-green); font-weight:700">✓ V2 WORLDS ROBOT</span>
+            </div>
+          </div>
+
+          <div class="version-details-grid">
+            <div class="version-block">
+              <div class="version-block-title success">✓ Rebuild Engineering Solutions</div>
+              <ul style="font-size:0.9rem; color:var(--text-secondary); padding-left:1.2rem; line-height:1.65">
+                <li><strong>Pneumatic Variable-Angle Deflector:</strong> Dual-cylinder actuated deflector hood allows instant switching between steep close-range arcs and flat cross-court snipes.</li>
+                <li><strong>High-Inertia Steel Ballast:</strong> Integrated machined steel weight to store rotational kinetic energy ($E_k = rac{1}{2} I \omega^2$), slashing recovery time.</li>
+                <li><strong>Spring-Loaded Polycarbonate Hood:</strong> Dynamic constant-force compression eliminating shot dispersion.</li>
+              </ul>
+            </div>
+
+            <div class="version-block">
+              <div class="version-block-title tech">📈 Performance Deltas (V1 → V2)</div>
+              <ul style="font-size:0.9rem; color:var(--text-secondary); padding-left:1.2rem; line-height:1.65">
+                <li><strong>RPM Recovery Time:</strong> 350ms → <strong>&lt; 80ms</strong> (sub-second 3-disc burst).</li>
+                <li><strong>Shot Dispersion:</strong> Reduced by <strong>65%</strong> across 12ft range.</li>
+                <li><strong>Endgame Expansion:</strong> High-velocity string covered <strong>40+ tiles</strong>.</li>
+                <li><strong>Global Standing:</strong> Represented Team UK at the <strong>World Championships</strong>.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 03 World Championship Performance -->
+    <section class="case-section">
+      <span class="case-section-kicker">03 — World Stage Performance</span>
+      <h2 class="case-section-title">Representing Team UK in Dallas, Texas</h2>
+
+      <p class="case-text">
+        Led mechanical CAD modelling and physical prototyping, earning 22 total regional/national awards and representing the UK at the World Championships in Dallas, Texas, competing among the top 800 teams globally.
+      </p>
+    </section>
+
+        <!-- Project Bottom Navigation Buttons -->
+    <div class="project-bottom-nav">
+      <a href="vex-tipping-point.html" class="nav-page-btn prev-btn" aria-label="Previous project: VEX Tipping Point Robot">
+        <div class="nav-page-btn-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/></svg>
+        </div>
+        <div class="nav-page-btn-text">
+          <span class="nav-page-btn-sub">← PREVIOUS PROJECT</span>
+          <span class="nav-page-btn-title">VEX Tipping Point Robot</span>
+        </div>
+      </a>
+
+      <a href="../index.html#projects" class="nav-page-btn home-btn" aria-label="Back to all projects">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+        <span>All Projects</span>
+      </a>
+
+      <a href="vex-over-under.html" class="nav-page-btn next-btn" aria-label="Next project: VEX Over Under Robot">
+        <div class="nav-page-btn-text">
+          <span class="nav-page-btn-sub">NEXT PROJECT →</span>
+          <span class="nav-page-btn-title">VEX Over Under Robot</span>
+        </div>
+        <div class="nav-page-btn-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+        </div>
+      </a>
+    </div>
+
+  </main>
+
+  <!-- Scripts -->
+  <script src="../js/data/portfolio-data.js"></script>
+  <script src="../js/app.js"></script>
+</body>
+</html>

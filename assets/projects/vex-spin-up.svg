@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg-su" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0f1d"/>
+      <stop offset="100%" stop-color="#141e33"/>
+    </linearGradient>
+    <linearGradient id="cyan-su" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0284c7"/>
+      <stop offset="100%" stop-color="#38bdf8"/>
+    </linearGradient>
+    <linearGradient id="disc-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f59e0b"/>
+      <stop offset="100%" stop-color="#ef4444"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="400" fill="url(#bg-su)"/>
+  
+  <g stroke="rgba(56, 189, 248, 0.08)" stroke-width="1">
+    <line x1="50" y1="0" x2="50" y2="400"/>
+    <line x1="150" y1="0" x2="150" y2="400"/>
+    <line x1="250" y1="0" x2="250" y2="400"/>
+    <line x1="350" y1="0" x2="350" y2="400"/>
+    <line x1="450" y1="0" x2="450" y2="400"/>
+    <line x1="550" y1="0" x2="550" y2="400"/>
+    <line x1="0" y1="50" x2="600" y2="50"/>
+    <line x1="0" y1="150" x2="600" y2="150"/>
+    <line x1="0" y1="250" x2="600" y2="250"/>
+    <line x1="0" y1="350" x2="600" y2="350"/>
+  </g>
+
+  <!-- Flywheel Dual-Motor Ballistic Mechanism -->
+  <circle cx="260" cy="180" r="48" fill="#1e293b" stroke="#38bdf8" stroke-width="3"/>
+  <circle cx="260" cy="180" r="40" fill="none" stroke="#38bdf8" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <circle cx="260" cy="180" r="16" fill="url(#cyan-su)"/>
+  
+  <!-- Ballistic Curved Deflector Hood -->
+  <path d="M 220 230 A 65 65 0 0 1 310 135 L 360 115" fill="none" stroke="#38bdf8" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="360" cy="115" r="5" fill="#38bdf8"/>
+  
+  <!-- Fired High-Velocity Foam Discs -->
+  <ellipse cx="400" cy="98" rx="20" ry="7" fill="url(#disc-grad)" transform="rotate(-18 400 98)"/>
+  <ellipse cx="465" cy="78" rx="20" ry="7" fill="url(#disc-grad)" transform="rotate(-18 465 78)"/>
+  <ellipse cx="530" cy="62" rx="20" ry="7" fill="url(#disc-grad)" transform="rotate(-18 530 62)"/>
+  
+  <!-- Velocity & Trajectory Vector Lines -->
+  <path d="M 330 125 Q 430 85 550 55" fill="none" stroke="rgba(245, 158, 11, 0.6)" stroke-width="2" stroke-dasharray="4 4"/>
+  <text x="470" y="115" font-family="monospace" font-size="11" fill="#f59e0b">V_0 = 12.8 M/S @ 3000 RPM</text>
+
+  <!-- Chassis & Omni Base -->
+  <rect x="140" y="250" width="220" height="55" rx="5" fill="#1e293b" stroke="#64748b" stroke-width="1.5"/>
+  <circle cx="170" cy="305" r="28" fill="#0f172a" stroke="#38bdf8" stroke-width="2"/>
+  <circle cx="330" cy="305" r="28" fill="#0f172a" stroke="#38bdf8" stroke-width="2"/>
+
+  <text x="30" y="45" font-family="'Space Grotesk', sans-serif" font-size="20" font-weight="700" fill="#f8fafc" letter-spacing="1">VEX SPIN UP</text>
+  <text x="30" y="70" font-family="monospace" font-size="12" fill="#38bdf8">SEASON 2022–2023 · WORLD CHAMPIONSHIPS DALLAS, TX</text>
+</svg>

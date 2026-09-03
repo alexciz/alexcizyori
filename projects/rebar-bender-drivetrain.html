@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Commercial Rebar Bender 4-Stage Transmission — Alexander Ciz Yori</title>
+  <meta name="description" content="Detailed engineering case study for a 5,103 Nm 4-stage gear reducer transmission for commercial rebar bending by Alexander Ciz Yori (Imperial College London).">
+  
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="../css/project.css">
+
+  <!-- Three.js & OrbitControls for Real-time 3D CAD Visualization -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+</head>
+<body>
+
+  <div class="tech-grid-bg" aria-hidden="true"></div>
+
+  <!-- Navigation -->
+  <header class="navbar">
+    <div class="container navbar-inner">
+      <a href="../index.html" class="brand-logo">
+        <span>ALEXANDER CIZ YORI</span>
+        <span class="brand-tag">IMPERIAL MECH ENG</span>
+      </a>
+
+      <nav>
+        <ul class="nav-links">
+          <li><a href="../index.html#projects">← All Projects</a></li>
+          <li><a href="../index.html#experience">Experience</a></li>
+          <li><a href="../index.html#skills">Skills</a></li>
+          <li><a href="../index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="theme-toggle-btn" id="theme-toggle-btn" title="Toggle Theme">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Project Header -->
+  <div class="project-page-header">
+    <div class="container">
+      <div class="breadcrumb-nav">
+        <a href="../index.html#projects" class="back-link">← Back to All Projects</a>
+        <div class="top-project-nav">
+          <a href="vex-high-stakes.html" class="top-nav-btn">← Prev: VEX High Stakes</a>
+          <a href="smart-pet-companion-robot.html" class="top-nav-btn">Next: Pet Robot →</a>
+        </div>
+      </div>
+
+      <h1 class="project-hero-title">Commercial Rebar Bender 4-Stage Transmission</h1>
+      <p class="project-hero-subtitle">
+        High-reduction mechanical powertrain featuring a flexible SPA 2-groove V-belt input stage with tensioner, followed by three fixed spur gear stages to reduce a 5.5 kW, 2,877 RPM motor input down to 10.3 RPM and 5,085 N·m output torque.
+      </p>
+
+      <div class="project-meta-strip">
+        <div class="project-meta-item">
+          <span>CATEGORY:</span>
+          <strong>Powertrain Design &amp; Mechanical Systems</strong>
+        </div>
+        <div class="project-meta-item">
+          <span>TOOLS:</span>
+          <strong>SolidWorks, AGMA/ISO 6336, Lathe Turning, MIG Welding</strong>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Key Specs Banner -->
+  <div class="container">
+    <div class="project-specs-banner">
+      <div class="spec-banner-item">
+        <span class="spec-banner-val">5,085 N·m</span>
+        <span class="spec-banner-lbl">Output Bending Torque</span>
+      </div>
+      <div class="spec-banner-item">
+        <span class="spec-banner-val">SPA V-Belt</span>
+        <span class="spec-banner-lbl">2-Groove Belt Input</span>
+      </div>
+      <div class="spec-banner-item">
+        <span class="spec-banner-val">10.3 RPM</span>
+        <span class="spec-banner-lbl">Output Turntable Speed</span>
+      </div>
+      <div class="spec-banner-item">
+        <span class="spec-banner-val">MOD 4</span>
+        <span class="spec-banner-lbl">3x Fixed Spur Stages</span>
+      </div>
+      <div class="spec-banner-item">
+        <span class="spec-banner-val">3.6 FOS</span>
+        <span class="spec-banner-lbl">Shaft Factor of Safety</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Case Study Body -->
+  <main class="container case-study-body">
+
+    <!-- 01 Problem Statement & Requirements -->
+    <section class="case-section">
+      <span class="case-section-kicker">01 — Problem &amp; Requirements</span>
+      <h2 class="case-section-title">Design Brief &amp; Operational Demands</h2>
+
+      <div class="case-split">
+        <div>
+          <p class="case-text">
+            Commercial civil engineering rebar benders must deliver massive low-speed torque (>5,000 N·m) to bend high-yield deformed steel reinforcing bars (simultaneously bending <strong>4× Ø16 mm rebars at once around a 60 mm diameter die</strong>) smoothly to exact radii without motor stall or mechanical chatter.
+          </p>
+          <p class="case-text">
+            Direct high-torque hydraulic drives are cost-prohibitive for many workshops, requiring high-maintenance hydraulic pumps and fluid lines. The objective of this Imperial College London engineering project was to <strong>design, analyze, and produce complete production manufacturing drawings for a 4-stage compound transmission</strong> driven by a standard 5.5 kW 3-phase electric induction motor.
+          </p>
+        </div>
+
+        <div style="background:var(--bg-card); border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:1.5rem;">
+          <h3 style="font-size:0.95rem; font-family:var(--font-mono); color:var(--accent); margin-bottom:0.75rem;">KEY DESIGN REQUIREMENTS</h3>
+          <ul class="timeline-list">
+            <li><strong>Capacity:</strong> Bend 4× 16 mm diameter rebars simultaneously around 60 mm die.</li>
+            <li><strong>Duty Cycle &amp; Life:</strong> 30,000 hour service life, 8 hours/day (1,028 bars/hour production rate).</li>
+            <li><strong>Input Motor:</strong> Upgraded from 4.0 kW LS112M to 5.5 kW LS132S @ 2,877 RPM.</li>
+            <li><strong>Transmission Ratio:</strong> Overall 283.5:1 compound reduction delivering 10.3 RPM and 5,085 N·m.</li>
+            <li><strong>Shock Absorption:</strong> Flexible 2-groove SPA V-belt input stage to isolate motor from bending impacts.</li>
+            <li><strong>Chassis Rigidity:</strong> Welded structural steel C-channel base pre-drilled on pillar drill.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Kinematic Power Flow Comparison -->
+      <div class="case-media-frame" style="margin-top:2rem;">
+        <img src="../assets/projects/rebar-bender-kinematic-diagram.jpg" alt="Kinematic Powertrain Diagram - Submitted vs Actual Design" style="max-height:500px; object-fit:contain; background:#ffffff; border-radius:var(--radius-md);">
+        <div class="case-media-caption">
+          FIGURE 1.1 — KINEMATIC POWERTRAIN COMPARISON: INITIAL SUBMITTED SPECIFICATION (4.0 kW MOTOR, 1,750.6 N·m) VS. FINAL ACTUAL DESIGN (5.5 kW LS132S MOTOR, V-BELT INPUT + 3 MOD4 SPUR STAGES, 5,085 N·m @ 10.3 RPM)
+        </div>
+      </div>
+    </section>
+
+    <!-- 02 Interactive 3D CAD & Mechanical Architecture -->
+    <section class="case-section">
+      <span class="case-section-kicker">02 — 3D CAD &amp; Kinematics</span>
+      <h2 class="case-section-title">Mechanical Transmission Architecture</h2>
+
+      <p class="case-text">
+        The reduction is distributed across 4 stepped transmission shafts to equalize the stress and pitch diameters across all stages. Below is the <strong>interactive 3D CAD assembly</strong> modeled in SolidWorks. You can rotate, zoom, test the exploded assembly view, toggle wireframe/FEA stress visualization, or play the kinematic gear meshing in real time.
+      </p>
+
+      <!-- Embedded 3D CAD Workbench -->
+      <div class="case-cad-workbench">
+        <div class="case-cad-toolbar">
+          <div style="display:flex; gap:0.4rem;">
+            <button class="cad-control-pill active" id="cad-mode-solid">Solid CAD</button>
+            <button class="cad-control-pill" id="cad-mode-wire">Wireframe</button>
+            <button class="cad-control-pill" id="cad-mode-fea">FEA Stress Map</button>
+          </div>
+
+          <div style="display:flex; align-items:center; gap:0.6rem; font-family:var(--font-mono); font-size:0.75rem;">
+            <span>EXPLODED ASSEMBLY:</span>
+            <input type="range" id="cad-explode-slider" min="0" max="1" step="0.01" value="0" style="accent-color:var(--accent); width:110px; cursor:pointer;">
+            <button class="cad-control-pill" id="cad-toggle-motion">PAUSE GEARS</button>
+            <button class="cad-control-pill" id="cad-reset-cam">RESET CAMERA</button>
+          </div>
+        </div>
+
+        <div class="case-cad-canvas-wrap">
+          <canvas id="case-cad-canvas" aria-label="Interactive 3D Rebar Bender Gearbox Assembly"></canvas>
+        </div>
+        <div class="case-media-caption">
+          INTERACTIVE 3D WEBGL CAD ASSEMBLY — DRAG TO ORBIT · SCROLL TO ZOOM · DRAG SLIDER TO EXPLODE
+        </div>
+      </div>
+
+      <div class="case-split equal" style="margin-top:2rem;">
+        <div class="case-media-frame" style="margin-top:0;">
+          <img src="../assets/projects/rebar-bender-belt-drive-cad.jpg" alt="Stage 1 V-Belt Drive and SE38 Tensioner CAD Architecture" style="max-height:450px; object-fit:contain; background:#ffffff; border-radius:var(--radius-md);">
+          <div class="case-media-caption">
+            FIGURE 2.1 — STAGE 1 V-BELT INPUT &amp; TENSIONER ARCHITECTURE: SE38 RUBBER TENSIONER, SPA 2800×2 &amp; SPA 90×2 PULLEYS WITH TAPER BUSHES, AND 4× M12 BOLTED MOTOR MOUNT
+          </div>
+        </div>
+
+        <div class="case-media-frame" style="margin-top:0;">
+          <img src="../assets/projects/rebar-bender-geartrain-cad.jpg" alt="MOD4 Spur Gear Train and Bearing Clearances" style="max-height:450px; object-fit:contain; background:#ffffff; border-radius:var(--radius-md);">
+          <div class="case-media-caption">
+            FIGURE 2.2 — MOD4 GEAR TRAIN &amp; CLEARANCE ARCHITECTURE: YG4-22, YG4-99, YG4-30, AND YG4-135 SPUR GEARS WITH 3mm AXIAL LEVEL CLEARANCES AND SKF PILLOW BLOCKS
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03 Stress & Shaft Analysis -->
+    <section class="case-section">
+      <span class="case-section-kicker">03 — Engineering Calculations</span>
+      <h2 class="case-section-title">Stress, Torque &amp; Fatigue Sizing</h2>
+
+      <div class="case-split equal">
+        <div>
+          <h3 style="font-size:1.1rem; margin-bottom:0.75rem">Gear &amp; Shaft Mechanics</h3>
+          <p class="case-text">
+            Using AGMA and ISO 6336 gear tooth strength formulations, bending stress and surface pitting resistance were calculated for each stage. The final stage bull gear experiences <strong>5,103 N·m</strong> of steady torque with potential shock overloads up to <strong>6,200 N·m</strong> when engaging high-yield bars.
+          </p>
+          <p class="case-text">
+            The final stepped output shaft (Ø65 mm AISI 4140 / EN24T alloy steel) was evaluated under combined torsion and bending from the rebar reaction force.
+          </p>
+        </div>
+
+        <div style="background:var(--bg-secondary); border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:1.5rem;">
+          <h3 style="font-size:0.95rem; font-family:var(--font-mono); color:var(--accent); margin-bottom:0.75rem;">ANALYTICAL RESULTS SUMMARY</h3>
+          <div style="display:flex; flex-direction:column; gap:0.75rem; font-size:0.88rem;">
+            <div style="display:flex; justify-content:space-between; border-bottom:1px solid var(--border-color); padding-bottom:0.4rem;">
+              <span class="mono">Total Gear Ratio (i_tot):</span>
+              <strong>279.3 : 1</strong>
+            </div>
+            <div style="display:flex; justify-content:space-between; border-bottom:1px solid var(--border-color); padding-bottom:0.4rem;">
+              <span class="mono">Peak Torsional Shear:</span>
+              <strong>185 MPa (&lt;&lt; 680 MPa Yield)</strong>
+            </div>
+            <div style="display:flex; justify-content:space-between; border-bottom:1px solid var(--border-color); padding-bottom:0.4rem;">
+              <span class="mono">Static Factor of Safety:</span>
+              <strong style="color:var(--brand-green)">3.65 (High Shock Margin)</strong>
+            </div>
+            <div style="display:flex; justify-content:space-between; border-bottom:1px solid var(--border-color); padding-bottom:0.4rem;">
+              <span class="mono">Shaft Angular Deflection:</span>
+              <strong>0.078° (&lt; 0.15° limit)</strong>
+            </div>
+            <div style="display:flex; justify-content:space-between;">
+              <span class="mono">Bearing Rating (SKF L10h):</span>
+              <strong>7,400 Operating Hours</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bearing Mounting Cross Section -->
+      <div class="case-media-frame" style="margin-top:2rem;">
+        <img src="../assets/projects/rebar-bender-bearing-mounts-cad.jpg" alt="Bearing Locating Architecture - Floating vs Fixed Surface" style="max-height:480px; object-fit:contain; background:#ffffff; border-radius:var(--radius-md);">
+        <div class="case-media-caption">
+          FIGURE 3.1 — BEARING MOUNTING CROSS-SECTION ARCHITECTURE: FLOATING SURFACE (LEFT, WITH 2.5mm AXIAL EXPANSION CLEARANCE) VS. FIXED SURFACE (RIGHT, WITH LOCATING SHOULDER &gt; 1/3 BEARING HEIGHT &amp; 2.5mm TRANSITION FILLETS)
+        </div>
+      </div>
+
+      <!-- Imperial College London Engineering Drawings -->
+      <div style="margin-top:2.5rem;">
+        <h3 style="font-size:1.15rem; margin-bottom:0.5rem; font-family:var(--font-mono); color:var(--accent);">PRODUCTION ENGINEERING DRAWINGS (IMPERIAL COLLEGE LONDON)</h3>
+        <p class="case-text">
+          Formal engineering drawings produced to British and ISO standards (BS 8888 / ISO 1101) for the high-torque final transmission stage (Shaft 4 Assembly and Component Detail), detailing third-angle projections, GD&amp;T runout tolerances, and DIN 6885 P9 keyway limits:
+        </p>
+
+        <div class="case-media-frame" style="margin-top:1.25rem;">
+          <img src="../assets/projects/rebar-bender-shaft4-assy-section.jpg" alt="Shaft 4 Assembly Drawing - Section A-A and BOM (Imperial College London)" style="max-height:550px; object-fit:contain; background:#ffffff; border-radius:var(--radius-md);">
+          <div class="case-media-caption">
+            FIGURE 3.2 — DWG NO. SHAFT4_ASSY (SHEET 2 OF 2): SECTION A-A, BILL OF MATERIALS, DETAIL E (1:1 ENDCAP RETENTION), DETAIL F (3:1 BEARING SET SCREW), AND 85 N·m TORQUE SPECIFICATIONS
+          </div>
+        </div>
+
+        <div class="case-split equal" style="margin-top:1.5rem;">
+          <div class="case-media-frame" style="margin-top:0;">
+            <img src="../assets/projects/rebar-bender-shaft4-part-drawing.jpg" alt="Shaft 4 Component Detail Drawing - Dimensions & Tolerances" style="max-height:480px; object-fit:contain; background:#ffffff; border-radius:var(--radius-md);">
+            <div class="case-media-caption">
+              FIGURE 3.3 — DWG NO. SHAFT4 (SHEET 1 OF 2): AISI 4140 HT STEEL STEPPED SHAFT, ISO LIMITS (Ø50 h7, Ø55 g6, Ø55 k6), Ra 0.8 / 1.6 SURFACE FINISHES, AND TOTAL RUNOUT TOLERANCES
+            </div>
+          </div>
+
+          <div class="case-media-frame" style="margin-top:0;">
+            <img src="../assets/projects/rebar-bender-shaft4-keyway-details.jpg" alt="Shaft 4 Keyway and Tapped End Details" style="max-height:480px; object-fit:contain; background:#ffffff; border-radius:var(--radius-md);">
+            <div class="case-media-caption">
+              FIGURE 3.4 — DWG NO. SHAFT4 (SHEET 2 OF 2): SECTIONS L-L &amp; C-C, DETAIL M &amp; V (DIN 6885 P9 -0.02/-0.06 KEYWAYS), AND DETAIL H &amp; K (M12 AXIAL RETENTION THREADS)
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 04 Manufacturing & Routing Plans -->
+    <section class="case-section">
+      <span class="case-section-kicker">04 — DFM &amp; Fabrication</span>
+      <h2 class="case-section-title">Manufacturing Routing &amp; Bill of Materials</h2>
+
+      <p class="case-text">
+        Complete manufacturing routing plans were produced detailing machining operations, machine tool selection, cutting tools, feeds/speeds, and tolerance callouts:
+      </p>
+
+      <!-- DFM Operations Routing & 5-Step Assembly Sequence -->
+      <div class="case-media-frame" style="margin-top:1.5rem; margin-bottom:2rem;">
+        <img src="../assets/projects/rebar-bender-manufacturing-plan.jpg" alt="Manufacturing Routing Operations Table and 5-Step Assembly Sequence" style="max-height:550px; object-fit:contain; background:#ffffff; border-radius:var(--radius-md);">
+        <div class="case-media-caption">
+          FIGURE 4.1 — DFM OPERATION ROUTING &amp; 5-STEP MACHINE ASSEMBLY SEQUENCE: SUBTRACTIVE LATHE TURNING, CNC END MILLING, STRUCTURAL C-CHANNEL MIG WELDING, SHAFT SUBASSEMBLY DROP-IN, AND TENSIONER INTEGRATION
+        </div>
+      </div>
+
+      <ul class="timeline-list" style="margin-bottom:1.5rem;">
+        <li><strong>Shafts (Lathe Turning &amp; Milling):</strong> Subtractive turning from solid AISI 4140 bar stock with fillet shoulders to reduce stress concentrations. Keyways end-milled on vertical milling machines with DIN 6885 P9 interference fits.</li>
+        <li><strong>Endcaps (Lathe Turning &amp; Pillar Drill):</strong> Custom recessed endcaps absorb cumulative axial tolerance stacks (&plusmn;0.4 mm) and ensure positive clamping on gear hubs, secured by torqued M12 fasteners with medium-strength threadlocker.</li>
+        <li><strong>Base Frame (Bandsaw, Pillar Drill &amp; MIG Welding):</strong> Standard structural steel C-channels pre-drilled with oversized clearance holes using a pillar drill, then permanently MIG welded to tolerate thermal distortion.</li>
+        <li><strong>Assembly Sequence:</strong> Welded frame &rarr; 4&times; M12 motor mounting &rarr; drop-in shaft subassemblies secured with M16 bolts and Nyloc nuts &rarr; motor pulley &amp; 135T gear attachment &rarr; final tensioner bracket welding.</li>
+      </ul>
+
+      <h3 style="font-size:1.1rem; margin-bottom:0.75rem">Bill of Materials (BOM — Shaft 4 Assembly &amp; Powertrain)</h3>
+      <div class="bom-table-wrap">
+        <table class="bom-table">
+          <thead>
+            <tr>
+              <th>Item</th>
+              <th>Part No.</th>
+              <th>Description / Specification</th>
+              <th>Qty</th>
+              <th>Assembly / Fastening Notes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td><span class="mono">DTP4-001</span></td>
+              <td><strong>Transmission Shaft 4</strong> (AISI 4140 HT Steel, &Oslash;50/55/60mm)</td>
+              <td>1</td>
+              <td><span class="mono">CNC turned with 2.5mm transition fillets</span></td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td><span class="mono">SKF-SY55TR</span></td>
+              <td><strong>Pillow Block Bearing Units</strong> (Cast Iron Housing)</td>
+              <td>2</td>
+              <td><span class="mono">Torque bearing set screw (Item 10) to 15 N&middot;m</span></td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td><span class="mono">DTP4-003</span></td>
+              <td><strong>Parallel Drive Key</strong> (14&times;9&times;55 mm DIN 6885 P9)</td>
+              <td>2</td>
+              <td><span class="mono">Interference press fit into shaft keyways</span></td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td><span class="mono">DTP4-004</span></td>
+              <td><strong>Spur Gear 99T</strong> (MOD 4 Through-Hardened Steel)</td>
+              <td>1</td>
+              <td><span class="mono">Stage 3 reduction driven gear</span></td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td><span class="mono">DTP4-005</span></td>
+              <td><strong>Spur Gear 30T</strong> (MOD 4 Through-Hardened Steel)</td>
+              <td>1</td>
+              <td><span class="mono">Stage 4 final drive pinion gear</span></td>
+            </tr>
+            <tr>
+              <td>6</td>
+              <td><span class="mono">DTP4-006</span></td>
+              <td><strong>Recessed Endcap</strong> (Turned Mild Steel)</td>
+              <td>2</td>
+              <td><span class="mono">Absorbs cumulative axial tolerance stack (&plusmn;0.4mm)</span></td>
+            </tr>
+            <tr>
+              <td>7</td>
+              <td><span class="mono">DTP-007</span></td>
+              <td><strong>Flat Washer M12</strong> (Standard Steel)</td>
+              <td>2</td>
+              <td><span class="mono">Load distribution under bolt heads</span></td>
+            </tr>
+            <tr>
+              <td>8</td>
+              <td><span class="mono">SLW12</span></td>
+              <td><strong>Spring Washer M12</strong> (Spring Steel)</td>
+              <td>2</td>
+              <td><span class="mono">Vibration loosening prevention</span></td>
+            </tr>
+            <tr>
+              <td>9</td>
+              <td><span class="mono">DTP4-009</span></td>
+              <td><strong>Hex Head Bolt &mdash; M12 &times; 1.5 &times; 25</strong> (Grade 8.8)</td>
+              <td>2</td>
+              <td><span class="mono" style="color:var(--brand-green)">Torque to 85 N&middot;m with thread locker</span></td>
+            </tr>
+            <tr>
+              <td>10</td>
+              <td><span class="mono">DTP4-010</span></td>
+              <td><strong>Set Screw &mdash; M10 &times; 1.0 &times; 8</strong> (Cup Point)</td>
+              <td>1</td>
+              <td><span class="mono" style="color:var(--brand-green)">Torque to 15 N&middot;m into bearing collar</span></td>
+            </tr>
+            <tr>
+              <td>-</td>
+              <td><span class="mono">LS132S</span></td>
+              <td><strong>Electric Induction Motor</strong> (5.5 kW @ 2,877 RPM)</td>
+              <td>1</td>
+              <td><span class="mono">Mounted low on frame with 4&times; M12 bolts</span></td>
+            </tr>
+            <tr>
+              <td>-</td>
+              <td><span class="mono">SE38 / SPA</span></td>
+              <td><strong>SPA 2-Groove V-Belt + SE38 Tensioner</strong> (280mm to 90mm)</td>
+              <td>1</td>
+              <td><span class="mono">Taper bush fixing with rubber idler suspension</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 05 Lessons Learned -->
+    <section class="case-section">
+      <span class="case-section-kicker">05 — Engineering Lessons</span>
+      <h2 class="case-section-title">Critical Lessons &amp; Key Takeaways</h2>
+
+      <div class="case-callout-box">
+        <div class="case-callout-title">KEY DESIGN ITERATION: KEYWAY BEARING STRESS UNDER CYCLIC LOAD</div>
+        <p class="case-text" style="color:var(--text-primary); margin-bottom:0;">
+          The initial revision used a single parallel keyway on the final high-torque shaft. Analytical bearing stress calculations revealed compressive stresses on the key flank exceeding 220 MPa under sudden shock stall loads. <strong>Redesigned the final stage with dual 180° opposed parallel keys and increased the shaft shoulder transition radius from 1.5mm to 3.5mm</strong>, reducing localized notch stress concentration by 42% and eliminating long-term fretting fatigue risk.
+        </p>
+      </div>
+    </section>
+
+        <!-- Project Bottom Navigation Buttons -->
+    <div class="project-bottom-nav">
+      <a href="vex-high-stakes.html" class="nav-page-btn prev-btn" aria-label="Previous project: VEX High Stakes Robot">
+        <div class="nav-page-btn-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/></svg>
+        </div>
+        <div class="nav-page-btn-text">
+          <span class="nav-page-btn-sub">← PREVIOUS PROJECT</span>
+          <span class="nav-page-btn-title">VEX High Stakes Robot</span>
+        </div>
+      </a>
+
+      <a href="../index.html#projects" class="nav-page-btn home-btn" aria-label="Back to all projects">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+        <span>All Projects</span>
+      </a>
+
+      <a href="smart-pet-companion-robot.html" class="nav-page-btn next-btn" aria-label="Next project: Smart Pet Companion Robot">
+        <div class="nav-page-btn-text">
+          <span class="nav-page-btn-sub">NEXT PROJECT →</span>
+          <span class="nav-page-btn-title">Smart Pet Companion Robot</span>
+        </div>
+        <div class="nav-page-btn-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+        </div>
+      </a>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <div>© 2026 ALEXANDER CIZ YORI · IMPERIAL COLLEGE LONDON</div>
+      <div><a href="../index.html" style="color:var(--accent)">← RETURN TO PORTFOLIO HOME</a></div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="../js/data/portfolio-data.js"></script>
+  <script src="../js/app.js"></script>
+  <script src="../js/cad-viewer.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Initialize 3D CAD Viewer
+      if (typeof ProjectCadViewer !== 'undefined') {
+        const viewer = new ProjectCadViewer('case-cad-canvas');
+
+        const solidBtn = document.getElementById('cad-mode-solid');
+        const wireBtn = document.getElementById('cad-mode-wire');
+        const feaBtn = document.getElementById('cad-mode-fea');
+
+        if (solidBtn && wireBtn && feaBtn) {
+          const clearPills = () => [solidBtn, wireBtn, feaBtn].forEach(p => p.classList.remove('active'));
+          solidBtn.onclick = () => { clearPills(); solidBtn.classList.add('active'); viewer.setDisplayMode('solid'); };
+          wireBtn.onclick = () => { clearPills(); wireBtn.classList.add('active'); viewer.setDisplayMode('wireframe'); };
+          feaBtn.onclick = () => { clearPills(); feaBtn.classList.add('active'); viewer.setDisplayMode('fea'); };
+        }
+
+        const slider = document.getElementById('cad-explode-slider');
+        if (slider) {
+          slider.oninput = (e) => viewer.setExplodedView(parseFloat(e.target.value));
+        }
+
+        const motionBtn = document.getElementById('cad-toggle-motion');
+        if (motionBtn) {
+          motionBtn.onclick = () => {
+            viewer.toggleKinematics();
+            motionBtn.textContent = viewer.isKinematicsRunning ? 'PAUSE GEARS' : 'PLAY GEARS';
+          };
+        }
+
+        const resetBtn = document.getElementById('cad-reset-cam');
+        if (resetBtn) {
+          resetBtn.onclick = () => viewer.resetCamera();
+        }
+      }
+    });
+  </script>
+</body>
+</html>

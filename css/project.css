@@ -1,0 +1,681 @@
+/* ==========================================================================
+   DEDICATED PROJECT CASE STUDY PAGE STYLES
+   Editorial, high-density, spacious engineering documentation
+   ========================================================================== */
+
+.project-page-header {
+  padding: 5rem 0 3rem;
+  border-bottom: 1px solid var(--border-color);
+  background: var(--bg-secondary);
+}
+
+.breadcrumb-nav {
+  margin-bottom: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+  transition: transform var(--transition), color var(--transition);
+}
+
+.back-link:hover {
+  transform: translateX(-3px);
+  color: var(--accent);
+}
+
+.top-project-nav {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.top-nav-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 0.38rem 0.85rem;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  border-radius: var(--radius-sm);
+  transition: all var(--transition);
+}
+
+.top-nav-btn:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+.project-hero-title {
+  font-size: clamp(2.2rem, 4.5vw, 3.2rem);
+  font-weight: 800;
+  line-height: 1.15;
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.03em;
+}
+
+.project-hero-subtitle {
+  font-size: 1.15rem;
+  color: var(--text-secondary);
+  max-width: 780px;
+  margin-bottom: 1.75rem;
+  line-height: 1.6;
+}
+
+.project-meta-strip {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.project-meta-item {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.project-meta-item strong {
+  color: var(--text-primary);
+}
+
+/* Key Performance Specs Banner */
+.project-specs-banner {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+  margin: 3rem 0 4rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem 1.75rem;
+}
+
+.spec-banner-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.spec-banner-val {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--accent);
+  line-height: 1.2;
+}
+
+.spec-banner-lbl {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  margin-top: 0.2rem;
+}
+
+/* Main Case Study Article Layout */
+.case-study-body {
+  padding: 3rem 0 6rem;
+}
+
+.case-section {
+  margin-bottom: 4.5rem;
+}
+
+.case-section-kicker {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--accent);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.case-section-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.case-text {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  line-height: 1.75;
+  margin-bottom: 1.5rem;
+}
+
+.case-text strong,
+.case-text b {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+/* 2-Column Split Layout */
+.case-split {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+.case-split.equal {
+  grid-template-columns: 1fr 1fr;
+}
+
+/* Media & Schematic Frames */
+.case-media-frame {
+  background: #080c14;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  margin: 1.75rem 0;
+}
+
+.case-media-frame img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.case-media-caption {
+  padding: 0.75rem 1.25rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  border-top: 1px solid var(--border-color);
+  background: var(--bg-secondary);
+  text-align: center;
+}
+
+/* Interactive 3D CAD Stage in Project Page */
+.case-cad-workbench {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-active);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  margin: 2rem 0;
+}
+
+.case-cad-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 0.85rem 1.25rem;
+  background: var(--bg-tertiary);
+  border-bottom: 1px solid var(--border-color);
+  gap: 0.75rem;
+}
+
+.case-cad-canvas-wrap {
+  width: 100%;
+  height: 480px;
+  background: #080c14;
+  position: relative;
+}
+
+#case-cad-canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* Callout Box for Failure Analysis & Lessons */
+.case-callout-box {
+  background: rgba(239, 68, 68, 0.06);
+  border: 1px solid rgba(239, 68, 68, 0.25);
+  border-left: 4px solid var(--brand-red);
+  border-radius: var(--radius-md);
+  padding: 1.5rem 1.75rem;
+  margin: 2rem 0;
+}
+
+.case-callout-title {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--brand-red);
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+/* ==========================================================================
+   PROJECT BOTTOM NAVIGATION BUTTONS
+   Prominent, high-tactile interactive button controls
+   ========================================================================== */
+.project-bottom-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.25rem;
+  margin-top: 4.5rem;
+  padding-top: 3rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.nav-page-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.1rem 1.5rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  color: var(--text-primary);
+  text-decoration: none;
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition);
+  cursor: pointer;
+  min-height: 72px;
+}
+
+.nav-page-btn.prev-btn {
+  flex: 1;
+  justify-content: flex-start;
+  text-align: left;
+}
+
+.nav-page-btn.next-btn {
+  flex: 1;
+  justify-content: flex-end;
+  text-align: right;
+}
+
+.nav-page-btn.home-btn {
+  flex: 0 0 auto;
+  gap: 0.5rem;
+  padding: 0.85rem 1.25rem;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  background: var(--bg-tertiary);
+}
+
+.nav-page-btn:hover {
+  border-color: var(--accent);
+  background: var(--bg-secondary);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 102, 204, 0.15);
+  color: var(--text-primary);
+}
+
+.nav-page-btn:active {
+  transform: translateY(0);
+}
+
+.nav-page-btn.home-btn:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.nav-page-btn-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: var(--radius-md);
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-color);
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all var(--transition);
+}
+
+.nav-page-btn:hover .nav-page-btn-icon {
+  background: var(--accent);
+  color: #ffffff;
+  border-color: var(--accent);
+}
+
+.nav-page-btn.prev-btn:hover .nav-page-btn-icon {
+  transform: translateX(-3px);
+}
+
+.nav-page-btn.next-btn:hover .nav-page-btn-icon {
+  transform: translateX(3px);
+}
+
+.nav-page-btn-text {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.nav-page-btn-sub {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 0.2rem;
+}
+
+.nav-page-btn-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media (max-width: 860px) {
+  .project-bottom-nav {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .nav-page-btn.next-btn {
+    justify-content: flex-start;
+    text-align: left;
+    flex-direction: row-reverse;
+  }
+  .nav-page-btn.home-btn {
+    justify-content: center;
+    order: 3;
+  }
+}
+
+/* ==========================================================================
+   DESIGN EVOLUTION & VERSION REBUILD SHOWCASE
+   Spacious, clear, high-contrast engineering breakdown
+   ========================================================================== */
+.version-showcase-container {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  margin: 2.5rem 0 3.5rem;
+}
+
+.version-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-xl);
+  padding: 2.5rem;
+  position: relative;
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition);
+}
+
+.version-card:hover {
+  border-color: var(--border-active);
+  box-shadow: var(--shadow-md);
+}
+
+.version-card.v1-card {
+  border-left: 5px solid rgba(245, 158, 11, 0.7);
+}
+
+.version-card.v2-card {
+  border-left: 5px solid var(--accent);
+  background: linear-gradient(180deg, var(--bg-card) 0%, rgba(0, 102, 204, 0.03) 100%);
+}
+
+.version-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding-bottom: 1.25rem;
+  margin-bottom: 1.75rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.version-header-left {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  flex-wrap: wrap;
+}
+
+.version-badge {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.35rem 0.85rem;
+  border-radius: var(--radius-sm);
+  background: var(--bg-tertiary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+}
+
+.version-badge.v1 {
+  background: rgba(245, 158, 11, 0.12);
+  color: #f59e0b;
+  border-color: rgba(245, 158, 11, 0.35);
+}
+
+.version-badge.v2 {
+  background: rgba(0, 102, 204, 0.15);
+  color: var(--accent);
+  border-color: rgba(0, 102, 204, 0.4);
+}
+
+.version-title {
+  font-size: 1.55rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  line-height: 1.25;
+}
+
+.version-tagline {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+/* Dedicated Version Media Box */
+.version-media-frame {
+  background: #060911;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  margin: 1.5rem 0 2rem;
+}
+
+.version-media-frame img {
+  width: 100%;
+  max-height: 440px;
+  object-fit: contain;
+  display: block;
+  background: #080c14;
+}
+
+.version-media-caption {
+  padding: 0.85rem 1.25rem;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  border-top: 1px solid var(--border-color);
+  background: var(--bg-secondary);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.version-details-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+.version-block {
+  background: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+}
+
+.version-block-title {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.85rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.version-block-title.warn {
+  color: #f59e0b;
+}
+
+.version-block-title.success {
+  color: var(--brand-green);
+}
+
+.version-block-title.tech {
+  color: var(--accent);
+}
+
+/* Editorial Rebuild Trigger Divider */
+.pivot-divider {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  margin: 0.5rem 0;
+  padding: 1.25rem 1.75rem;
+  background: rgba(0, 102, 204, 0.05);
+  border: 1px dashed rgba(0, 102, 204, 0.3);
+  border-radius: var(--radius-lg);
+}
+
+.pivot-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(0, 102, 204, 0.15);
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+.pivot-text-wrap {
+  flex: 1;
+}
+
+.pivot-label {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.pivot-desc {
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+  margin-top: 0.15rem;
+  line-height: 1.45;
+}
+
+@media (max-width: 900px) {
+  .version-card {
+    padding: 1.75rem 1.25rem;
+  }
+  .version-details-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+}
+
+@media (max-width: 860px) {
+  .case-split,
+  .case-split.equal {
+    grid-template-columns: 1fr;
+  }
+  .case-cad-canvas-wrap {
+    height: 360px;
+  }
+  .project-pagination-footer {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* CAD Color Swatch Controls */
+.cad-color-picker-group {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.cad-color-dot {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+  position: relative;
+}
+
+/* Base contrast outline for white & light swatches in dark mode */
+.cad-color-dot[data-color="#f8fafc"],
+.cad-color-dot[data-color="#e2e8f0"],
+.cad-color-dot[data-color="#cbd5e1"] {
+  border-color: rgba(148, 163, 184, 0.45);
+}
+
+/* Light Mode: Crisp contrast border and depth so white swatch is immediately distinct */
+[data-theme="light"] .cad-color-dot {
+  border: 2px solid rgba(0, 0, 0, 0.18);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="light"] .cad-color-dot[data-color="#f8fafc"],
+[data-theme="light"] .cad-color-dot[data-color="#e2e8f0"],
+[data-theme="light"] .cad-color-dot[data-color="#cbd5e1"] {
+  border-color: #94a3b8;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.08), 0 1px 3px rgba(0, 0, 0, 0.12);
+}
+
+.cad-color-dot:hover {
+  transform: scale(1.25);
+  border-color: var(--text-primary);
+}
+
+.cad-color-dot.active {
+  border-color: var(--accent) !important;
+  box-shadow: 0 0 0 2px var(--bg-secondary), 0 0 10px var(--accent) !important;
+  transform: scale(1.15);
+}
+
+

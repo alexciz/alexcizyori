@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg-ou" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0f1d"/>
+      <stop offset="100%" stop-color="#141e33"/>
+    </linearGradient>
+    <linearGradient id="green-ou" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#059669"/>
+      <stop offset="100%" stop-color="#10b981"/>
+    </linearGradient>
+    <linearGradient id="cyan-ou" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0284c7"/>
+      <stop offset="100%" stop-color="#38bdf8"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="400" fill="url(#bg-ou)"/>
+  
+  <g stroke="rgba(16, 185, 129, 0.08)" stroke-width="1">
+    <line x1="50" y1="0" x2="50" y2="400"/>
+    <line x1="150" y1="0" x2="150" y2="400"/>
+    <line x1="250" y1="0" x2="250" y2="400"/>
+    <line x1="350" y1="0" x2="350" y2="400"/>
+    <line x1="450" y1="0" x2="450" y2="400"/>
+    <line x1="550" y1="0" x2="550" y2="400"/>
+    <line x1="0" y1="50" x2="600" y2="50"/>
+    <line x1="0" y1="150" x2="600" y2="150"/>
+    <line x1="0" y1="250" x2="600" y2="250"/>
+    <line x1="0" y1="350" x2="600" y2="350"/>
+  </g>
+
+  <!-- 6-Motor Drivetrain & Pneumatic Wings Schematic -->
+  <!-- Chassis Base -->
+  <rect x="150" y="200" width="280" height="85" rx="6" fill="#1e293b" stroke="#10b981" stroke-width="2"/>
+  
+  <!-- 3 Omni Wheels on Left/Right (6 Total for 6-Motor Drive) -->
+  <circle cx="180" cy="285" r="28" fill="#0f172a" stroke="#10b981" stroke-width="2"/>
+  <circle cx="290" cy="285" r="28" fill="#0f172a" stroke="#10b981" stroke-width="2"/>
+  <circle cx="400" cy="285" r="28" fill="#0f172a" stroke="#10b981" stroke-width="2"/>
+  
+  <!-- Pneumatic Expansion Wings -->
+  <polygon points="150,210 70,170 85,250 150,250" fill="url(#green-ou)" opacity="0.85" stroke="#ffffff" stroke-width="1.5"/>
+  <polygon points="430,210 510,170 495,250 430,250" fill="url(#green-ou)" opacity="0.85" stroke="#ffffff" stroke-width="1.5"/>
+  
+  <!-- Pneumatic Cylinders -->
+  <line x1="150" y1="220" x2="100" y2="195" stroke="#38bdf8" stroke-width="3"/>
+  <line x1="430" y1="220" x2="480" y2="195" stroke="#38bdf8" stroke-width="3"/>
+
+  <!-- Triball Geometry (Tetrahedron Shape) -->
+  <polygon points="290,110 240,185 340,185" fill="#10b981" stroke="#34d399" stroke-width="2"/>
+  <line x1="290" y1="110" x2="290" y2="185" stroke="#059669" stroke-width="1.5"/>
+
+  <!-- High-Torque Slip-Gear Catapult Arm -->
+  <line x1="290" y1="200" x2="240" y2="120" stroke="#38bdf8" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="290" cy="200" r="12" fill="#38bdf8"/>
+
+  <text x="30" y="45" font-family="'Space Grotesk', sans-serif" font-size="20" font-weight="700" fill="#f8fafc" letter-spacing="1">VEX OVER UNDER</text>
+  <text x="30" y="70" font-family="monospace" font-size="12" fill="#10b981">SEASON 2023–2024 · 6-MOTOR 360 RPM &amp; PNEUMATIC WINGS</text>
+</svg>

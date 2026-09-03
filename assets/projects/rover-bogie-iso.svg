@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="100%" height="100%">
+  <defs>
+    <linearGradient id="chassisSheet" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#475569" />
+      <stop offset="60%" stop-color="#334155" />
+      <stop offset="100%" stop-color="#1e293b" />
+    </linearGradient>
+    <pattern id="dotGrid" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#38bdf8" stroke-width="0.5" stroke-opacity="0.1" />
+    </pattern>
+  </defs>
+
+  <rect width="100%" height="100%" fill="#0a0f18" />
+  <rect width="100%" height="100%" fill="url(#dotGrid)" />
+
+  <rect x="20" y="20" width="760" height="460" fill="none" stroke="#38bdf8" stroke-width="1" stroke-opacity="0.3" />
+  <text x="35" y="45" font-family="'JetBrains Mono', monospace" font-size="12" fill="#38bdf8">AUTONOMOUS MARS ROVER MOBILITY CHASSIS</text>
+  <text x="35" y="65" font-family="'JetBrains Mono', monospace" font-size="10" fill="#94a3b8">ROCKER-BOGIE PASSIVE 6-WHEEL SUSPENSION | 24.8 kg ALL-UP WEIGHT</text>
+
+  <!-- Rover Rocker-Bogie Schematic Drawing -->
+  <g transform="translate(400, 260)">
+    <!-- Central Main Chassis Body Box -->
+    <rect x="-110" y="-80" width="220" height="90" rx="6" fill="url(#chassisSheet)" stroke="#38bdf8" stroke-width="2" />
+    <text x="0" y="-35" font-family="'JetBrains Mono', monospace" font-size="11" fill="#38bdf8" text-anchor="middle">AVIONICS &amp; PAYLOAD BAY</text>
+
+    <!-- Differential Pivot on Chassis Center -->
+    <circle cx="0" cy="-35" r="10" fill="#0f172a" stroke="#eab308" stroke-width="2" />
+    <circle cx="0" cy="-35" r="4" fill="#eab308" />
+
+    <!-- Main Rocker Arm (Left & Right Links) -->
+    <!-- Rocker connects Central Pivot (0, -35) to Front Wheel and Rear Bogie Pivot -->
+    <!-- Front Rocker Arm -->
+    <path d="M 0 -35 L 180 -10 L 220 70" fill="none" stroke="#0ea5e9" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" />
+    <circle cx="0" cy="-35" r="7" fill="#38bdf8" />
+    <circle cx="220" cy="70" r="10" fill="#1e293b" stroke="#38bdf8" stroke-width="2" />
+
+    <!-- Rear Rocker Arm to Bogie Joint -->
+    <path d="M 0 -35 L -140 -10" fill="none" stroke="#0ea5e9" stroke-width="8" stroke-linecap="round" />
+    <circle cx="-140" cy="-10" r="10" fill="#0f172a" stroke="#eab308" stroke-width="2" />
+    <text x="-140" y="-25" font-family="'JetBrains Mono', monospace" font-size="9" fill="#eab308" text-anchor="middle">BOGIE PIVOT</text>
+
+    <!-- Bogie Arm connecting Middle and Rear Wheels -->
+    <path d="M -230 70 L -140 -10 L -60 70" fill="none" stroke="#38bdf8" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" />
+
+    <!-- 3 Wheels on this Side (Wheels have Chevron Compliant Treads) -->
+    <!-- Rear Wheel -->
+    <g transform="translate(-230, 70)">
+      <circle cx="0" cy="0" r="38" fill="#1e293b" stroke="#38bdf8" stroke-width="3" />
+      <circle cx="0" cy="0" r="22" fill="#0f172a" stroke="#0ea5e9" stroke-width="1.5" />
+      <circle cx="0" cy="0" r="8" fill="#eab308" />
+      <!-- Chevron Tread Lines -->
+      <line x1="-34" y1="0" x2="-26" y2="0" stroke="#38bdf8" stroke-width="2" />
+      <line x1="34" y1="0" x2="26" y2="0" stroke="#38bdf8" stroke-width="2" />
+      <line x1="0" y1="-34" x2="0" y2="-26" stroke="#38bdf8" stroke-width="2" />
+      <line x1="0" y1="34" x2="0" y2="26" stroke="#38bdf8" stroke-width="2" />
+    </g>
+
+    <!-- Middle Wheel -->
+    <g transform="translate(-60, 70)">
+      <circle cx="0" cy="0" r="38" fill="#1e293b" stroke="#38bdf8" stroke-width="3" />
+      <circle cx="0" cy="0" r="22" fill="#0f172a" stroke="#0ea5e9" stroke-width="1.5" />
+      <circle cx="0" cy="0" r="8" fill="#eab308" />
+      <line x1="-34" y1="0" x2="-26" y2="0" stroke="#38bdf8" stroke-width="2" />
+      <line x1="34" y1="0" x2="26" y2="0" stroke="#38bdf8" stroke-width="2" />
+      <line x1="0" y1="-34" x2="0" y2="-26" stroke="#38bdf8" stroke-width="2" />
+      <line x1="0" y1="34" x2="0" y2="26" stroke="#38bdf8" stroke-width="2" />
+    </g>
+
+    <!-- Front Wheel -->
+    <g transform="translate(220, 70)">
+      <circle cx="0" cy="0" r="38" fill="#1e293b" stroke="#38bdf8" stroke-width="3" />
+      <circle cx="0" cy="0" r="22" fill="#0f172a" stroke="#0ea5e9" stroke-width="1.5" />
+      <circle cx="0" cy="0" r="8" fill="#eab308" />
+      <line x1="-34" y1="0" x2="-26" y2="0" stroke="#38bdf8" stroke-width="2" />
+      <line x1="34" y1="0" x2="26" y2="0" stroke="#38bdf8" stroke-width="2" />
+      <line x1="0" y1="-34" x2="0" y2="-26" stroke="#38bdf8" stroke-width="2" />
+      <line x1="0" y1="34" x2="0" y2="26" stroke="#38bdf8" stroke-width="2" />
+    </g>
+  </g>
+
+  <!-- Ground Reference Line -->
+  <line x1="120" y1="368" x2="680" y2="368" stroke="#64748b" stroke-width="1" stroke-dasharray="4 4" />
+  <text x="400" y="390" font-family="'JetBrains Mono', monospace" font-size="10" fill="#94a3b8" text-anchor="middle">GROUND CONTACT PLANE (EQUAL LOAD DISTRIBUTION: 4.13 kg / WHEEL)</text>
+</svg>

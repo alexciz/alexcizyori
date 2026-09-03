@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="100%" height="100%">
+  <defs>
+    <linearGradient id="copperTubes" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#b45309" />
+      <stop offset="50%" stop-color="#f59e0b" />
+      <stop offset="100%" stop-color="#78350f" />
+    </linearGradient>
+    <linearGradient id="shellBody" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#334155" />
+      <stop offset="50%" stop-color="#1e293b" />
+      <stop offset="100%" stop-color="#0f172a" />
+    </linearGradient>
+    <pattern id="isoGrid" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#38bdf8" stroke-width="0.5" stroke-opacity="0.1" />
+    </pattern>
+  </defs>
+
+  <rect width="100%" height="100%" fill="#0a0f18" />
+  <rect width="100%" height="100%" fill="url(#isoGrid)" />
+
+  <rect x="20" y="20" width="760" height="460" fill="none" stroke="#38bdf8" stroke-width="1" stroke-opacity="0.3" />
+  <text x="35" y="45" font-family="'JetBrains Mono', monospace" font-size="12" fill="#38bdf8">COMPACT COUNTER-FLOW SHELL &amp; TUBE HEAT EXCHANGER</text>
+  <text x="35" y="65" font-family="'JetBrains Mono', monospace" font-size="10" fill="#94a3b8">Q = 1.85 kW | EFFECTIVENESS ε = 0.82 | HELICAL TURBULATORS</text>
+
+  <!-- Heat Exchanger Cutaway Drawing -->
+  <g transform="translate(400, 250)">
+    <!-- Shell Outer Body -->
+    <rect x="-240" y="-80" width="480" height="160" rx="14" fill="url(#shellBody)" stroke="#38bdf8" stroke-width="2" />
+
+    <!-- Inlets and Outlets -->
+    <!-- Hot In (Top Left) -->
+    <rect x="-200" y="-125" width="45" height="45" fill="#ef4444" stroke="#38bdf8" stroke-width="1.5" />
+    <text x="-178" y="-132" font-family="'JetBrains Mono', monospace" font-size="9" fill="#ef4444" text-anchor="middle">HOT IN (75°C)</text>
+
+    <!-- Hot Out (Bottom Right) -->
+    <rect x="155" y="80" width="45" height="45" fill="#f97316" stroke="#38bdf8" stroke-width="1.5" />
+    <text x="178" y="140" font-family="'JetBrains Mono', monospace" font-size="9" fill="#f97316" text-anchor="middle">HOT OUT (48°C)</text>
+
+    <!-- Cold In (Bottom Left - Counterflow) -->
+    <rect x="-200" y="80" width="45" height="45" fill="#3b82f6" stroke="#38bdf8" stroke-width="1.5" />
+    <text x="-178" y="140" font-family="'JetBrains Mono', monospace" font-size="9" fill="#3b82f6" text-anchor="middle">COLD IN (25°C)</text>
+
+    <!-- Cold Out (Top Right) -->
+    <rect x="155" y="-125" width="45" height="45" fill="#06b6d4" stroke="#38bdf8" stroke-width="1.5" />
+    <text x="178" y="-132" font-family="'JetBrains Mono', monospace" font-size="9" fill="#06b6d4" text-anchor="middle">COLD OUT (52°C)</text>
+
+    <!-- Internal Copper Tube Bundle (Cutaway Window) -->
+    <rect x="-140" y="-55" width="280" height="110" fill="#090d16" stroke="#38bdf8" stroke-width="1" stroke-dasharray="3 3" />
+
+    <!-- 5 Visible Copper Tubes with Helical Turbulator Coils -->
+    <g>
+      <!-- Tube 1 -->
+      <rect x="-135" y="-45" width="270" height="12" rx="2" fill="url(#copperTubes)" stroke="#f59e0b" stroke-width="1" />
+      <path d="M -130 -39 Q -115 -48, -100 -39 Q -85 -30, -70 -39 Q -55 -48, -40 -39 Q -25 -30, -10 -39 Q 5 -48, 20 -39 Q 35 -30, 50 -39 Q 65 -48, 80 -39 Q 95 -30, 110 -39 Q 125 -48, 130 -39" fill="none" stroke="#ffffff" stroke-width="1.2" />
+
+      <!-- Tube 2 -->
+      <rect x="-135" y="-22" width="270" height="12" rx="2" fill="url(#copperTubes)" stroke="#f59e0b" stroke-width="1" />
+      <path d="M -130 -16 Q -115 -25, -100 -16 Q -85 -7, -70 -16 Q -55 -25, -40 -16 Q -25 -7, -10 -16 Q 5 -25, 20 -16 Q 35 -7, 50 -16 Q 65 -25, 80 -16 Q 95 -7, 110 -16 Q 125 -25, 130 -16" fill="none" stroke="#ffffff" stroke-width="1.2" />
+
+      <!-- Tube 3 (Center) -->
+      <rect x="-135" y="1" width="270" height="12" rx="2" fill="url(#copperTubes)" stroke="#f59e0b" stroke-width="1" />
+      <path d="M -130 7 Q -115 -2, -100 7 Q -85 16, -70 7 Q -55 -2, -40 7 Q -25 16, -10 7 Q 5 -2, 20 7 Q 35 16, 50 7 Q 65 -2, 80 7 Q 95 16, 110 7 Q 125 -2, 130 7" fill="none" stroke="#ffffff" stroke-width="1.2" />
+
+      <!-- Tube 4 -->
+      <rect x="-135" y="24" width="270" height="12" rx="2" fill="url(#copperTubes)" stroke="#f59e0b" stroke-width="1" />
+      <path d="M -130 30 Q -115 21, -100 30 Q -85 39, -70 30 Q -55 21, -40 30 Q -25 39, -10 30 Q 5 21, 20 30 Q 35 39, 50 30 Q 65 21, 80 30 Q 95 39, 110 30 Q 125 21, 130 30" fill="none" stroke="#ffffff" stroke-width="1.2" />
+
+      <!-- Tube 5 -->
+      <rect x="-135" y="47" width="270" height="12" rx="2" fill="url(#copperTubes)" stroke="#f59e0b" stroke-width="1" />
+      <path d="M -130 53 Q -115 44, -100 53 Q -85 62, -70 53 Q -55 44, -40 53 Q -25 62, -10 53 Q 5 44, 20 53 Q 35 62, 50 53 Q 65 44, 80 53 Q 95 62, 110 53 Q 125 44, 130 53" fill="none" stroke="#ffffff" stroke-width="1.2" />
+    </g>
+
+    <!-- Baffles for Shell-Side Cross Flow -->
+    <rect x="-60" y="-55" width="8" height="85" fill="#64748b" stroke="#38bdf8" stroke-width="1" />
+    <rect x="20" y="-30" width="8" height="85" fill="#64748b" stroke="#38bdf8" stroke-width="1" />
+  </g>
+</svg>
