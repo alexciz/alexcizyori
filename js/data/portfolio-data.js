@@ -26,7 +26,6 @@ const PORTFOLIO_DATA = {
     ],
     socialLinks: {
       linkedin: "https://linkedin.com/in/alexcizyori",
-      github: "https://github.com/alexciz",
       email: "mailto:alexander.ciz-yori25@imperial.ac.uk"
     }
   },
