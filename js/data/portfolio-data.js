@@ -16,7 +16,6 @@ const PORTFOLIO_DATA = {
     statusBadge: "Seeking Summer 2026 / 2027 Engineering Internships",
     email: "alexander.ciz-yori25@imperial.ac.uk",
     shortEmail: "adc25@ic.ac.uk",
-    phone: "+44 7496 914493",
     location: "London, UK",
     bio: "Second-year MEng Mechanical Engineering student at Imperial College London with hands-on experience in powertrain transmission design, precision mechanisms, custom CNC-routed PCB hardware, and competitive robotics. Experienced in bringing mechanical systems from first-principles analysis and SolidWorks/Fusion modeling to manufactured physical hardware and testing.",
     highlights: [
@@ -27,8 +26,8 @@ const PORTFOLIO_DATA = {
     ],
     socialLinks: {
       linkedin: "https://linkedin.com/in/alexcizyori",
-      email: "mailto:alexander.ciz-yori25@imperial.ac.uk",
-      phone: "tel:+447496914493"
+      github: "https://github.com/alexciz",
+      email: "mailto:alexander.ciz-yori25@imperial.ac.uk"
     }
   },
 
