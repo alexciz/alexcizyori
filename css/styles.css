@@ -499,7 +499,17 @@ section {
 
 /* Hero Section: 2-Column Split (Intro on Left, Education Card on Right) */
 .hero {
-  padding: 6.5rem 0 5.5rem;
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5rem 0 2rem;
+  box-sizing: border-box;
+}
+
+.hero > .container {
+  width: 100%;
 }
 
 .hero-split-grid {
