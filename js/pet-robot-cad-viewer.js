@@ -282,16 +282,16 @@ class PetRobotCadViewer {
             // Upper door for the treat chute
             explodeOffset = { x: 0, y: 210, z: 0 };
             assignedMat = this.materials.darkHardware;
-          } else if (name.includes('treat_dispenser_rotor') || (name.includes('rotor') && !name.includes('housing'))) {
-            // The ROTOR: The flat disc with a chunk in it at the treat slot
-            explodeOffset = { x: 0, y: 195, z: 0 };
-            assignedMat = this.materials.rotor;
-            this.rotorMesh = child;
           } else if (name.includes('servo_dispenser_gate') || name.includes('shell_slot_baffle') || (name.includes('gate') && !name.includes('chute'))) {
-            // Dispenser gate in front of the rotor (Solid 12)
-            explodeOffset = { x: 0, y: 170, z: 0 };
+            // Dispenser gate (swapped above rotor when exploded)
+            explodeOffset = { x: 0, y: 195, z: 0 };
             assignedMat = this.materials.shell;
             this.gateMesh = child;
+          } else if (name.includes('treat_dispenser_rotor') || (name.includes('rotor') && !name.includes('housing'))) {
+            // The ROTOR: The flat disc with a chunk in it at the treat slot
+            explodeOffset = { x: 0, y: 170, z: 0 };
+            assignedMat = this.materials.rotor;
+            this.rotorMesh = child;
           } else if (name.includes('treat_shooter_ramp') || name.includes('treat_guide_chute')) {
             explodeOffset = { x: 0, y: 145, z: 0 };
             assignedMat = this.materials.darkHardware;
