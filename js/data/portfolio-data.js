@@ -162,7 +162,7 @@ const PORTFOLIO_DATA = {
       featured: true,
       has3DCadViewer: false,
       pageUrl: "projects/vex-tipping-point.html",
-      thumbnail: "assets/projects/vex-tipping-point.jpg",
+      thumbnail: "assets/projects/vex-tipping-point.jpg?v=2",
       badge: "Inaugural Competition Season",
       summary: "Engineered a competition robot for the Tipping Point game featuring a front 4-bar linkage lift for neutral goal elevation, pneumatic rear mobile goal clamping jaws, and a high-traction urethane ring scoring conveyor.",
       keyMetrics: [
