@@ -258,22 +258,22 @@ class PetRobotCadViewer {
           let assignedMat = this.materials.shell;
 
           if (name.includes('top_dome')) {
-            explodeOffset = { x: 0, y: 405, z: 0 };
+            explodeOffset = { x: 0, y: 440, z: 0 };
             assignedMat = this.materials.shell;
           } else if (name.includes('launcher_motor_bracket')) {
-            explodeOffset = { x: 0, y: 340, z: 0 };
+            explodeOffset = { x: 0, y: 385, z: 0 };
             assignedMat = this.materials.darkHardware; // Same colour as other internals
           } else if (name.includes('hopper')) {
-            explodeOffset = { x: 0, y: 325, z: 0 };
+            explodeOffset = { x: 0, y: 360, z: 0 };
             assignedMat = this.materials.darkHardware;
+          } else if (name.includes('camera_lens_clamp')) {
+            explodeOffset = { x: 0, y: 335, z: 0 }; // Small camera cover plate explodes vertically above camera shell
+            assignedMat = this.materials.shell;
           } else if (name.includes('middle_camera_battery_shell') || name.includes('battery_rail')) {
             explodeOffset = { x: 0, y: 305, z: 0 }; // Rails stay firmly attached to battery compartment
             assignedMat = this.materials.shell;
           } else if (name.includes('battery_door')) {
             explodeOffset = { x: 0, y: 305, z: -60 }; // Slides out backwards
-            assignedMat = this.materials.shell;
-          } else if (name.includes('camera_lens_clamp')) {
-            explodeOffset = { x: 0, y: 305, z: 0 }; // Explodes straight UP with camera shell
             assignedMat = this.materials.shell;
           } else if (name.includes('shell_mid_upper')) {
             explodeOffset = { x: 0, y: 240, z: 0 };
@@ -395,14 +395,14 @@ class PetRobotCadViewer {
     if (this.controls) {
       // Dynamic vertical tracking and distance scaling to keep the entire exploded assembly perfectly framed
       const baseTargetY = 135;
-      const explodedTargetY = 285;
+      const explodedTargetY = 295;
       const newTargetY = baseTargetY + (explodedTargetY - baseTargetY) * this.explodedFactor;
       const deltaY = newTargetY - this.controls.target.y;
       this.controls.target.y = newTargetY;
       this.camera.position.y += deltaY;
 
       const baseDist = 550;
-      const targetDist = 950;
+      const targetDist = 980;
       const desiredDist = baseDist + (targetDist - baseDist) * this.explodedFactor;
       const offset = this.camera.position.clone().sub(this.controls.target);
       offset.setLength(desiredDist);
