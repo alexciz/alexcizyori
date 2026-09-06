@@ -35,6 +35,11 @@ Personal engineering portfolio for **Alexander Ciz Yori**, 2nd-Year MEng Mechani
 
 ---
 
-## Customization
+## Customization & Adding New Pages
 
-To edit any project writeups, metrics, or add new projects, open `js/data/portfolio-data.js`.
+1. To edit any project writeups, metrics, or add new projects, open `js/data/portfolio-data.js`.
+2. **SEO & Indexing Protocol**:
+   - Only the main landing page (`index.html` / `https://alexcizyori.com/`) should appear in search results.
+   - Any newly created project pages in `projects/` must include `<meta name="robots" content="noindex, follow">`.
+   - Keep `sitemap.xml` listing only the root homepage.
+
