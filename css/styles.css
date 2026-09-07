@@ -731,13 +731,13 @@ section {
 }
 
 .carousel-track-arrow {
-  display: none;
+  display: flex;
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
   z-index: 10;
-  width: 50px;
-  height: 50px;
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
   background: var(--bg-card);
   border: 1.5px solid var(--border-color);
@@ -745,9 +745,11 @@ section {
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  box-shadow: var(--shadow-md);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
   backdrop-filter: blur(8px);
   transition: all var(--transition);
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .carousel-track-arrow svg {
@@ -755,7 +757,7 @@ section {
   transition: stroke var(--transition);
 }
 
-.carousel-track-arrow:hover {
+.carousel-track-arrow:hover:not(:disabled) {
   background: var(--accent);
   border-color: var(--accent);
   color: #ffffff;
@@ -763,21 +765,64 @@ section {
   box-shadow: 0 6px 20px rgba(var(--accent-rgb), 0.4);
 }
 
-.carousel-track-arrow:hover svg {
+.carousel-track-arrow:hover:not(:disabled) svg {
   stroke: #ffffff;
 }
 
+.carousel-track-arrow:active:not(:disabled) {
+  transform: translateY(-50%) scale(0.96);
+}
+
+.carousel-track-arrow:disabled {
+  opacity: 0.25;
+  cursor: not-allowed;
+  border-color: var(--border-color);
+  background: var(--bg-tertiary);
+  box-shadow: none;
+  transform: translateY(-50%);
+}
+
+.carousel-track-arrow:disabled svg {
+  stroke: var(--text-muted);
+}
+
 .track-arrow-left {
-  left: -22px;
+  left: -20px;
 }
 
 .track-arrow-right {
-  right: -22px;
+  right: -20px;
 }
 
-@media (min-width: 1200px) {
+/* When zooming into page or on screens under 1200px, tuck arrows neatly inside the edges */
+@media (max-width: 1199px) {
   .carousel-track-arrow {
-    display: flex;
+    width: 44px;
+    height: 44px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.45);
+  }
+
+  .track-arrow-left {
+    left: 8px;
+  }
+
+  .track-arrow-right {
+    right: 8px;
+  }
+}
+
+@media (max-width: 600px) {
+  .carousel-track-arrow {
+    width: 40px;
+    height: 40px;
+  }
+
+  .track-arrow-left {
+    left: 4px;
+  }
+
+  .track-arrow-right {
+    right: 4px;
   }
 }
 
