@@ -678,4 +678,122 @@
   transform: scale(1.15);
 }
 
+/* ==========================================================================
+   CAD EXPLODED ASSEMBLY SLIDER
+   Enforces identical circular blue thumb and filled track across all browsers
+   (Prevents Firefox / Windows Fluent from rendering grey bars or rectangular notches)
+   ========================================================================== */
+#pet-cad-explode-slider,
+#cad-explode-slider,
+.cad-explode-slider {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 110px;
+  height: 6px;
+  background: linear-gradient(to right, var(--accent) 0%, var(--accent) var(--slider-progress, 0%), rgba(255, 255, 255, 0.22) var(--slider-progress, 0%), rgba(255, 255, 255, 0.22) 100%);
+  border-radius: 999px;
+  outline: none;
+  cursor: pointer;
+  vertical-align: middle;
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+[data-theme="light"] #pet-cad-explode-slider,
+[data-theme="light"] #cad-explode-slider,
+[data-theme="light"] .cad-explode-slider {
+  background: linear-gradient(to right, var(--accent) 0%, var(--accent) var(--slider-progress, 0%), rgba(0, 0, 0, 0.22) var(--slider-progress, 0%), rgba(0, 0, 0, 0.22) 100%);
+}
+
+/* WebKit / Chromium / Safari / Edge Track */
+#pet-cad-explode-slider::-webkit-slider-runnable-track,
+#cad-explode-slider::-webkit-slider-runnable-track,
+.cad-explode-slider::-webkit-slider-runnable-track {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 6px;
+  background: transparent;
+  border-radius: 999px;
+  border: none;
+}
+
+/* WebKit Circular Blue Thumb */
+#pet-cad-explode-slider::-webkit-slider-thumb,
+#cad-explode-slider::-webkit-slider-thumb,
+.cad-explode-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: var(--accent);
+  cursor: pointer;
+  margin-top: -4.5px;
+  border: none;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+
+#pet-cad-explode-slider::-webkit-slider-thumb:hover,
+#cad-explode-slider::-webkit-slider-thumb:hover,
+.cad-explode-slider::-webkit-slider-thumb:hover,
+#pet-cad-explode-slider:active::-webkit-slider-thumb,
+#cad-explode-slider:active::-webkit-slider-thumb,
+.cad-explode-slider:active::-webkit-slider-thumb {
+  transform: scale(1.2);
+  box-shadow: 0 0 8px var(--accent);
+}
+
+/* Firefox Track */
+#pet-cad-explode-slider::-moz-range-track,
+#cad-explode-slider::-moz-range-track,
+.cad-explode-slider::-moz-range-track {
+  height: 6px;
+  background: rgba(255, 255, 255, 0.22);
+  border-radius: 999px;
+  border: none;
+}
+
+[data-theme="light"] #pet-cad-explode-slider::-moz-range-track,
+[data-theme="light"] #cad-explode-slider::-moz-range-track,
+[data-theme="light"] .cad-explode-slider::-moz-range-track {
+  background: rgba(0, 0, 0, 0.22);
+}
+
+/* Firefox Native Filled Progress Bar */
+#pet-cad-explode-slider::-moz-range-progress,
+#cad-explode-slider::-moz-range-progress,
+.cad-explode-slider::-moz-range-progress {
+  height: 6px;
+  background: var(--accent);
+  border-radius: 999px;
+}
+
+/* Firefox Circular Blue Thumb */
+#pet-cad-explode-slider::-moz-range-thumb,
+#cad-explode-slider::-moz-range-thumb,
+.cad-explode-slider::-moz-range-thumb {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: var(--accent);
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+
+#pet-cad-explode-slider::-moz-range-thumb:hover,
+#cad-explode-slider::-moz-range-thumb:hover,
+.cad-explode-slider::-moz-range-thumb:hover,
+#pet-cad-explode-slider:active::-moz-range-thumb,
+#cad-explode-slider:active::-moz-range-thumb,
+.cad-explode-slider:active::-moz-range-thumb {
+  transform: scale(1.2);
+  box-shadow: 0 0 8px var(--accent);
+}
+
+
 

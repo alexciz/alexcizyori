@@ -559,7 +559,18 @@ function initModalCadViewer() {
 
   const slider = document.getElementById('cad-explode-slider');
   if (slider) {
-    slider.oninput = (e) => activeCadViewer.setExplodedView(parseFloat(e.target.value));
+    const setProgress = (val) => {
+      const min = parseFloat(slider.min) || 0;
+      const max = parseFloat(slider.max) || 1;
+      const pct = Math.max(0, Math.min(100, ((val - min) / (max - min)) * 100));
+      slider.style.setProperty('--slider-progress', pct + '%');
+    };
+    setProgress(parseFloat(slider.value));
+    slider.addEventListener('input', (e) => {
+      const val = parseFloat(e.target.value);
+      setProgress(val);
+      activeCadViewer.setExplodedView(val);
+    });
   }
 
   const motionBtn = document.getElementById('cad-toggle-motion');

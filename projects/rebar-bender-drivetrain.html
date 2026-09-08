@@ -37,8 +37,8 @@
   }
   </script>
   
-  <link rel="stylesheet" href="../css/styles.css">
-  <link rel="stylesheet" href="../css/project.css">
+  <link rel="stylesheet" href="../css/styles.css?v=5">
+  <link rel="stylesheet" href="../css/project.css?v=5">
 
   <!-- Three.js & OrbitControls for Real-time 3D CAD Visualization -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
@@ -493,7 +493,18 @@
 
         const slider = document.getElementById('cad-explode-slider');
         if (slider) {
-          slider.oninput = (e) => viewer.setExplodedView(parseFloat(e.target.value));
+          const setProgress = (val) => {
+            const min = parseFloat(slider.min) || 0;
+            const max = parseFloat(slider.max) || 1;
+            const pct = Math.max(0, Math.min(100, ((val - min) / (max - min)) * 100));
+            slider.style.setProperty('--slider-progress', pct + '%');
+          };
+          setProgress(parseFloat(slider.value));
+          slider.addEventListener('input', (e) => {
+            const val = parseFloat(e.target.value);
+            setProgress(val);
+            viewer.setExplodedView(val);
+          });
         }
 
         const motionBtn = document.getElementById('cad-toggle-motion');
