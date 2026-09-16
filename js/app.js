@@ -119,7 +119,6 @@ function renderProjects(projectsToRender) {
     <a href="${p.pageUrl}" class="carousel-card" data-index="${idx}" aria-label="View case study for ${p.title}">
       <div class="carousel-media">
         <img src="${p.thumbnail}" alt="${p.title}" loading="lazy">
-        <span class="carousel-badge-top">${p.badge}</span>
         ${p.has3DCadViewer ? `<span class="carousel-3d-badge">Interactive 3D CAD</span>` : ''}
       </div>
 
