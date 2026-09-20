@@ -1,4 +1,5 @@
 User-agent: *
+Disallow: /internships.html
 Allow: /
 
 Sitemap: https://alexcizyori.com/sitemap.xml
