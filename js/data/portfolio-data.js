@@ -152,113 +152,58 @@ const PORTFOLIO_DATA = {
       }
     },
     {
-      id: "vex-tipping-point",
-      title: "VEX Tipping Point Robot",
-      subtitle: "Mobile Goal Clamping Chassis, 4-Bar Lift & Ring Conveyor",
+      id: "vex-high-stakes",
+      title: "VEX High Stakes Robot",
+      subtitle: "Fast-Latch Mogo Clamp, Two-Stage Ring Redirect & Wall Stake Arm",
       category: "robotics",
       categoryLabel: "Robotics & Competition",
       featured: true,
       has3DCadViewer: false,
-      pageUrl: "projects/vex-tipping-point.html",
-      thumbnail: "assets/projects/vex-tipping-point.jpg?v=2",
-      badge: "Inaugural Competition Season",
-      summary: "Engineered a competition robot for the Tipping Point game featuring a front 4-bar linkage lift for neutral goal elevation, pneumatic rear mobile goal clamping jaws, and a high-traction urethane ring scoring conveyor.",
+      pageUrl: "projects/vex-high-stakes.html",
+      thumbnail: "assets/projects/vex-high-stakes.jpg",
+      badge: "Current Generation System",
+      summary: "Developed a competition robot for the High Stakes game with an instant-latching pneumatic mobile goal clamp, a dual-stage floating belt ring intake with automatic redirect sorting, an articulated wall stake scorer, and a ladder climb linkage.",
       keyMetrics: [
-        { label: "Drivetrain", value: "4-Motor 200 RPM Direct Drive" },
-        { label: "Goal Handling", value: "Pneumatic Clamp & 4-Bar Lift" },
-        { label: "Rebuild Focus", value: "Nationals Pneumatic Overhaul" },
-        { label: "Endgame", value: "Balanced Platform Lock" }
+        { label: "Goal Clamp", value: "Instant Pneumatic Latch Jaws" },
+        { label: "Intake System", value: "Two-Stage Floating Belt & Redirect" },
+        { label: "Rebuild Focus", value: "Championship Subsystem Overhaul" },
+        { label: "Wall Stake Arm", value: "High-Torque Articulated Scorer" }
       ],
-      tags: ["VEX Tipping Point", "Linkage Mechanics", "Mobile Goal Clamp", "Kinematics", "Pneumatics", "Robotics"],
+      tags: ["VEX High Stakes", "Mobile Goal Clamp", "Ring Redirect Intake", "Wall Stake Arm", "High Hang", "Robotics"],
       caseStudy: {
-        problemStatement: "The Tipping Point game demanded securing heavy mobile goals from across the field and balancing them on an elevated seesaw platform alongside alliance robots while simultaneously scoring scoring rings on tall goal branches.",
+        problemStatement: "The High Stakes game requires clamping onto mobile goals at high speed, intaking ring elements from the field floor, sorting/redirecting rings onto mobile goal stakes and neutral wall stakes, and ascending a multi-tier central ladder.",
         designConstraints: [
-          "18-inch x 18-inch starting footprint expanding dynamically in match play.",
-          "High-torque lift capable of elevating 1.5 kg neutral mobile goals onto the balanced platform.",
-          "Rapid-cycle rear pneumatic clamp to retain alliance mobile goals under heavy pushing defense.",
-          "High-traction ring intake with jam-clearing bi-directional reverse."
+          "Instant pneumatic mobile goal capture from any approach angle without precision alignment.",
+          "High-throughput floating intake belt accommodating multiple stacked rings without jams.",
+          "Articulated scoring arm reaching high wall stakes while maintaining a low resting profile.",
+          "High-strength ladder climb hooks capable of locking the robot securely at Tier 3."
         ],
-        engineeringProcess: "Early season relied on a motorized lead-screw clamp. For the National Championship, executed a major chassis rebuild after acquiring pneumatic cylinders, swapping the motorized clamp for dual single-acting toggle cylinders. This cut clamp time to under 0.15s, eliminated motor thermal throttling, and freed motor power for the front 4-bar linkage lift.",
+        engineeringProcess: "Maintained the robust core architecture while conducting a systematic subsystem rebuild: swapped rigid intake backing for compliant 3D-printed TPU fingers, engineered a dual-stage floating top-roller belt, added an optical color sensor with sub-15ms pneumatic divert gate, and reinforced mogo clamp lead-in ramps.",
         feaAnalysis: {
-          software: "Onshape CAD & Kinematics",
-          meshElements: "Dynamic moment distribution across 4-bar pivot axles under cantilevered goal load.",
-          loadCases: "Platform climb impact shock and 25 N defensive side loads.",
-          maxStress: "112 MPa on primary aluminum 4-bar lift c-channels (Yield: 240 MPa).",
-          minFOS: "2.14 under dynamic shock load.",
-          deflection: "Under 1.2 mm lateral arm sway during full extension."
+          software: "Fusion CAD & Finite Element Simulation",
+          meshElements: "Structural ladder hook bending moment and mobile goal clamp jaw fatigue.",
+          loadCases: "Full robot weight cantilevered during Tier 3 ladder hang (7.2 kg total).",
+          maxStress: "82 MPa on aluminum 6061-T6 climb arm (Yield: 276 MPa).",
+          minFOS: "3.36 under full suspended robot weight.",
+          deflection: "Under 0.8 mm deflection on primary climb hook."
         },
         manufacturing: {
           processes: [
-            "Precision aluminum C-channel structural cutting and squaring",
-            "Delrin bushing precision reaming and low-friction shoulder bolt pivots",
-            "Pneumatic tubing routing with high-flow solenoid manifold",
-            "C++ autonomous pathing routines with optical shaft encoder odometry"
+            "Waterjet & CNC routed 6061 aluminum plate brackets",
+            "Precision 3D printed TPU intake spools and redirect guides",
+            "Pneumatic cylinder toggle linkage optimization",
+            "Color sensor integration with sub-millisecond optical sorting logic in C++"
           ],
           bom: [
-            { item: "V5 Smart Motors (11W)", material: "Brushless DC Servos", qty: 6, unitCost: "£45.00" },
-            { item: "Pneumatic Cylinders", material: "SMC Pneumatics", qty: 2, unitCost: "£28.00" },
-            { item: "High-Strength Gears", material: "Acetal Spur Gears", qty: 6, unitCost: "£7.50" }
+            { item: "V5 Smart Motors (11W)", material: "Brushless DC Servos", qty: 8, unitCost: "£45.00" },
+            { item: "Optical & Distance Sensors", material: "VEX V5 Sensors", qty: 3, unitCost: "£22.00" },
+            { item: "Pneumatic Sub-System", material: "SMC Double-Acting", qty: 2, unitCost: "£32.00" }
           ]
         },
-        testingValidation: "Validated tipping platform balancing stability with 2 fully loaded mobile goals. Achieved sub-0.15s pneumatic goal latching and zero air-leak pressure hold over 2-minute tournament matches.",
-        lessonsLearned: "Initial direct-drive 4-bar lift suffered motor overheating under continuous cycle loads. Added rubber-band assist cantilevers creating a mechanical counter-balance that reduced motor stall current by 54%.",
+        testingValidation: "Achieved sub-0.2s mobile goal latching and 100% ring color rejection accuracy at full 400 RPM intake speeds. Successfully climbed to Tier 3 on the central ladder in under 2.5 seconds.",
+        lessonsLearned: "Ring elements tend to bounce off rigid intake backing plates when entering at speed. Adding compliant TPU 3D printed flexible fingers increased intake grip and intake success rate from 78% to 99%.",
         downloads: [
-          { name: "CAD Mechanism Architecture (STEP)", type: "cad", url: "#cad-tp" }
-        ]
-      }
-    },
-    {
-      id: "vex-spin-up",
-      title: "VEX Spin Up World Championships Robot",
-      subtitle: "Dual-Motor Flywheel Launcher & Actuated Ballistic Deflector",
-      category: "robotics",
-      categoryLabel: "Robotics & Competition",
-      featured: true,
-      has3DCadViewer: false,
-      pageUrl: "projects/vex-spin-up.html",
-      thumbnail: "assets/projects/vex-spin-up.jpg",
-      badge: "World Championships Dallas, Texas",
-      summary: "Represented the UK at the VEX Robotics World Championships in Dallas, Texas. Designed a high-speed flywheel disc launching mechanism with a pneumatically actuated angle deflector for disc trajectory control, alongside custom 4-bar linkages and endgame expansion.",
-      keyMetrics: [
-        { label: "Global Standing", value: "World Championships Qualifier" },
-        { label: "Shooter Velocity", value: "3,000+ RPM Compound Flywheel" },
-        { label: "Rebuild Focus", value: "Nationals & Worlds Overhaul" },
-        { label: "Accolades", value: "22 Regional & National Awards" }
-      ],
-      tags: ["VEX Spin Up", "World Championships", "Flywheel Dynamics", "Ballistic Launcher", "Four-Bar Linkage", "Dallas Texas"],
-      caseStudy: {
-        problemStatement: "Competitive robotics games require sub-second cycle times, consistent ballistic trajectory from varying field coordinates, and robust mechanical mechanisms that withstand severe match impacts without structural deformation.",
-        designConstraints: [
-          "Must fit within strict 18-inch x 18-inch x 18-inch starting sizing envelope.",
-          "Rapid cycle flywheel launcher capable of variable distance shots across the 12ft field.",
-          "High-speed intake linkage to collect discs directly from floor and loading zones.",
-          "Reliable autonomous programming for high-scoring 15-second opening routines."
-        ],
-        engineeringProcess: "Early regional robot suffered from static hood flex and slow RPM recovery between shots (~350ms). Executed a major rebuild for Nationals & Worlds: engineered a 36:1 compound gear reduction with dual 11W motors, added a steel ballast flywheel to store rotational kinetic energy, integrated an actuated pneumatic angle deflector hood, and deployed 4-bar chain intakes.",
-        feaAnalysis: {
-          software: "Autodesk Inventor / Onshape CAD",
-          meshElements: "Dynamic moment analysis on high-speed shaft cantilever bearings.",
-          loadCases: "Full speed match collisions and high-RPM flywheel gyroscopic forces.",
-          maxStress: "Maintained within structural aluminum extrusion yield limits.",
-          minFOS: "> 2.5",
-          deflection: "Flywheel backing plate deflection under 0.2mm to preserve launch compression."
-        },
-        manufacturing: {
-          processes: [
-            "Precision custom polycarbonate machining and heat forming",
-            "Aluminum C-channel precision squaring and custom axle turning",
-            "C++ autonomous coding and closed-loop velocity PID motor tuning"
-          ],
-          bom: [
-            { item: "V5 Smart Motors (11W)", material: "Brushless DC Servo", qty: 8, unitCost: "£45.00" },
-            { item: "Compound High-Speed Gearing", material: "High-Strength Acetal", qty: 6, unitCost: "£8.00" },
-            { item: "Pneumatic Double-Acting Cylinders", material: "SMC Pneumatics", qty: 2, unitCost: "£28.00" }
-          ]
-        },
-        testingValidation: "Over 200 hours of driver practice and autonomous routine validation. Secured £10,000+ in sponsorship funding, won 22 total regional/national awards, and represented the UK at the World Championships in Dallas, Texas.",
-        lessonsLearned: "Flywheel launch consistency depends heavily on compression against the hood. By replacing static foam backing with an adjustable spring-loaded polycarbonate hood and pneumatic deflector, shot dispersion was reduced by 65% and recovery time dropped to sub-80ms.",
-        downloads: [
-          { name: "CAD Model Package (STEP)", type: "cad", url: "#cad-vex-spinup" }
+          { name: "Full CAD Mechanism Package (STEP)", type: "cad", url: "#cad-highstakes" }
         ]
       }
     },
@@ -319,58 +264,113 @@ const PORTFOLIO_DATA = {
       }
     },
     {
-      id: "vex-high-stakes",
-      title: "VEX High Stakes Robot",
-      subtitle: "Fast-Latch Mogo Clamp, Two-Stage Ring Redirect & Wall Stake Arm",
+      id: "vex-spin-up",
+      title: "VEX Spin Up World Championships Robot",
+      subtitle: "Dual-Motor Flywheel Launcher & Actuated Ballistic Deflector",
       category: "robotics",
       categoryLabel: "Robotics & Competition",
       featured: true,
       has3DCadViewer: false,
-      pageUrl: "projects/vex-high-stakes.html",
-      thumbnail: "assets/projects/vex-high-stakes.jpg",
-      badge: "Current Generation System",
-      summary: "Developed a competition robot for the High Stakes game with an instant-latching pneumatic mobile goal clamp, a dual-stage floating belt ring intake with automatic redirect sorting, an articulated wall stake scorer, and a ladder climb linkage.",
+      pageUrl: "projects/vex-spin-up.html",
+      thumbnail: "assets/projects/vex-spin-up.jpg",
+      badge: "World Championships Dallas, Texas",
+      summary: "Represented the UK at the VEX Robotics World Championships in Dallas, Texas. Designed a high-speed flywheel disc launching mechanism with a pneumatically actuated angle deflector for disc trajectory control, alongside custom 4-bar linkages and endgame expansion.",
       keyMetrics: [
-        { label: "Goal Clamp", value: "Instant Pneumatic Latch Jaws" },
-        { label: "Intake System", value: "Two-Stage Floating Belt & Redirect" },
-        { label: "Rebuild Focus", value: "Championship Subsystem Overhaul" },
-        { label: "Wall Stake Arm", value: "High-Torque Articulated Scorer" }
+        { label: "Global Standing", value: "World Championships Qualifier" },
+        { label: "Shooter Velocity", value: "3,000+ RPM Compound Flywheel" },
+        { label: "Rebuild Focus", value: "Nationals & Worlds Overhaul" },
+        { label: "Accolades", value: "22 Regional & National Awards" }
       ],
-      tags: ["VEX High Stakes", "Mobile Goal Clamp", "Ring Redirect Intake", "Wall Stake Arm", "High Hang", "Robotics"],
+      tags: ["VEX Spin Up", "World Championships", "Flywheel Dynamics", "Ballistic Launcher", "Four-Bar Linkage", "Dallas Texas"],
       caseStudy: {
-        problemStatement: "The High Stakes game requires clamping onto mobile goals at high speed, intaking ring elements from the field floor, sorting/redirecting rings onto mobile goal stakes and neutral wall stakes, and ascending a multi-tier central ladder.",
+        problemStatement: "Competitive robotics games require sub-second cycle times, consistent ballistic trajectory from varying field coordinates, and robust mechanical mechanisms that withstand severe match impacts without structural deformation.",
         designConstraints: [
-          "Instant pneumatic mobile goal capture from any approach angle without precision alignment.",
-          "High-throughput floating intake belt accommodating multiple stacked rings without jams.",
-          "Articulated scoring arm reaching high wall stakes while maintaining a low resting profile.",
-          "High-strength ladder climb hooks capable of locking the robot securely at Tier 3."
+          "Must fit within strict 18-inch x 18-inch x 18-inch starting sizing envelope.",
+          "Rapid cycle flywheel launcher capable of variable distance shots across the 12ft field.",
+          "High-speed intake linkage to collect discs directly from floor and loading zones.",
+          "Reliable autonomous programming for high-scoring 15-second opening routines."
         ],
-        engineeringProcess: "Maintained the robust core architecture while conducting a systematic subsystem rebuild: swapped rigid intake backing for compliant 3D-printed TPU fingers, engineered a dual-stage floating top-roller belt, added an optical color sensor with sub-15ms pneumatic divert gate, and reinforced mogo clamp lead-in ramps.",
+        engineeringProcess: "Early regional robot suffered from static hood flex and slow RPM recovery between shots (~350ms). Executed a major rebuild for Nationals & Worlds: engineered a 36:1 compound gear reduction with dual 11W motors, added a steel ballast flywheel to store rotational kinetic energy, integrated an actuated pneumatic angle deflector hood, and deployed 4-bar chain intakes.",
         feaAnalysis: {
-          software: "Fusion CAD & Finite Element Simulation",
-          meshElements: "Structural ladder hook bending moment and mobile goal clamp jaw fatigue.",
-          loadCases: "Full robot weight cantilevered during Tier 3 ladder hang (7.2 kg total).",
-          maxStress: "82 MPa on aluminum 6061-T6 climb arm (Yield: 276 MPa).",
-          minFOS: "3.36 under full suspended robot weight.",
-          deflection: "Under 0.8 mm deflection on primary climb hook."
+          software: "Autodesk Inventor / Onshape CAD",
+          meshElements: "Dynamic moment analysis on high-speed shaft cantilever bearings.",
+          loadCases: "Full speed match collisions and high-RPM flywheel gyroscopic forces.",
+          maxStress: "Maintained within structural aluminum extrusion yield limits.",
+          minFOS: "> 2.5",
+          deflection: "Flywheel backing plate deflection under 0.2mm to preserve launch compression."
         },
         manufacturing: {
           processes: [
-            "Waterjet & CNC routed 6061 aluminum plate brackets",
-            "Precision 3D printed TPU intake spools and redirect guides",
-            "Pneumatic cylinder toggle linkage optimization",
-            "Color sensor integration with sub-millisecond optical sorting logic in C++"
+            "Precision custom polycarbonate machining and heat forming",
+            "Aluminum C-channel precision squaring and custom axle turning",
+            "C++ autonomous coding and closed-loop velocity PID motor tuning"
           ],
           bom: [
-            { item: "V5 Smart Motors (11W)", material: "Brushless DC Servos", qty: 8, unitCost: "£45.00" },
-            { item: "Optical & Distance Sensors", material: "VEX V5 Sensors", qty: 3, unitCost: "£22.00" },
-            { item: "Pneumatic Sub-System", material: "SMC Double-Acting", qty: 2, unitCost: "£32.00" }
+            { item: "V5 Smart Motors (11W)", material: "Brushless DC Servo", qty: 8, unitCost: "£45.00" },
+            { item: "Compound High-Speed Gearing", material: "High-Strength Acetal", qty: 6, unitCost: "£8.00" },
+            { item: "Pneumatic Double-Acting Cylinders", material: "SMC Pneumatics", qty: 2, unitCost: "£28.00" }
           ]
         },
-        testingValidation: "Achieved sub-0.2s mobile goal latching and 100% ring color rejection accuracy at full 400 RPM intake speeds. Successfully climbed to Tier 3 on the central ladder in under 2.5 seconds.",
-        lessonsLearned: "Ring elements tend to bounce off rigid intake backing plates when entering at speed. Adding compliant TPU 3D printed flexible fingers increased intake grip and intake success rate from 78% to 99%.",
+        testingValidation: "Over 200 hours of driver practice and autonomous routine validation. Secured £10,000+ in sponsorship funding, won 22 total regional/national awards, and represented the UK at the World Championships in Dallas, Texas.",
+        lessonsLearned: "Flywheel launch consistency depends heavily on compression against the hood. By replacing static foam backing with an adjustable spring-loaded polycarbonate hood and pneumatic deflector, shot dispersion was reduced by 65% and recovery time dropped to sub-80ms.",
         downloads: [
-          { name: "Full CAD Mechanism Package (STEP)", type: "cad", url: "#cad-highstakes" }
+          { name: "CAD Model Package (STEP)", type: "cad", url: "#cad-vex-spinup" }
+        ]
+      }
+    },
+    {
+      id: "vex-tipping-point",
+      title: "VEX Tipping Point Robot",
+      subtitle: "Mobile Goal Clamping Chassis, 4-Bar Lift & Ring Conveyor",
+      category: "robotics",
+      categoryLabel: "Robotics & Competition",
+      featured: true,
+      has3DCadViewer: false,
+      pageUrl: "projects/vex-tipping-point.html",
+      thumbnail: "assets/projects/vex-tipping-point.jpg?v=2",
+      badge: "Inaugural Competition Season",
+      summary: "Engineered a competition robot for the Tipping Point game featuring a front 4-bar linkage lift for neutral goal elevation, pneumatic rear mobile goal clamping jaws, and a high-traction urethane ring scoring conveyor.",
+      keyMetrics: [
+        { label: "Drivetrain", value: "4-Motor 200 RPM Direct Drive" },
+        { label: "Goal Handling", value: "Pneumatic Clamp & 4-Bar Lift" },
+        { label: "Rebuild Focus", value: "Nationals Pneumatic Overhaul" },
+        { label: "Endgame", value: "Balanced Platform Lock" }
+      ],
+      tags: ["VEX Tipping Point", "Linkage Mechanics", "Mobile Goal Clamp", "Kinematics", "Pneumatics", "Robotics"],
+      caseStudy: {
+        problemStatement: "The Tipping Point game demanded securing heavy mobile goals from across the field and balancing them on an elevated seesaw platform alongside alliance robots while simultaneously scoring scoring rings on tall goal branches.",
+        designConstraints: [
+          "18-inch x 18-inch starting footprint expanding dynamically in match play.",
+          "High-torque lift capable of elevating 1.5 kg neutral mobile goals onto the balanced platform.",
+          "Rapid-cycle rear pneumatic clamp to retain alliance mobile goals under heavy pushing defense.",
+          "High-traction ring intake with jam-clearing bi-directional reverse."
+        ],
+        engineeringProcess: "Early season relied on a motorized lead-screw clamp. For the National Championship, executed a major chassis rebuild after acquiring pneumatic cylinders, swapping the motorized clamp for dual single-acting toggle cylinders. This cut clamp time to under 0.15s, eliminated motor thermal throttling, and freed motor power for the front 4-bar linkage lift.",
+        feaAnalysis: {
+          software: "Onshape CAD & Kinematics",
+          meshElements: "Dynamic moment distribution across 4-bar pivot axles under cantilevered goal load.",
+          loadCases: "Platform climb impact shock and 25 N defensive side loads.",
+          maxStress: "112 MPa on primary aluminum 4-bar lift c-channels (Yield: 240 MPa).",
+          minFOS: "2.14 under dynamic shock load.",
+          deflection: "Under 1.2 mm lateral arm sway during full extension."
+        },
+        manufacturing: {
+          processes: [
+            "Precision aluminum C-channel structural cutting and squaring",
+            "Delrin bushing precision reaming and low-friction shoulder bolt pivots",
+            "Pneumatic tubing routing with high-flow solenoid manifold",
+            "C++ autonomous pathing routines with optical shaft encoder odometry"
+          ],
+          bom: [
+            { item: "V5 Smart Motors (11W)", material: "Brushless DC Servos", qty: 6, unitCost: "£45.00" },
+            { item: "Pneumatic Cylinders", material: "SMC Pneumatics", qty: 2, unitCost: "£28.00" },
+            { item: "High-Strength Gears", material: "Acetal Spur Gears", qty: 6, unitCost: "£7.50" }
+          ]
+        },
+        testingValidation: "Validated tipping platform balancing stability with 2 fully loaded mobile goals. Achieved sub-0.15s pneumatic goal latching and zero air-leak pressure hold over 2-minute tournament matches.",
+        lessonsLearned: "Initial direct-drive 4-bar lift suffered motor overheating under continuous cycle loads. Added rubber-band assist cantilevers creating a mechanical counter-balance that reduced motor stall current by 54%.",
+        downloads: [
+          { name: "CAD Mechanism Architecture (STEP)", type: "cad", url: "#cad-tp" }
         ]
       }
     }
