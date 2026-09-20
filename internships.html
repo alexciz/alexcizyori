@@ -613,9 +613,73 @@ body {
   color: #a5b4fc;
 }
 
-.stage-select.offer {
-  border-color: var(--color-green);
+.stage-select.hirevue {
+  border-color: #a78bfa;
+  color: #c4b5fd;
+}
+
+.stage-tag {
+  display: inline-block;
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary);
+}
+
+.stage-tag.stage-not-started {
+  color: var(--text-muted);
+}
+
+.stage-tag.stage-researching {
+  background-color: rgba(59, 130, 246, 0.12);
+  border-color: rgba(59, 130, 246, 0.35);
+  color: #60a5fa;
+}
+
+.stage-tag.stage-applied {
+  background-color: rgba(168, 85, 247, 0.12);
+  border-color: rgba(168, 85, 247, 0.35);
+  color: #c084fc;
+}
+
+.stage-tag.stage-online-assessment {
+  background-color: rgba(99, 102, 241, 0.12);
+  border-color: rgba(99, 102, 241, 0.35);
+  color: #a5b4fc;
+}
+
+.stage-tag.stage-hirevue,
+.stage-tag.stage-hireview {
+  background-color: rgba(167, 139, 250, 0.15);
+  border-color: rgba(167, 139, 250, 0.45);
+  color: #c4b5fd;
+}
+
+.stage-tag.stage-video-interview {
+  background-color: rgba(99, 102, 241, 0.12);
+  border-color: rgba(99, 102, 241, 0.35);
+  color: #a5b4fc;
+}
+
+.stage-tag.stage-assessment-centre {
+  background-color: rgba(245, 158, 11, 0.12);
+  border-color: rgba(245, 158, 11, 0.35);
+  color: #fbbf24;
+}
+
+.stage-tag.stage-offer-received {
+  background-color: rgba(16, 185, 129, 0.12);
+  border-color: rgba(16, 185, 129, 0.35);
   color: #34d399;
+}
+
+.stage-tag.stage-rejected {
+  background-color: rgba(239, 68, 68, 0.12);
+  border-color: rgba(239, 68, 68, 0.35);
+  color: #f87171;
 }
 
 /* Kanban Board View */
@@ -1120,6 +1184,7 @@ body {
           <option value="Researching">Researching</option>
           <option value="Applied">Applied</option>
           <option value="Online Assessment">Online Assessment</option>
+          <option value="HireVue">HireVue</option>
           <option value="Video Interview">Video Interview</option>
           <option value="Assessment Centre">Assessment Centre</option>
           <option value="Offer Received">Offer Received</option>
@@ -1211,6 +1276,7 @@ body {
             <option value="Researching">Researching</option>
             <option value="Applied">Applied</option>
             <option value="Online Assessment">Online Assessment</option>
+            <option value="HireVue">HireVue</option>
             <option value="Video Interview">Video Interview</option>
             <option value="Assessment Centre">Assessment Centre</option>
             <option value="Offer Received">Offer Received</option>
@@ -1421,7 +1487,7 @@ body {
 
     document.getElementById("kpiApplied").textContent = allCompanies.filter(c => c.my_status === "Applied").length;
     document.getElementById("kpiInterviews").textContent = allCompanies.filter(c => 
-      ["Online Assessment", "Video Interview", "Assessment Centre"].includes(c.my_status)
+      ["Online Assessment", "HireVue", "Hireview", "Video Interview", "Assessment Centre"].includes(c.my_status)
     ).length;
     document.getElementById("kpiOffers").textContent = allCompanies.filter(c => c.my_status === "Offer Received").length;
   }
@@ -1532,12 +1598,12 @@ body {
 
     const stages = [
       "Not Started", "Researching", "Applied", 
-      "Online Assessment", "Video Interview", "Assessment Centre", 
+      "Online Assessment", "HireVue", "Video Interview", "Assessment Centre", 
       "Offer Received", "Rejected"
     ];
 
     board.innerHTML = stages.map(stage => {
-      const stageCompanies = list.filter(c => c.my_status === stage);
+      const stageCompanies = list.filter(c => c.my_status === stage || (stage === 'HireVue' && c.my_status === 'Hireview'));
       return `
         <div class="kanban-column" data-stage="${stage}">
           <div class="column-header">
