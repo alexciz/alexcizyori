@@ -154,7 +154,7 @@ const PORTFOLIO_DATA = {
     {
       id: "vex-high-stakes",
       title: "VEX High Stakes Robot",
-      subtitle: "Fast-Latch Mogo Clamp, Two-Stage Ring Redirect & Wall Stake Arm",
+      subtitle: "6-Motor 450 RPM Drive, Pneumatic Clamp, Conveyor Intake & Wall Stake Arm",
       category: "robotics",
       categoryLabel: "Robotics & Competition",
       featured: true,
@@ -225,7 +225,7 @@ const PORTFOLIO_DATA = {
         { label: "Rebuild Focus", value: "Worlds 6-Motor Winch Rebuild" },
         { label: "Chassis Drive", value: "6-Motor 360 RPM Omni" }
       ],
-      tags: ["VEX Over Under", "PTO Transmission", "Pneumatic Wings", "High-Torque Winch", "Elevation Hang", "Robotics"],
+      tags: ["VEX Over Under", "PTO Transmission", "Pneumatic Wings", "High-Torque Winch", "Robotics"],
       caseStudy: {
         problemStatement: "The Over Under game imposed strict 8-motor constraints while requiring both maximum drivetrain pushing power (6 motors) and massive lifting torque for endgame elevation. Required a mechanism to transition from high-speed driving to a 3ft vertical climb without dead-weight motors.",
         designConstraints: [
