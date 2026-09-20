@@ -162,45 +162,46 @@ const PORTFOLIO_DATA = {
       pageUrl: "projects/vex-high-stakes.html",
       thumbnail: "assets/projects/vex-high-stakes.jpg",
       badge: "Current Generation System",
-      summary: "Developed a competition robot for the High Stakes game with a self-centering pneumatic mobile goal clamp, a dual-stage floating belt ring intake with automatic optical redirect sorting, and an articulated wall stake scorer.",
+      summary: "Developed a competition robot for the High Stakes game featuring a 6-motor 450 RPM drivetrain on 2.75\" omni wheels, a pneumatic mobile goal clamp, a chain conveyor ring intake with optical color sorting, and a geared Lady Brown wall stake scoring arm.",
       keyMetrics: [
-        { label: "Goal Clamp", value: "Self-Centering Pneumatic Jaws" },
-        { label: "Intake System", value: "Two-Stage Floating Belt & Redirect" },
-        { label: "Rebuild Focus", value: "Championship Subsystem Overhaul" },
-        { label: "Wall Stake Arm", value: "Articulated Scorer Arm" }
+        { label: "Drivetrain", value: "6-Motor 450 RPM (2.75\" Omnis)" },
+        { label: "Goal Clamp", value: "Pneumatic Cylinder Latch" },
+        { label: "Intake System", value: "Chain Conveyor with Color Sort" },
+        { label: "Wall Stake Arm", value: "Lady Brown Articulated Scorer" }
       ],
-      tags: ["VEX High Stakes", "Mobile Goal Clamp", "Ring Redirect Intake", "Wall Stake Arm", "Robotics"],
+      tags: ["VEX High Stakes", "450 RPM Drive", "Mobile Goal Clamp", "Ring Conveyor", "Lady Brown Arm", "Robotics"],
       caseStudy: {
-        problemStatement: "The High Stakes game requires clamping onto mobile goals at high speed, intaking ring elements from the field floor, and sorting/redirecting rings onto mobile goal stakes and neutral wall stakes.",
+        problemStatement: "The High Stakes game requires rapidly securing mobile goals on the move, ingesting rings from the field tiles into a continuous conveyor, stacking rings onto mobile goals, and scoring neutral wall stakes.",
         designConstraints: [
-          "Self-centering pneumatic mobile goal capture from wide approach angles up to ±25° without precision alignment.",
-          "High-throughput floating intake belt accommodating multiple stacked rings without jams.",
-          "Articulated scoring arm reaching wall stakes while maintaining a compact resting profile."
+          "High-speed 6-motor drivetrain agile enough for rapid cycle times and defense.",
+          "Reliable pneumatic mobile goal clamp securing goals firmly under high acceleration.",
+          "Continuous chain conveyor to elevate rings smoothly onto mobile goal posts.",
+          "Geared Lady Brown arm with sufficient reach and positioning control to score wall stakes."
         ],
-        engineeringProcess: "Maintained the robust core architecture while conducting a systematic subsystem rebuild: swapped rigid intake backing for compliant 3D-printed TPU fingers, engineered a dual-stage floating top-roller belt, added an optical color sensor with sub-15ms pneumatic divert gate, and reinforced mogo clamp lead-in ramps.",
+        engineeringProcess: "Iterated through early season prototypes to establish a balanced meta architecture: configured an aggressive 450 RPM direct-geared base on 2.75\" omni wheels, optimized the intake entrance roller spacing for ring clearance, integrated an optical sensor along the chain conveyor for autonomous opposing-ring rejection, and tuned the Lady Brown arm gear ratio.",
         feaAnalysis: {
           software: "Fusion CAD & Finite Element Simulation",
-          meshElements: "Mobile goal clamp pivot brackets and wall stake arm mounting geometry.",
-          loadCases: "Dynamic shock loads during high-speed goal clamp engagements and arm torque.",
-          maxStress: "64 MPa on aluminum 6061-T6 clamp pivot gusset (Yield: 276 MPa).",
-          minFOS: "4.31 under maximum pneumatic clamping shock.",
-          deflection: "Under 0.35 mm deflection on clamp support plates."
+          meshElements: "Mobile goal clamp mounting brackets and drivetrain chassis rails.",
+          loadCases: "Dynamic shock loads during aggressive mobile goal clamping and defense.",
+          maxStress: "58 MPa on aluminum 6061-T6 clamp pivot mount (Yield: 276 MPa).",
+          minFOS: "4.75 under maximum pneumatic clamping shock.",
+          deflection: "Under 0.25 mm deflection on clamp support plates."
         },
         manufacturing: {
           processes: [
-            "Waterjet & CNC routed 6061 aluminum plate brackets",
-            "Precision 3D printed TPU intake spools and redirect guides",
-            "Pneumatic cylinder toggle linkage optimization",
-            "Color sensor integration with sub-millisecond optical sorting logic in C++"
+            "Precision CNC cut and custom drilled 6061 aluminum structure",
+            "High-strength gearing and chain sprocket transmission setup",
+            "SMC pneumatic cylinder plumbing with solenoid control",
+            "V5 optical sensor integration with real-time hue detection in C++"
           ],
           bom: [
             { item: "V5 Smart Motors (11W)", material: "Brushless DC Servos", qty: 8, unitCost: "£45.00" },
-            { item: "Optical & Distance Sensors", material: "VEX V5 Sensors", qty: 3, unitCost: "£22.00" },
+            { item: "Optical & Distance Sensors", material: "VEX V5 Sensors", qty: 2, unitCost: "£22.00" },
             { item: "Pneumatic Sub-System", material: "SMC Double-Acting", qty: 2, unitCost: "£32.00" }
           ]
         },
-        testingValidation: "Achieved robust ±25° off-axis mobile goal capture and 100% ring color rejection accuracy at full 400 RPM intake speeds with < 15ms optical divert response.",
-        lessonsLearned: "Ring elements tend to bounce off rigid intake backing plates when entering at speed. Adding compliant TPU 3D printed flexible fingers increased intake grip and intake success rate from 78% to 99%.",
+        testingValidation: "Achieved seamless 450 RPM field maneuverability, instantaneous mobile goal latching under match conditions, and autonomous optical ring rejection on the conveyor.",
+        lessonsLearned: "Proper intake roller compression and conveyor chain tensioning are critical to prevent ring jams during multi-ring ingestion sequences.",
         downloads: [
           { name: "Full CAD Mechanism Package (STEP)", type: "cad", url: "#cad-highstakes" }
         ]
