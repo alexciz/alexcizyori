@@ -265,7 +265,7 @@ const PORTFOLIO_DATA = {
     },
     {
       id: "vex-spin-up",
-      title: "VEX Spin Up Competition Robot",
+      title: "VEX Spin Up Robot",
       subtitle: "Dual-Motor Flywheel Launcher & Actuated Ballistic Deflector",
       category: "robotics",
       categoryLabel: "Robotics & Competition",
