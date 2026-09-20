@@ -162,30 +162,29 @@ const PORTFOLIO_DATA = {
       pageUrl: "projects/vex-high-stakes.html",
       thumbnail: "assets/projects/vex-high-stakes.jpg",
       badge: "Current Generation System",
-      summary: "Developed a competition robot for the High Stakes game with an instant-latching pneumatic mobile goal clamp, a dual-stage floating belt ring intake with automatic redirect sorting, an articulated wall stake scorer, and a ladder climb linkage.",
+      summary: "Developed a competition robot for the High Stakes game with a self-centering pneumatic mobile goal clamp, a dual-stage floating belt ring intake with automatic optical redirect sorting, and an articulated wall stake scorer.",
       keyMetrics: [
-        { label: "Goal Clamp", value: "Instant Pneumatic Latch Jaws" },
+        { label: "Goal Clamp", value: "Self-Centering Pneumatic Jaws" },
         { label: "Intake System", value: "Two-Stage Floating Belt & Redirect" },
         { label: "Rebuild Focus", value: "Championship Subsystem Overhaul" },
-        { label: "Wall Stake Arm", value: "High-Torque Articulated Scorer" }
+        { label: "Wall Stake Arm", value: "Articulated Scorer Arm" }
       ],
-      tags: ["VEX High Stakes", "Mobile Goal Clamp", "Ring Redirect Intake", "Wall Stake Arm", "High Hang", "Robotics"],
+      tags: ["VEX High Stakes", "Mobile Goal Clamp", "Ring Redirect Intake", "Wall Stake Arm", "Robotics"],
       caseStudy: {
-        problemStatement: "The High Stakes game requires clamping onto mobile goals at high speed, intaking ring elements from the field floor, sorting/redirecting rings onto mobile goal stakes and neutral wall stakes, and ascending a multi-tier central ladder.",
+        problemStatement: "The High Stakes game requires clamping onto mobile goals at high speed, intaking ring elements from the field floor, and sorting/redirecting rings onto mobile goal stakes and neutral wall stakes.",
         designConstraints: [
-          "Instant pneumatic mobile goal capture from any approach angle without precision alignment.",
+          "Self-centering pneumatic mobile goal capture from wide approach angles up to ±25° without precision alignment.",
           "High-throughput floating intake belt accommodating multiple stacked rings without jams.",
-          "Articulated scoring arm reaching high wall stakes while maintaining a low resting profile.",
-          "High-strength ladder climb hooks capable of locking the robot securely at Tier 3."
+          "Articulated scoring arm reaching wall stakes while maintaining a compact resting profile."
         ],
         engineeringProcess: "Maintained the robust core architecture while conducting a systematic subsystem rebuild: swapped rigid intake backing for compliant 3D-printed TPU fingers, engineered a dual-stage floating top-roller belt, added an optical color sensor with sub-15ms pneumatic divert gate, and reinforced mogo clamp lead-in ramps.",
         feaAnalysis: {
           software: "Fusion CAD & Finite Element Simulation",
-          meshElements: "Structural ladder hook bending moment and mobile goal clamp jaw fatigue.",
-          loadCases: "Full robot weight cantilevered during Tier 3 ladder hang (7.2 kg total).",
-          maxStress: "82 MPa on aluminum 6061-T6 climb arm (Yield: 276 MPa).",
-          minFOS: "3.36 under full suspended robot weight.",
-          deflection: "Under 0.8 mm deflection on primary climb hook."
+          meshElements: "Mobile goal clamp pivot brackets and wall stake arm mounting geometry.",
+          loadCases: "Dynamic shock loads during high-speed goal clamp engagements and arm torque.",
+          maxStress: "64 MPa on aluminum 6061-T6 clamp pivot gusset (Yield: 276 MPa).",
+          minFOS: "4.31 under maximum pneumatic clamping shock.",
+          deflection: "Under 0.35 mm deflection on clamp support plates."
         },
         manufacturing: {
           processes: [
@@ -200,7 +199,7 @@ const PORTFOLIO_DATA = {
             { item: "Pneumatic Sub-System", material: "SMC Double-Acting", qty: 2, unitCost: "£32.00" }
           ]
         },
-        testingValidation: "Achieved sub-0.2s mobile goal latching and 100% ring color rejection accuracy at full 400 RPM intake speeds. Successfully climbed to Tier 3 on the central ladder in under 2.5 seconds.",
+        testingValidation: "Achieved robust ±25° off-axis mobile goal capture and 100% ring color rejection accuracy at full 400 RPM intake speeds with < 15ms optical divert response.",
         lessonsLearned: "Ring elements tend to bounce off rigid intake backing plates when entering at speed. Adding compliant TPU 3D printed flexible fingers increased intake grip and intake success rate from 78% to 99%.",
         downloads: [
           { name: "Full CAD Mechanism Package (STEP)", type: "cad", url: "#cad-highstakes" }

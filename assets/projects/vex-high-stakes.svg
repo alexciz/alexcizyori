@@ -50,7 +50,7 @@
   <ellipse cx="400" cy="160" rx="18" ry="7" fill="url(#red-hs)" stroke="#ffffff" stroke-width="1.5"/>
   <ellipse cx="320" cy="125" rx="18" ry="7" fill="url(#red-hs)" stroke="#ffffff" stroke-width="1.5"/>
 
-  <!-- Articulated Wall Stake Scorer Arm & Ladder Climb Linkage -->
+  <!-- Articulated Wall Stake Scorer Arm -->
   <line x1="320" y1="210" x2="350" y2="90" stroke="#38bdf8" stroke-width="4" stroke-linecap="round"/>
   <circle cx="350" cy="90" r="6" fill="#38bdf8"/>
 
