@@ -20,7 +20,7 @@ const PORTFOLIO_DATA = {
     bio: "Second-year MEng Mechanical Engineering student at Imperial College London with hands-on experience in powertrain transmission design, precision mechanisms, custom CNC-routed PCB hardware, and competitive robotics. Experienced in bringing mechanical systems from first-principles analysis and SolidWorks/Fusion modeling to manufactured physical hardware and testing.",
     highlights: [
       { label: "Degree", value: "MEng Mech Eng", sub: "Imperial College London" },
-      { label: "VEX Robotics", value: "World Finalist", sub: "Dallas, TX (22 Awards)" },
+      { label: "VEX Robotics", value: "World Competitor", sub: "Dallas, TX (Over Under)" },
       { label: "A-Levels", value: "A* A* A A", sub: "Maths, CS, Physics, FM" },
       { label: "Industry Exp.", value: "Manufacturing", sub: "Focus Displays Assistant" }
     ],
@@ -265,7 +265,7 @@ const PORTFOLIO_DATA = {
     },
     {
       id: "vex-spin-up",
-      title: "VEX Spin Up World Championships Robot",
+      title: "VEX Spin Up Competition Robot",
       subtitle: "Dual-Motor Flywheel Launcher & Actuated Ballistic Deflector",
       category: "robotics",
       categoryLabel: "Robotics & Competition",
@@ -273,15 +273,15 @@ const PORTFOLIO_DATA = {
       has3DCadViewer: false,
       pageUrl: "projects/vex-spin-up.html",
       thumbnail: "assets/projects/vex-spin-up.jpg",
-      badge: "World Championships Dallas, Texas",
-      summary: "Represented the UK at the VEX Robotics World Championships in Dallas, Texas. Designed a high-speed flywheel disc launching mechanism with a pneumatically actuated angle deflector for disc trajectory control, alongside custom 4-bar linkages and endgame expansion.",
+      badge: "Compound Flywheel & Deflector",
+      summary: "Designed a high-speed flywheel disc launching mechanism with a pneumatically actuated angle deflector for disc trajectory control, alongside custom 4-bar linkages, chain-driven intakes, and endgame expansion.",
       keyMetrics: [
-        { label: "Global Standing", value: "World Championships Qualifier" },
         { label: "Shooter Velocity", value: "3,000+ RPM Compound Flywheel" },
-        { label: "Rebuild Focus", value: "Nationals & Worlds Overhaul" },
-        { label: "Accolades", value: "22 Regional & National Awards" }
+        { label: "Recovery Time", value: "< 80ms Velocity Recovery" },
+        { label: "Rebuild Focus", value: "Competition Major Rebuild" },
+        { label: "Trajectory", value: "Dual-Angle Pneumatic Deflector" }
       ],
-      tags: ["VEX Spin Up", "World Championships", "Flywheel Dynamics", "Ballistic Launcher", "Four-Bar Linkage", "Dallas Texas"],
+      tags: ["VEX Spin Up", "Flywheel Dynamics", "Ballistic Launcher", "Four-Bar Linkage", "Pneumatics", "Robotics"],
       caseStudy: {
         problemStatement: "Competitive robotics games require sub-second cycle times, consistent ballistic trajectory from varying field coordinates, and robust mechanical mechanisms that withstand severe match impacts without structural deformation.",
         designConstraints: [
@@ -290,7 +290,7 @@ const PORTFOLIO_DATA = {
           "High-speed intake linkage to collect discs directly from floor and loading zones.",
           "Reliable autonomous programming for high-scoring 15-second opening routines."
         ],
-        engineeringProcess: "Early regional robot suffered from static hood flex and slow RPM recovery between shots (~350ms). Executed a major rebuild for Nationals & Worlds: engineered a 36:1 compound gear reduction with dual 11W motors, added a steel ballast flywheel to store rotational kinetic energy, integrated an actuated pneumatic angle deflector hood, and deployed 4-bar chain intakes.",
+        engineeringProcess: "Early regional robot suffered from static hood flex and slow RPM recovery between shots (~350ms). Executed a major rebuild: engineered a 36:1 compound gear reduction with dual 11W motors, added a steel ballast flywheel to store rotational kinetic energy, integrated an actuated pneumatic angle deflector hood, and deployed 4-bar chain intakes.",
         feaAnalysis: {
           software: "Autodesk Inventor / Onshape CAD",
           meshElements: "Dynamic moment analysis on high-speed shaft cantilever bearings.",
@@ -311,7 +311,7 @@ const PORTFOLIO_DATA = {
             { item: "Pneumatic Double-Acting Cylinders", material: "SMC Pneumatics", qty: 2, unitCost: "£28.00" }
           ]
         },
-        testingValidation: "Over 200 hours of driver practice and autonomous routine validation. Secured £10,000+ in sponsorship funding, won 22 total regional/national awards, and represented the UK at the World Championships in Dallas, Texas.",
+        testingValidation: "Over 200 hours of driver practice and autonomous routine validation. Secured £10,000+ in sponsorship funding, successfully competing across regional and national tournaments with closed-loop PID velocity tuning.",
         lessonsLearned: "Flywheel launch consistency depends heavily on compression against the hood. By replacing static foam backing with an adjustable spring-loaded polycarbonate hood and pneumatic deflector, shot dispersion was reduced by 65% and recovery time dropped to sub-80ms.",
         downloads: [
           { name: "CAD Model Package (STEP)", type: "cad", url: "#cad-vex-spinup" }
