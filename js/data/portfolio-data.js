@@ -162,23 +162,23 @@ const PORTFOLIO_DATA = {
       pageUrl: "projects/vex-high-stakes.html",
       thumbnail: "assets/projects/vex-high-stakes.jpg",
       badge: "Current Generation System",
-      summary: "Developed a competition robot for the High Stakes game featuring a 6-motor 450 RPM drivetrain on 2.75\" omni wheels, a pneumatic mobile goal clamp, a chain conveyor ring intake with optical color sorting, and a geared Lady Brown wall stake scoring arm.",
+      summary: "Developed a competition robot for the High Stakes game featuring a 6-motor 450 RPM drivetrain on 2.75\" omni wheels, a pneumatic mobile goal clamp, a chain conveyor ring intake with optical color sorting, and a geared articulated wall stake scoring arm.",
       keyMetrics: [
         { label: "Drivetrain", value: "6-Motor 450 RPM (2.75\" Omnis)" },
         { label: "Goal Clamp", value: "Pneumatic Cylinder Latch" },
         { label: "Intake System", value: "Chain Conveyor with Color Sort" },
-        { label: "Wall Stake Arm", value: "Lady Brown Articulated Scorer" }
+        { label: "Wall Stake Arm", value: "Articulated Scorer Arm" }
       ],
-      tags: ["VEX High Stakes", "450 RPM Drive", "Mobile Goal Clamp", "Ring Conveyor", "Lady Brown Arm", "Robotics"],
+      tags: ["VEX High Stakes", "450 RPM Drive", "Mobile Goal Clamp", "Ring Conveyor", "Wall Stake Arm", "Robotics"],
       caseStudy: {
         problemStatement: "The High Stakes game requires rapidly securing mobile goals on the move, ingesting rings from the field tiles into a continuous conveyor, stacking rings onto mobile goals, and scoring neutral wall stakes.",
         designConstraints: [
           "High-speed 6-motor drivetrain agile enough for rapid cycle times and defense.",
           "Reliable pneumatic mobile goal clamp securing goals firmly under high acceleration.",
           "Continuous chain conveyor to elevate rings smoothly onto mobile goal posts.",
-          "Geared Lady Brown arm with sufficient reach and positioning control to score wall stakes."
+          "Geared articulated arm with sufficient reach and positioning control to score wall stakes."
         ],
-        engineeringProcess: "Iterated through early season prototypes to establish a balanced meta architecture: configured an aggressive 450 RPM direct-geared base on 2.75\" omni wheels, optimized the intake entrance roller spacing for ring clearance, integrated an optical sensor along the chain conveyor for autonomous opposing-ring rejection, and tuned the Lady Brown arm gear ratio.",
+        engineeringProcess: "Iterated through early season prototypes to establish a balanced meta architecture: configured an aggressive 450 RPM direct-geared base on 2.75\" omni wheels, optimized the intake entrance roller spacing for ring clearance, integrated an optical sensor along the chain conveyor for autonomous opposing-ring rejection, and tuned the articulated arm gear ratio.",
         feaAnalysis: {
           software: "Fusion CAD & Finite Element Simulation",
           meshElements: "Mobile goal clamp mounting brackets and drivetrain chassis rails.",
