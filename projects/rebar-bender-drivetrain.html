@@ -43,9 +43,10 @@
   <link rel="stylesheet" href="../css/styles.css?v=5">
   <link rel="stylesheet" href="../css/project.css?v=5">
 
-  <!-- Three.js & OrbitControls for Real-time 3D CAD Visualization -->
+  <!-- Three.js, OrbitControls & GLTFLoader for Real-time 3D CAD Visualization -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
 </head>
 <body>
 
@@ -170,31 +171,79 @@
       <h2 class="case-section-title">Mechanical Transmission Architecture</h2>
 
       <p class="case-text">
-        The reduction is distributed across 4 stepped transmission shafts to equalize the stress and pitch diameters across all stages. Below is the <strong>interactive 3D CAD assembly</strong> modeled in SolidWorks. You can rotate, zoom, test the exploded assembly view, toggle wireframe/FEA stress visualization, or play the kinematic gear meshing in real time.
+        The reduction is distributed across 4 stepped transmission shafts to equalize the stress and pitch diameters across all stages. Below is the <strong>interactive 3D CAD assembly</strong> generated directly from the commercial production STEP model. You can rotate, zoom, test the <strong>4-stage Exploded Assembly</strong> view, toggle between <strong>Solid CAD, Wireframe, and X-Ray Ghost mode</strong>, observe the <strong>real-time 279.3:1 kinematic gear meshing</strong>, or test different industrial protective coatings using the <strong>Material Customiser</strong> below.
       </p>
 
       <!-- Embedded 3D CAD Workbench -->
       <div class="case-cad-workbench">
         <div class="case-cad-toolbar">
-          <div style="display:flex; gap:0.4rem;">
-            <button class="cad-control-pill active" id="cad-mode-solid">Solid CAD</button>
-            <button class="cad-control-pill" id="cad-mode-wire">Wireframe</button>
-            <button class="cad-control-pill" id="cad-mode-fea">FEA Stress Map</button>
+          <div style="display:flex; gap:0.4rem; flex-wrap:wrap;">
+            <button class="cad-control-pill active" id="rebar-cad-mode-solid">Solid CAD</button>
+            <button class="cad-control-pill" id="rebar-cad-mode-wire">Wireframe</button>
+            <button class="cad-control-pill" id="rebar-cad-mode-xray">X-Ray Ghost</button>
           </div>
 
-          <div style="display:flex; align-items:center; gap:0.6rem; font-family:var(--font-mono); font-size:0.75rem;">
+          <div style="display:flex; align-items:center; gap:0.6rem; font-family:var(--font-mono); font-size:0.75rem; flex-wrap:wrap;">
             <span>EXPLODED ASSEMBLY:</span>
-            <input type="range" id="cad-explode-slider" min="0" max="1" step="0.01" value="0" style="accent-color:var(--accent); width:110px; cursor:pointer;">
-            <button class="cad-control-pill" id="cad-toggle-motion">PAUSE GEARS</button>
-            <button class="cad-control-pill" id="cad-reset-cam">RESET CAMERA</button>
+            <input type="range" id="rebar-cad-explode-slider" class="cad-explode-slider" min="0" max="1" step="0.01" value="0" style="accent-color:var(--accent); width:110px; cursor:pointer;">
+            <button class="cad-control-pill" id="rebar-cad-toggle-rotate">AUTO ROTATE</button>
+            <button class="cad-control-pill" id="rebar-cad-toggle-gears">RUN GEARS</button>
+            <button class="cad-control-pill" id="rebar-cad-reset-cam">RESET VIEW</button>
+          </div>
+        </div>
+
+        <!-- Color & Material Customiser Toolbar -->
+        <div class="case-cad-toolbar" style="background:var(--bg-secondary); border-top:1px solid var(--border-color); font-size:0.78rem; font-family:var(--font-mono);">
+          <div style="display:flex; align-items:center; gap:0.75rem; flex-wrap:wrap;">
+            <span style="color:var(--accent); font-weight:600;">MATERIAL CUSTOMISER:</span>
+
+            <!-- Base Frame -->
+            <div class="cad-color-picker-group">
+              <span style="color:var(--text-muted);">FRAME:</span>
+              <button class="cad-color-dot active" style="background:#1e293b;" data-target="frame" data-color="#1e293b" title="Slate Grey (Default)"></button>
+              <button class="cad-color-dot" style="background:#18181b;" data-target="frame" data-color="#18181b" title="Stealth Black"></button>
+              <button class="cad-color-dot" style="background:#0284c7;" data-target="frame" data-color="#0284c7" title="Imperial Blue"></button>
+              <button class="cad-color-dot" style="background:#475569;" data-target="frame" data-color="#475569" title="Industrial Machinery Grey"></button>
+            </div>
+
+            <!-- Gear Steel -->
+            <div class="cad-color-picker-group" style="margin-left:0.5rem;">
+              <span style="color:var(--text-muted);">GEAR STEEL:</span>
+              <button class="cad-color-dot active" style="background:#cbd5e1;" data-target="gear" data-color="#cbd5e1" title="Through-Hardened Alloy Steel (Default)"></button>
+              <button class="cad-color-dot" style="background:#f1f5f9;" data-target="gear" data-color="#f1f5f9" title="Polished Chrome"></button>
+              <button class="cad-color-dot" style="background:#d97706;" data-target="gear" data-color="#d97706" title="Bronze / Nitrided Gold"></button>
+              <button class="cad-color-dot" style="background:#27272a;" data-target="gear" data-color="#27272a" title="Nitrided Black"></button>
+            </div>
+
+            <!-- Motor Housing -->
+            <div class="cad-color-picker-group" style="margin-left:0.5rem;">
+              <span style="color:var(--text-muted);">MOTOR CASING:</span>
+              <button class="cad-color-dot active" style="background:#0284c7;" data-target="motor" data-color="#0284c7" title="Industrial Blue (Default)"></button>
+              <button class="cad-color-dot" style="background:#0d9488;" data-target="motor" data-color="#0d9488" title="Machine Tool Teal"></button>
+              <button class="cad-color-dot" style="background:#18181b;" data-target="motor" data-color="#18181b" title="Matte Black"></button>
+              <button class="cad-color-dot" style="background:#64748b;" data-target="motor" data-color="#64748b" title="Cast Iron Grey"></button>
+            </div>
+
+            <!-- Bearing Housings -->
+            <div class="cad-color-picker-group" style="margin-left:0.5rem;">
+              <span style="color:var(--text-muted);">BEARINGS:</span>
+              <button class="cad-color-dot active" style="background:#334155;" data-target="housing" data-color="#334155" title="Cast Iron Charcoal (Default)"></button>
+              <button class="cad-color-dot" style="background:#ea580c;" data-target="housing" data-color="#ea580c" title="Safety Orange"></button>
+              <button class="cad-color-dot" style="background:#15803d;" data-target="housing" data-color="#15803d" title="Machinery Green"></button>
+              <button class="cad-color-dot" style="background:#b91c1c;" data-target="housing" data-color="#b91c1c" title="Oxide Red"></button>
+            </div>
           </div>
         </div>
 
         <div class="case-cad-canvas-wrap">
-          <canvas id="case-cad-canvas" aria-label="Interactive 3D Rebar Bender Gearbox Assembly"></canvas>
+          <div id="rebar-cad-loader" style="position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; background:#0a0e17; z-index:10; color:var(--text-muted); font-family:var(--font-mono); font-size:0.85rem;">
+            <div style="width:36px; height:36px; border:3px solid rgba(56,189,248,0.2); border-top-color:var(--accent); border-radius:50%; animation:spin 1s linear infinite; margin-bottom:0.75rem;"></div>
+            <span>INITIALIZING 3D TRANSMISSION CAD ASSEMBLY...</span>
+          </div>
+          <canvas id="rebar-cad-canvas" aria-label="Interactive 3D Rebar Bender Transmission CAD"></canvas>
         </div>
         <div class="case-media-caption">
-          INTERACTIVE 3D WEBGL CAD ASSEMBLY — DRAG TO ORBIT · SCROLL TO ZOOM · DRAG SLIDER TO EXPLODE
+          INTERACTIVE 3D CAD ASSEMBLY (PRODUCTION STEP MODEL) — DRAG TO ORBIT · SCROLL TO ZOOM · DRAG SLIDER TO EXPLODE · TOGGLE GEAR KINEMATICS · CLICK SWATCHES TO CHANGE FINISHES
         </div>
       </div>
 
@@ -475,26 +524,30 @@
 
   <!-- Scripts -->
   <script src="../js/data/portfolio-data.js"></script>
+  <script src="../js/data/rebar-bender-model-data.js"></script>
   <script src="../js/app.js"></script>
-  <script src="../js/cad-viewer.js"></script>
+  <script src="../js/rebar-bender-cad-viewer.js?v=1"></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      // Initialize 3D CAD Viewer
-      if (typeof ProjectCadViewer !== 'undefined') {
-        const viewer = new ProjectCadViewer('case-cad-canvas');
+      // Initialize Rebar Bender 3D CAD Viewer
+      if (typeof RebarBenderCadViewer !== 'undefined') {
+        const viewer = new RebarBenderCadViewer('rebar-cad-canvas', '../assets/models/rebar-bender-assembly.glb');
+        window.rebarViewer = viewer;
 
-        const solidBtn = document.getElementById('cad-mode-solid');
-        const wireBtn = document.getElementById('cad-mode-wire');
-        const feaBtn = document.getElementById('cad-mode-fea');
+        // Display Mode Buttons (Solid, Wireframe, X-Ray)
+        const solidBtn = document.getElementById('rebar-cad-mode-solid');
+        const wireBtn = document.getElementById('rebar-cad-mode-wire');
+        const xrayBtn = document.getElementById('rebar-cad-mode-xray');
 
-        if (solidBtn && wireBtn && feaBtn) {
-          const clearPills = () => [solidBtn, wireBtn, feaBtn].forEach(p => p.classList.remove('active'));
-          solidBtn.onclick = () => { clearPills(); solidBtn.classList.add('active'); viewer.setDisplayMode('solid'); };
-          wireBtn.onclick = () => { clearPills(); wireBtn.classList.add('active'); viewer.setDisplayMode('wireframe'); };
-          feaBtn.onclick = () => { clearPills(); feaBtn.classList.add('active'); viewer.setDisplayMode('fea'); };
+        if (solidBtn && wireBtn && xrayBtn) {
+          const clearModePills = () => [solidBtn, wireBtn, xrayBtn].forEach(p => p.classList.remove('active'));
+          solidBtn.onclick = () => { clearModePills(); solidBtn.classList.add('active'); viewer.setDisplayMode('solid'); };
+          wireBtn.onclick = () => { clearModePills(); wireBtn.classList.add('active'); viewer.setDisplayMode('wireframe'); };
+          xrayBtn.onclick = () => { clearModePills(); xrayBtn.classList.add('active'); viewer.setDisplayMode('xray'); };
         }
 
-        const slider = document.getElementById('cad-explode-slider');
+        // Exploded View Slider
+        const slider = document.getElementById('rebar-cad-explode-slider');
         if (slider) {
           const setProgress = (val) => {
             const min = parseFloat(slider.min) || 0;
@@ -510,18 +563,56 @@
           });
         }
 
-        const motionBtn = document.getElementById('cad-toggle-motion');
-        if (motionBtn) {
-          motionBtn.onclick = () => {
-            viewer.toggleKinematics();
-            motionBtn.textContent = viewer.isKinematicsRunning ? 'PAUSE GEARS' : 'PLAY GEARS';
+        // Turntable Auto-Rotate
+        const rotateBtn = document.getElementById('rebar-cad-toggle-rotate');
+        if (rotateBtn) {
+          rotateBtn.onclick = () => {
+            const isRotating = viewer.toggleTurntable();
+            rotateBtn.textContent = isRotating ? 'PAUSE ROTATION' : 'AUTO ROTATE';
+            rotateBtn.classList.toggle('active', isRotating);
           };
         }
 
-        const resetBtn = document.getElementById('cad-reset-cam');
+        // Kinematic Gear Train Rotation
+        const gearsBtn = document.getElementById('rebar-cad-toggle-gears');
+        if (gearsBtn) {
+          gearsBtn.onclick = () => {
+            const isRunning = viewer.toggleKinematics();
+            gearsBtn.textContent = isRunning ? 'STOP GEARS' : 'RUN GEARS';
+            gearsBtn.classList.toggle('active', isRunning);
+          };
+        }
+
+        // Reset Camera
+        const resetBtn = document.getElementById('rebar-cad-reset-cam');
         if (resetBtn) {
           resetBtn.onclick = () => viewer.resetCamera();
         }
+
+        // Material Color Swatches
+        const swatches = document.querySelectorAll('.cad-color-dot');
+        swatches.forEach((swatch) => {
+          swatch.addEventListener('click', () => {
+            const target = swatch.getAttribute('data-target');
+            const color = swatch.getAttribute('data-color');
+
+            const group = swatch.closest('.cad-color-picker-group');
+            if (group) {
+              group.querySelectorAll('.cad-color-dot').forEach(dot => dot.classList.remove('active'));
+              swatch.classList.add('active');
+            }
+
+            if (target === 'frame') {
+              viewer.setFrameColor(color);
+            } else if (target === 'gear') {
+              viewer.setGearColor(color);
+            } else if (target === 'motor') {
+              viewer.setMotorColor(color);
+            } else if (target === 'housing') {
+              viewer.setHousingColor(color);
+            }
+          });
+        });
       }
     });
   </script>

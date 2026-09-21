@@ -237,7 +237,10 @@
   position: relative;
 }
 
-#case-cad-canvas {
+#case-cad-canvas,
+#pet-cad-canvas,
+#rebar-cad-canvas,
+.case-cad-canvas-wrap canvas {
   width: 100%;
   height: 100%;
   display: block;
@@ -684,6 +687,7 @@
    (Prevents Firefox / Windows Fluent from rendering grey bars or rectangular notches)
    ========================================================================== */
 #pet-cad-explode-slider,
+#rebar-cad-explode-slider,
 #cad-explode-slider,
 .cad-explode-slider {
   -webkit-appearance: none;
@@ -702,6 +706,7 @@
 }
 
 [data-theme="light"] #pet-cad-explode-slider,
+[data-theme="light"] #rebar-cad-explode-slider,
 [data-theme="light"] #cad-explode-slider,
 [data-theme="light"] .cad-explode-slider {
   background: linear-gradient(to right, var(--accent) 0%, var(--accent) var(--slider-progress, 0%), rgba(0, 0, 0, 0.22) var(--slider-progress, 0%), rgba(0, 0, 0, 0.22) 100%);
@@ -709,6 +714,7 @@
 
 /* WebKit / Chromium / Safari / Edge Track */
 #pet-cad-explode-slider::-webkit-slider-runnable-track,
+#rebar-cad-explode-slider::-webkit-slider-runnable-track,
 #cad-explode-slider::-webkit-slider-runnable-track,
 .cad-explode-slider::-webkit-slider-runnable-track {
   -webkit-appearance: none;
@@ -721,6 +727,7 @@
 
 /* WebKit Circular Blue Thumb */
 #pet-cad-explode-slider::-webkit-slider-thumb,
+#rebar-cad-explode-slider::-webkit-slider-thumb,
 #cad-explode-slider::-webkit-slider-thumb,
 .cad-explode-slider::-webkit-slider-thumb {
   -webkit-appearance: none;
@@ -737,9 +744,11 @@
 }
 
 #pet-cad-explode-slider::-webkit-slider-thumb:hover,
+#rebar-cad-explode-slider::-webkit-slider-thumb:hover,
 #cad-explode-slider::-webkit-slider-thumb:hover,
 .cad-explode-slider::-webkit-slider-thumb:hover,
 #pet-cad-explode-slider:active::-webkit-slider-thumb,
+#rebar-cad-explode-slider:active::-webkit-slider-thumb,
 #cad-explode-slider:active::-webkit-slider-thumb,
 .cad-explode-slider:active::-webkit-slider-thumb {
   transform: scale(1.2);
@@ -748,6 +757,7 @@
 
 /* Firefox Track */
 #pet-cad-explode-slider::-moz-range-track,
+#rebar-cad-explode-slider::-moz-range-track,
 #cad-explode-slider::-moz-range-track,
 .cad-explode-slider::-moz-range-track {
   height: 6px;
@@ -757,6 +767,7 @@
 }
 
 [data-theme="light"] #pet-cad-explode-slider::-moz-range-track,
+[data-theme="light"] #rebar-cad-explode-slider::-moz-range-track,
 [data-theme="light"] #cad-explode-slider::-moz-range-track,
 [data-theme="light"] .cad-explode-slider::-moz-range-track {
   background: rgba(0, 0, 0, 0.22);
@@ -764,6 +775,7 @@
 
 /* Firefox Native Filled Progress Bar */
 #pet-cad-explode-slider::-moz-range-progress,
+#rebar-cad-explode-slider::-moz-range-progress,
 #cad-explode-slider::-moz-range-progress,
 .cad-explode-slider::-moz-range-progress {
   height: 6px;
@@ -773,6 +785,7 @@
 
 /* Firefox Circular Blue Thumb */
 #pet-cad-explode-slider::-moz-range-thumb,
+#rebar-cad-explode-slider::-moz-range-thumb,
 #cad-explode-slider::-moz-range-thumb,
 .cad-explode-slider::-moz-range-thumb {
   width: 15px;
@@ -786,9 +799,11 @@
 }
 
 #pet-cad-explode-slider::-moz-range-thumb:hover,
+#rebar-cad-explode-slider::-moz-range-thumb:hover,
 #cad-explode-slider::-moz-range-thumb:hover,
 .cad-explode-slider::-moz-range-thumb:hover,
 #pet-cad-explode-slider:active::-moz-range-thumb,
+#rebar-cad-explode-slider:active::-moz-range-thumb,
 #cad-explode-slider:active::-moz-range-thumb,
 .cad-explode-slider:active::-moz-range-thumb {
   transform: scale(1.2);
