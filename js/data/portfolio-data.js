@@ -61,12 +61,12 @@ const PORTFOLIO_DATA = {
         ],
         engineeringProcess: "Synthesized the gear train reduction stages across intermediate stepped transmission shafts to balance torque multiplication and gear pitch diameters. Modeled the complete mechanical assembly in SolidWorks, integrating the SPA 2-groove V-belt pulley set, tensioner idler mechanism, MOD4 spur gears, SKF pillow block bearings, and a rigid welded structural steel C-channel frame bedplate.",
         feaAnalysis: {
-          software: "AGMA & ISO 6336 Gear Standards / SolidWorks Simulation",
-          meshElements: "Stepped shaft bending & torsional stress analysis with localized stress concentration factors at shoulder fillets (Kt = 1.65).",
-          loadCases: "Peak stall shock torque: 6,200 N·m applied to final turntable bull gear.",
-          maxStress: "185 MPa shear stress on final Ø65mm EN24T output shaft (Yield Strength: 680 MPa).",
-          minFOS: "3.6 Factor of Safety under maximum bending load.",
-          deflection: "Torsional deflection under 0.08° across the entire shaft span."
+          software: "Analytical Shaft Torsion & Bending Sizing / AGMA Gear Standards",
+          meshElements: "Stepped shaft bending & torsional sizing across Shafts 1 to 5 with transition fillets (R2.5mm / R3.5mm) to minimize stress concentrations.",
+          loadCases: "Continuous bending torque up to 5,103 N·m at 10.3 RPM across 4× 16mm rebar simultaneous bend.",
+          maxStress: "Sized against maximum dynamic torsion and bending limits with specified minimum shaft diameters (Ø38mm to Ø60mm).",
+          minFOS: "Engineered to satisfy minimum shaft diameter criteria (Shaft 4 sized to Ø50/55mm vs Ø50mm required).",
+          deflection: "Precision ISO limits and fits (Ø50 h7, Ø55 k6, Ø55 g6) to maintain bearing alignment."
         },
         manufacturing: {
           processes: [
