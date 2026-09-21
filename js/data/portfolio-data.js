@@ -47,11 +47,11 @@ const PORTFOLIO_DATA = {
         { label: "Output Torque", value: "5,085 N·m" },
         { label: "Input Stage", value: "SPA 2-Groove V-Belt" },
         { label: "Spur Gearing", value: "3x MOD4 Stages" },
-        { label: "Output Speed", value: "10.3 RPM (279.3:1)" }
+        { label: "Output Speed", value: "10.3 RPM (283.5:1)" }
       ],
       tags: ["SolidWorks", "Powertrain Design", "Mechanical Systems", "V-Belt Drives", "MOD4 Gears", "ISO Limits & Fits"],
       caseStudy: {
-        problemStatement: "Commercial rebar bending machinery demands massive low-speed torque (>5,000 N·m) to bend high-yield steel rebars smoothly without stalling. The engineering objective was to design a rugged 4-stage reduction transmission powered by a standard 5.5 kW @ 2877 RPM induction motor, incorporating a flexible V-belt input with tensioner to absorb shock loads, followed by three fixed MOD4 spur gear stages delivering 10.3 RPM and 5085 Nm of continuous bending torque.",
+        problemStatement: "The operational brief specified bending 4× Ø16 mm rebars simultaneously around a 60 mm die at a production rate of 1,028 bars/hour (30,000-hour service life). The objective was to design a rugged 4-stage reduction transmission powered by a standard 5.5 kW @ 2,877 RPM induction motor to drive the given bender without motor stall, delivering 10.3 RPM and over 5,000 N·m of bending torque through a flexible V-belt input with tensioner followed by three fixed MOD4 spur gear stages.",
         designConstraints: [
           "Input motor: 5.5 kW @ 2,877 RPM (3-phase induction).",
           "Transmission Architecture: Flexible SPA 2-groove V-belt input stage with idler tensioner + 3 fixed spur gear reduction stages.",
@@ -84,7 +84,7 @@ const PORTFOLIO_DATA = {
             { item: "Welded Base Frame", material: "Structural C-Channel Steel", qty: 1, unitCost: "£180.00" }
           ]
         },
-        testingValidation: "Verified 279.3:1 reduction kinematics analytically and through motion simulations. Generated complete manufacturing routing plans and 2D workshop drawings with full geometric tolerancing.",
+        testingValidation: "Verified 283.5:1 reduction kinematics analytically and through motion simulations. Generated complete manufacturing routing plans and 2D workshop drawings with full geometric tolerancing.",
         lessonsLearned: "Initial single-keyway design on the final high-torque shaft had excessive bearing stress along the keyway flank. Swapped to dual 180° staggered parallel keys with increased shaft shoulder fillet radii, reducing localized peak stress by 42% and eliminating fretting risk.",
         downloads: [
           { name: "Full SolidWorks CAD Assembly (STEP)", type: "cad", url: "#cad-rebar-bender" },
