@@ -45,6 +45,8 @@ class RebarBenderCadViewer {
       turntableGroup: []
     };
 
+    this.worldAxisX = new THREE.Vector3(1, 0, 0);
+
     this.initThree();
     this.createMaterials();
     this.loadGlbModel();
@@ -56,14 +58,14 @@ class RebarBenderCadViewer {
   initThree() {
     const parent = this.canvas.parentElement;
     const width = parent.clientWidth || 740;
-    const height = parent.clientHeight || 460;
+    const height = parent.clientHeight || 480;
 
     this.scene = new THREE.Scene();
     this.scene.background = new THREE.Color(0x0a0e17);
 
-    // Camera calibrated for 1200mm tall, 1100mm deep heavy industrial transmission
-    this.camera = new THREE.PerspectiveCamera(38, width / height, 10, 8000);
-    this.camera.position.set(-1450, 1150, 1550);
+    // Camera calibrated for 1117mm tall upright transmission sitting flush on ground (Y=0)
+    this.camera = new THREE.PerspectiveCamera(38, width / height, 10, 9000);
+    this.camera.position.set(-1850, 1150, 1650);
 
     this.renderer = new THREE.WebGLRenderer({
       canvas: this.canvas,
@@ -75,22 +77,22 @@ class RebarBenderCadViewer {
     this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     this.renderer.shadowMap.enabled = false;
     this.renderer.toneMapping = THREE.ACESFilmicToneMapping;
-    this.renderer.toneMappingExposure = 1.12;
+    this.renderer.toneMappingExposure = 1.15;
 
     if (typeof THREE.OrbitControls !== 'undefined') {
       this.controls = new THREE.OrbitControls(this.camera, this.renderer.domElement);
       this.controls.enableDamping = true;
       this.controls.dampingFactor = 0.05;
       this.controls.target.set(0, 560, 0);
-      this.controls.maxDistance = 3800;
+      this.controls.maxDistance = 4200;
       this.controls.minDistance = 250;
       this.controls.update();
     }
 
     // Studio Multi-Point Lighting to Sculpt Heavy Industrial Metallic Volumes
     // 1. Hemisphere Ambient: Soft cool sky + warm ground bounce
-    const hemiLight = new THREE.HemisphereLight(0xe2e8f0, 0x1e293b, 0.60);
-    hemiLight.position.set(0, 1800, 0);
+    const hemiLight = new THREE.HemisphereLight(0xe2e8f0, 0x1e293b, 0.65);
+    hemiLight.position.set(0, 2000, 0);
     this.scene.add(hemiLight);
 
     // 2. Primary Key Light: Directional warm sunlight sculpting gear tooth flanks and shaft shoulders
@@ -243,127 +245,129 @@ class RebarBenderCadViewer {
 
       root.traverse((child) => {
         if (child.isMesh) {
-          const name = child.name || '';
+          const name = ((child.name || '') + ' ' + (child.geometry && child.geometry.name ? child.geometry.name : '')).toLowerCase();
           const origPos = child.position.clone();
 
           let explodeOffset = { x: 0, y: 0, z: 0 };
           let assignedMat = this.materials.frameSteel;
           let partCategory = 'frame';
 
-          // Classify mechanical components & define explosion vectors
-          if (name.includes('132S')) {
-            // 5.5 kW Electric Motor: lifts and shifts back
-            explodeOffset = { x: 0, y: 380, z: -220 };
+          // Component Classification & 4-Stage Explosion Offsets
+          if (name.includes('132s')) {
+            // 5.5 kW Electric Motor: Slides rearward (+Z) out of frame
+            explodeOffset = { x: 0, y: 0, z: 320 };
             assignedMat = this.materials.motorHousing;
             partCategory = 'motor';
             this.rotors.motorGroup.push(child);
           } else if (name.includes('spa-a902')) {
-            // Small Motor Pulley: slides outward along motor shaft
-            explodeOffset = { x: -280, y: 380, z: -220 };
+            // Motor Input Pulley: Slides rearward with motor (+Z) and outward along shaft (-X)
+            explodeOffset = { x: -220, y: 0, z: 320 };
             assignedMat = this.materials.pulleyCast;
             partCategory = 'pulley';
             this.rotors.motorGroup.push(child);
           } else if (name.includes('bushing_1610')) {
-            explodeOffset = { x: -330, y: 380, z: -220 };
+            // Motor Taper Bush: Slides with motor pulley
+            explodeOffset = { x: -270, y: 0, z: 320 };
             assignedMat = this.materials.hardwareZinc;
             partCategory = 'hardware';
-          } else if (name.includes('06_011') || name.includes('06_580') || name.includes('Tensioner')) {
-            // Belt Tensioner Arm & Roller
-            explodeOffset = { x: -220, y: 260, z: -90 };
+          } else if (name.includes('06_011') || name.includes('06_580') || name.includes('tensioner')) {
+            // SE38 Tensioner Arm & Roller
+            explodeOffset = { x: -240, y: 140, z: 80 };
             assignedMat = this.materials.tensioner;
             partCategory = 'tensioner';
           } else if (name.includes('spa-a2802')) {
-            // Large Driven V-Belt Pulley: slides outward on Shaft 2
-            explodeOffset = { x: -320, y: 220, z: 120 };
+            // Driven V-Belt Pulley: Slides outward along Shaft 2 (-X)
+            explodeOffset = { x: -280, y: 0, z: 0 };
             assignedMat = this.materials.pulleyCast;
             partCategory = 'pulley';
             this.rotors.shaft2Group.push(child);
           } else if (name.includes('bushing_2517')) {
-            explodeOffset = { x: -370, y: 220, z: 120 };
+            // Pulley 2517 Taper Bush
+            explodeOffset = { x: -330, y: 0, z: 0 };
             assignedMat = this.materials.hardwareZinc;
             partCategory = 'hardware';
-          } else if (name.includes('Shaft2')) {
+          } else if (name.includes('shaft2')) {
             // First Intermediate Shaft
-            explodeOffset = { x: 0, y: 220, z: 120 };
+            explodeOffset = { x: 120, y: 0, z: 0 };
             assignedMat = this.materials.shaftSteel;
             partCategory = 'shaft';
             this.rotors.shaft2Group.push(child);
-          } else if (name.includes('YG4-22_40mm')) {
-            // Stage 1 Pinion (22T) on Shaft 2: slides right
-            explodeOffset = { x: 260, y: 220, z: 120 };
+          } else if (name.includes('yg4-22_40mm')) {
+            // Stage 1 Pinion (22T) on Shaft 2: Slides along +X
+            explodeOffset = { x: 220, y: 0, z: 0 };
             assignedMat = this.materials.gearSteel;
             partCategory = 'gear';
             this.rotors.shaft2Group.push(child);
-          } else if (name.includes('housingSY 509') || name.includes('YET 209') || name.includes('45-85')) {
-            // SKF SY 45 Pillow Block Units (Shaft 2)
-            explodeOffset = { x: 0, y: 150, z: 120 };
+          } else if (name.includes('housingsy 509') || name.includes('yet 209') || name.includes('45-85')) {
+            // SKF SY 45 Pillow Blocks (Shaft 2)
+            explodeOffset = { x: 260, y: 0, z: 0 };
             assignedMat = this.materials.bearingHousing;
             partCategory = 'bearing';
-          } else if (name.includes('Shaft3')) {
-            // Second Intermediate Shaft
-            explodeOffset = { x: 0, y: 140, z: 280 };
+          } else if (name.includes('shaft3')) {
+            // Second Intermediate Shaft: Drops slightly to separate gear train levels
+            explodeOffset = { x: 80, y: -100, z: 0 };
             assignedMat = this.materials.shaftSteel;
             partCategory = 'shaft';
             this.rotors.shaft3Group.push(child);
-          } else if (name.includes('YG4-99') && !name.includes('50mm')) {
-            // Stage 1 Driven Gear (99T) on Shaft 3: slides right
-            explodeOffset = { x: 280, y: 140, z: 280 };
+          } else if (name.includes('yg4-99') && !name.includes('50mm')) {
+            // Stage 1 Driven Gear (99T) on Shaft 3: Slides along +X
+            explodeOffset = { x: 240, y: -100, z: 0 };
             assignedMat = this.materials.gearSteel;
             partCategory = 'gear';
             this.rotors.shaft3Group.push(child);
-          } else if (name.includes('YG4-22') && !name.includes('40mm')) {
-            // Stage 2 Pinion (22T) on Shaft 3: slides left
-            explodeOffset = { x: -220, y: 140, z: 280 };
+          } else if (name.includes('yg4-22') && !name.includes('40mm')) {
+            // Stage 2 Pinion (22T) on Shaft 3: Slides along -X
+            explodeOffset = { x: -180, y: -100, z: 0 };
             assignedMat = this.materials.gearSteel;
             partCategory = 'gear';
             this.rotors.shaft3Group.push(child);
-          } else if (name.includes('housingSY 510') || name.includes('YEL 210') || name.includes('50-90')) {
-            // SKF SY 50 Pillow Block Units (Shaft 3)
-            explodeOffset = { x: 0, y: 80, z: 280 };
+          } else if (name.includes('housingsy 510') || name.includes('yel 210') || name.includes('50-90')) {
+            // SKF SY 50 Pillow Blocks (Shaft 3)
+            explodeOffset = { x: 280, y: -100, z: 0 };
             assignedMat = this.materials.bearingHousing;
             partCategory = 'bearing';
-          } else if (name.includes('Shaft4')) {
-            // Output Turntable Shaft
-            explodeOffset = { x: 0, y: 220, z: -160 };
+          } else if (name.includes('shaft4')) {
+            // Shaft 4: Lifts vertically (+Y)
+            explodeOffset = { x: 0, y: 120, z: 0 };
             assignedMat = this.materials.shaftSteel;
             partCategory = 'shaft';
             this.rotors.shaft4Group.push(child);
-          } else if (name.includes('YG4-99 - 50mm')) {
-            // Stage 2 Driven Gear (99T) on Shaft 4: slides right
-            explodeOffset = { x: 220, y: 220, z: -160 };
+          } else if (name.includes('yg4-99 - 50mm') || (name.includes('yg4-99') && name.includes('50mm'))) {
+            // Stage 2 Driven Gear (99T) on Shaft 4: Slides along +X and lifts
+            explodeOffset = { x: 180, y: 120, z: 0 };
             assignedMat = this.materials.gearSteel;
             partCategory = 'gear';
             this.rotors.shaft4Group.push(child);
-          } else if (name.includes('YH4-30')) {
-            // Stage 3 Pinion (30T) on Shaft 4: slides left
-            explodeOffset = { x: -280, y: 220, z: -160 };
+          } else if (name.includes('yh4-30') || (name.includes('30') && name.includes('fixed'))) {
+            // Stage 3 Pinion (30T) on Shaft 4: Slides along -X and lifts
+            explodeOffset = { x: -220, y: 120, z: 0 };
             assignedMat = this.materials.gearSteel;
             partCategory = 'gear';
             this.rotors.shaft4Group.push(child);
-          } else if (name.includes('housingSY 511') || name.includes('YAR 211') || name.includes('55-100')) {
-            // SKF SY 55 Pillow Block Units (Shaft 4)
-            explodeOffset = { x: 0, y: 140, z: -160 };
+          } else if (name.includes('housingsy 511') || name.includes('yar 211') || name.includes('55-100')) {
+            // SKF SY 55 Pillow Blocks (Shaft 4)
+            explodeOffset = { x: 260, y: 120, z: 0 };
             assignedMat = this.materials.bearingHousing;
             partCategory = 'bearing';
-          } else if (name.includes('YG4-135')) {
-            // Final Stage Bull Gear / Bending Turntable (135T): lifts high in dramatic presentation
-            explodeOffset = { x: -280, y: 440, z: -380 };
+          } else if (name.includes('yg4-135')) {
+            // Final Stage Bull Gear / Turntable: Lifts high in +Y and shifts along -X
+            explodeOffset = { x: -260, y: 280, z: 0 };
             assignedMat = this.materials.gearSteel;
             partCategory = 'bullgear';
             this.rotors.turntableGroup.push(child);
-          } else if (name.includes('Channel') || name.includes('DTP')) {
-            // Base C-Channel structural frame remains anchored
+          } else if (name.includes('channel') || name.includes('dtp')) {
+            // Welded base C-channel frame: Anchored
             explodeOffset = { x: 0, y: 0, z: 0 };
             assignedMat = this.materials.frameSteel;
             partCategory = 'frame';
           } else if (name.includes('key')) {
-            // Drive Keys: lift out of keyways
-            explodeOffset = { x: 0, y: 260, z: 0 };
+            // Drive Keys: Elevate out of keyways
+            explodeOffset = { x: 0, y: 160, z: 0 };
             assignedMat = this.materials.hardwareZinc;
             partCategory = 'hardware';
-          } else if (name.includes('bolt') || name.includes('nut') || name.includes('washer') || name.includes('Spacer')) {
-            // M12 Bolts, Nuts & Retaining Washers: elevate
-            explodeOffset = { x: 0, y: 320, z: 0 };
+          } else if (name.includes('bolt') || name.includes('nut') || name.includes('washer') || name.includes('spacer') || name.includes('1_4-28')) {
+            // Fasteners and Retaining Endcaps
+            explodeOffset = { x: 0, y: 180, z: 0 };
             assignedMat = this.materials.hardwareZinc;
             partCategory = 'hardware';
           } else {
@@ -444,20 +448,13 @@ class RebarBenderCadViewer {
     });
 
     if (this.controls) {
-      // Dynamic camera tracking keeping the expanding powertrain perfectly framed
+      // Dynamic camera tracking keeping the expanding powertrain centered
       const baseTargetY = 560;
-      const explodedTargetY = 690;
+      const explodedTargetY = 620;
       const newTargetY = baseTargetY + (explodedTargetY - baseTargetY) * this.explodedFactor;
       const deltaY = newTargetY - this.controls.target.y;
       this.controls.target.y = newTargetY;
       this.camera.position.y += deltaY;
-
-      const baseDist = 2400;
-      const targetDist = 3300;
-      const desiredDist = baseDist + (targetDist - baseDist) * this.explodedFactor;
-      const offset = this.camera.position.clone().sub(this.controls.target);
-      offset.setLength(desiredDist);
-      this.camera.position.copy(this.controls.target).add(offset);
       this.controls.update();
     }
   }
@@ -544,21 +541,8 @@ class RebarBenderCadViewer {
 
   resetCamera() {
     if (this.controls) {
-      const baseTargetY = 560;
-      const explodedTargetY = 690;
-      const targetY = baseTargetY + (explodedTargetY - baseTargetY) * (this.explodedFactor || 0);
-
-      const baseDist = 2400;
-      const targetDist = 3300;
-      const dist = baseDist + (targetDist - baseDist) * (this.explodedFactor || 0);
-
-      // Isometric view vector
-      const normX = -1450 / 2410;
-      const normY = (1150 - 560) / 2410;
-      const normZ = 1550 / 2410;
-
-      this.controls.target.set(0, targetY, 0);
-      this.camera.position.set(normX * dist, targetY + normY * dist, normZ * dist);
+      this.controls.target.set(0, 560, 0);
+      this.camera.position.set(-1850, 1150, 1650);
       this.controls.update();
     }
   }
@@ -577,23 +561,24 @@ class RebarBenderCadViewer {
     }
 
     // Kinematic gear reduction rotation (proportional to 279.3:1 reduction ratios)
+    // All shafts run along world X axis
     if (this.isKinematicsRunning) {
       const baseMotorSpeed = 0.08;
-      const shaft2Speed = baseMotorSpeed / 3.111; // 280:90 V-Belt ratio
-      const shaft3Speed = -shaft2Speed / (99.0 / 22.0); // 99:22 spur reduction
-      const shaft4Speed = -shaft3Speed / (99.0 / 22.0); // 99:22 spur reduction
-      const bullSpeed = -shaft4Speed / (135.0 / 30.0);  // 135:30 bull gear reduction
+      const shaft2Speed = baseMotorSpeed / 3.111;              // 280:90 V-Belt ratio
+      const shaft3Speed = -shaft2Speed / (99.0 / 22.0);        // 99:22 spur reduction
+      const shaft4Speed = -shaft3Speed / (99.0 / 22.0);        // 99:22 spur reduction
+      const bullSpeed = -shaft4Speed / (135.0 / 30.0);         // 135:30 bull gear reduction
 
-      // Rotate motor & small pulley around X axis
-      this.rotors.motorGroup.forEach(m => { m.rotation.x += baseMotorSpeed; });
-      // Rotate shaft 2, driven pulley & pinion 1 around X axis
-      this.rotors.shaft2Group.forEach(m => { m.rotation.x += shaft2Speed; });
-      // Rotate shaft 3 & gears around X axis
-      this.rotors.shaft3Group.forEach(m => { m.rotation.x += shaft3Speed; });
-      // Rotate shaft 4 & gears around X axis
-      this.rotors.shaft4Group.forEach(m => { m.rotation.x += shaft4Speed; });
-      // Rotate final turntable bull gear around X axis
-      this.rotors.turntableGroup.forEach(m => { m.rotation.x += bullSpeed; });
+      // Rotate motor & small pulley around world X axis
+      this.rotors.motorGroup.forEach(m => { m.rotateOnWorldAxis(this.worldAxisX, baseMotorSpeed); });
+      // Rotate shaft 2, driven pulley & pinion 1 around world X axis
+      this.rotors.shaft2Group.forEach(m => { m.rotateOnWorldAxis(this.worldAxisX, shaft2Speed); });
+      // Rotate shaft 3 & intermediate gears around world X axis
+      this.rotors.shaft3Group.forEach(m => { m.rotateOnWorldAxis(this.worldAxisX, shaft3Speed); });
+      // Rotate shaft 4 & intermediate gears around world X axis
+      this.rotors.shaft4Group.forEach(m => { m.rotateOnWorldAxis(this.worldAxisX, shaft4Speed); });
+      // Rotate final turntable bull gear around world X axis
+      this.rotors.turntableGroup.forEach(m => { m.rotateOnWorldAxis(this.worldAxisX, bullSpeed); });
     }
 
     this.renderer.render(this.scene, this.camera);
