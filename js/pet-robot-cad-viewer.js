@@ -2,7 +2,7 @@
  * =========================================================================
  * SMART PET COMPANION ROBOT — INTERACTIVE 3D CAD VIEWER (THREE.JS / WEBGL)
  * Realistic Engineering Polymer / 3D Printed Satin Plastic PBR Shading
- * Real-time GLB assembly viewer with Exploded Views and Material Customization.
+ * Real-time GLB assembly viewer with Exploded Views and Material Customisation.
  * Supports in-memory parsing for 100% offline & file:/// execution.
  * =========================================================================
  */

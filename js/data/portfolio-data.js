@@ -17,7 +17,7 @@ const PORTFOLIO_DATA = {
     email: "alexander.ciz-yori25@imperial.ac.uk",
     shortEmail: "adc25@ic.ac.uk",
     location: "London, UK",
-    bio: "Second-year MEng Mechanical Engineering student at Imperial College London with hands-on experience in powertrain transmission design, precision mechanisms, custom CNC-routed PCB hardware, and competitive robotics. Experienced in bringing mechanical systems from first-principles analysis and SolidWorks/Fusion modeling to manufactured physical hardware and testing.",
+    bio: "Second-year MEng Mechanical Engineering student at Imperial College London with hands-on experience in powertrain transmission design, precision mechanisms, custom CNC-routed PCB hardware, and competitive robotics. Experienced in bringing mechanical systems from first-principles analysis and SolidWorks/Fusion modelling to manufactured physical hardware and testing.",
     highlights: [
       { label: "Degree", value: "MEng Mech Eng", sub: "Imperial College London" },
       { label: "VEX Robotics", value: "World Competitor", sub: "Dallas, TX (Over Under)" },
@@ -59,10 +59,10 @@ const PORTFOLIO_DATA = {
           "Standard metric gear modules (MOD 4) and SKF pillow block bearing housings.",
           "Produced fully dimensioned engineering drawings specifying ISO limits and fits and DIN keyway geometries."
         ],
-        engineeringProcess: "Synthesized the gear train reduction stages across intermediate stepped transmission shafts to balance torque multiplication and gear pitch diameters. Modeled the complete mechanical assembly in SolidWorks, integrating the SPA 2-groove V-belt pulley set, tensioner idler mechanism, MOD4 spur gears, SKF pillow block bearings, and a rigid welded structural steel C-channel frame bedplate.",
+        engineeringProcess: "Synthesized the gear train reduction stages across intermediate stepped transmission shafts to balance torque multiplication and gear pitch diameters. Modelled the complete mechanical assembly in SolidWorks, integrating the SPA 2-groove V-belt pulley set, tensioner idler mechanism, MOD4 spur gears, SKF pillow block bearings, and a rigid welded structural steel C-channel frame bedplate.",
         feaAnalysis: {
           software: "Analytical Shaft Torsion & Bending Sizing / AGMA Gear Standards",
-          meshElements: "Stepped shaft bending & torsional sizing across Shafts 1 to 5 with transition fillets (R2.5mm / R3.5mm) to minimize stress concentrations.",
+          meshElements: "Stepped shaft bending & torsional sizing across Shafts 1 to 5 with transition fillets (R2.5mm / R3.5mm) to minimise stress concentrations.",
           loadCases: "Continuous bending torque up to 5,103 N·m at 10.3 RPM across 4× 16mm rebar simultaneous bend.",
           maxStress: "Sized against maximum dynamic torsion and bending limits with specified minimum shaft diameters (Ø38mm to Ø60mm).",
           minFOS: "Engineered to satisfy minimum shaft diameter criteria (Shaft 4 sized to Ø50/55mm vs Ø50mm required).",
@@ -112,14 +112,14 @@ const PORTFOLIO_DATA = {
       ],
       tags: ["ESP32", "Arduino", "Autodesk Fusion", "Custom PCB Design", "CNC Routing", "3D Printing", "Mechatronics"],
       caseStudy: {
-        problemStatement: "Commercial pet monitoring cameras are stationary and lack interactive play capabilities. The goal was to engineer a mobile robot with live Wi-Fi video streaming, zero-radius holonomic agility, a centrifugal treat dispenser, and a motorized feather teaser.",
+        problemStatement: "Commercial pet monitoring cameras are stationary and lack interactive play capabilities. The goal was to engineer a mobile robot with live Wi-Fi video streaming, zero-radius holonomic agility, a centrifugal treat dispenser, and a motorised feather teaser.",
         designConstraints: [
           "Designed a modular 3D printed enclosure housing a holonomic X-drive, centrifugal treat launcher, ESP32 Wi-Fi camera with LED lighting, and a motorised feather teaser.",
           "Implemented a dual microcontroller architecture using serial communications to offload motor control and servo timing from the ESP32 to an Arduino Pro Mini.",
           "Integrated an ESP32 hosted web server for real time video streaming and remote control, generating control signals routed via PWM for motor drivers, and transistor switching circuits.",
           "Fabricated a custom PCB on a CNC router to house motor drivers, voltage regulators, and inter-board communications onto a single compact layout."
         ],
-        engineeringProcess: "Configured the kinematics for an X-drive chassis with four 45° offset omni wheels, allowing instantaneous translation in any direction while rotating. Designed the schematic and 2-layer PCB layout for motor drivers and voltage regulation, fabricating the board in-house on a desktop CNC router. Modeled the modular chassis, camera pan bracket, motorized feather teaser, and centrifugal treat-dispensing impeller in Autodesk Fusion.",
+        engineeringProcess: "Configured the kinematics for an X-drive chassis with four 45° offset omni wheels, allowing instantaneous translation in any direction while rotating. Designed the schematic and 2-layer PCB layout for motor drivers and voltage regulation, fabricating the board in-house on a desktop CNC router. Modelled the modular chassis, camera pan bracket, motorised feather teaser, and centrifugal treat-dispensing impeller in Autodesk Fusion.",
         feaAnalysis: {
           software: "Fusion CAD & Kinematics",
           meshElements: "Dynamic velocity vector resolution for 4-wheel vector drive.",
@@ -162,34 +162,34 @@ const PORTFOLIO_DATA = {
       pageUrl: "projects/vex-high-stakes.html",
       thumbnail: "assets/projects/vex-high-stakes.jpg",
       badge: "Current Generation System",
-      summary: "Developed a competition robot for the High Stakes game featuring a 6-motor 450 RPM drivetrain on 2.75\" omni wheels, a pneumatic mobile goal clamp, a chain conveyor ring intake with optical color sorting, and a geared articulated wall stake scoring arm.",
+      summary: "Developed a competition robot for the High Stakes game featuring a 6-motor 450 RPM drivetrain on 2.75\" omni wheels, a pneumatic mobile goal clamp, a chain conveyor ring intake with optical colour sorting, and a geared articulated wall stake scoring arm.",
       keyMetrics: [
         { label: "Drivetrain", value: "6-Motor 450 RPM (2.75\" Omnis)" },
         { label: "Goal Clamp", value: "Pneumatic Cylinder Latch" },
-        { label: "Intake System", value: "Chain Conveyor with Color Sort" },
+        { label: "Intake System", value: "Chain Conveyor with Colour Sort" },
         { label: "Wall Stake Arm", value: "Articulated Scorer Arm" }
       ],
       tags: ["VEX High Stakes", "450 RPM Drive", "Mobile Goal Clamp", "Ring Conveyor", "Wall Stake Arm", "Robotics"],
       caseStudy: {
         problemStatement: "The High Stakes game requires rapidly securing mobile goals on the move, ingesting rings from the field tiles into a continuous conveyor, stacking rings onto mobile goals, and scoring neutral wall stakes.",
         designConstraints: [
-          "High-speed 6-motor drivetrain agile enough for rapid cycle times and defense.",
+          "High-speed 6-motor drivetrain agile enough for rapid cycle times and defence.",
           "Reliable pneumatic mobile goal clamp securing goals firmly under high acceleration.",
           "Continuous chain conveyor to elevate rings smoothly onto mobile goal posts.",
           "Geared articulated arm with sufficient reach and positioning control to score wall stakes."
         ],
-        engineeringProcess: "Iterated through early season prototypes to establish a balanced meta architecture: configured an aggressive 450 RPM direct-geared base on 2.75\" omni wheels, optimized the intake entrance roller spacing for ring clearance, integrated an optical sensor along the chain conveyor for autonomous opposing-ring rejection, and tuned the articulated arm gear ratio.",
+        engineeringProcess: "Iterated through early season prototypes to establish a balanced meta architecture: configured an aggressive 450 RPM direct-geared base on 2.75\" omni wheels, optimised the intake entrance roller spacing for ring clearance, integrated an optical sensor along the chain conveyor for autonomous opposing-ring rejection, and tuned the articulated arm gear ratio.",
         feaAnalysis: {
           software: "Fusion CAD & Finite Element Simulation",
           meshElements: "Mobile goal clamp mounting brackets and drivetrain chassis rails.",
-          loadCases: "Dynamic shock loads during aggressive mobile goal clamping and defense.",
-          maxStress: "58 MPa on aluminum 6061-T6 clamp pivot mount (Yield: 276 MPa).",
+          loadCases: "Dynamic shock loads during aggressive mobile goal clamping and defence.",
+          maxStress: "58 MPa on aluminium 6061-T6 clamp pivot mount (Yield: 276 MPa).",
           minFOS: "4.75 under maximum pneumatic clamping shock.",
           deflection: "Under 0.25 mm deflection on clamp support plates."
         },
         manufacturing: {
           processes: [
-            "Precision CNC cut and custom drilled 6061 aluminum structure",
+            "Precision CNC cut and custom drilled 6061 aluminium structure",
             "High-strength gearing and chain sprocket transmission setup",
             "SMC pneumatic cylinder plumbing with solenoid control",
             "V5 optical sensor integration with real-time hue detection in C++"
@@ -234,7 +234,7 @@ const PORTFOLIO_DATA = {
           "Elastically tensioned, pneumatically deployed latching arm to elevate the robot 3ft.",
           "Pneumatic polycarbonate wings extending pushing span to 36 inches."
         ],
-        engineeringProcess: "Iterated through 3 major phases: initial pneumatic climb, followed by a mid-season motorized 4-bar lift (4-motor drive trade-off), an experimental rubber-banded PTO system, and finally a comprehensive Worlds major rebuild featuring a 6-motor sliding-gear PTO transmission driving a central spool winch.",
+        engineeringProcess: "Iterated through 3 major phases: initial pneumatic climb, followed by a mid-season motorised 4-bar lift (4-motor drive trade-off), an experimental rubber-banded PTO system, and finally a comprehensive Worlds major rebuild featuring a 6-motor sliding-gear PTO transmission driving a central spool winch.",
         feaAnalysis: {
           software: "Onshape CAD & Dynamics",
           meshElements: "Torsional barrier collision stress on polycarbonate wing pivot hinges.",
@@ -295,14 +295,14 @@ const PORTFOLIO_DATA = {
           software: "Autodesk Inventor / Onshape CAD",
           meshElements: "Dynamic moment analysis on high-speed shaft cantilever bearings.",
           loadCases: "Full speed match collisions and high-RPM flywheel gyroscopic forces.",
-          maxStress: "Maintained within structural aluminum extrusion yield limits.",
+          maxStress: "Maintained within structural aluminium extrusion yield limits.",
           minFOS: "> 2.5",
           deflection: "Flywheel backing plate deflection under 0.2mm to preserve launch compression."
         },
         manufacturing: {
           processes: [
             "Precision custom polycarbonate machining and heat forming",
-            "Aluminum C-channel precision squaring and custom axle turning",
+            "Aluminium C-channel precision squaring and custom axle turning",
             "C++ autonomous coding and closed-loop velocity PID motor tuning"
           ],
           bom: [
@@ -342,21 +342,21 @@ const PORTFOLIO_DATA = {
         designConstraints: [
           "18-inch x 18-inch starting footprint expanding dynamically in match play.",
           "High-torque lift capable of elevating 1.5 kg neutral mobile goals onto the balanced platform.",
-          "Rapid-cycle rear pneumatic clamp to retain alliance mobile goals under heavy pushing defense.",
+          "Rapid-cycle rear pneumatic clamp to retain alliance mobile goals under heavy pushing defence.",
           "High-traction ring intake with jam-clearing bi-directional reverse."
         ],
-        engineeringProcess: "Early season relied on a motorized lead-screw clamp. For the National Championship, executed a major chassis rebuild after acquiring pneumatic cylinders, swapping the motorized clamp for dual single-acting toggle cylinders. This cut clamp time to under 0.15s, eliminated motor thermal throttling, and freed motor power for the front 4-bar linkage lift.",
+        engineeringProcess: "Early season relied on a motorised lead-screw clamp. For the National Championship, executed a major chassis rebuild after acquiring pneumatic cylinders, swapping the motorised clamp for dual single-acting toggle cylinders. This cut clamp time to under 0.15s, eliminated motor thermal throttling, and freed motor power for the front 4-bar linkage lift.",
         feaAnalysis: {
           software: "Onshape CAD & Kinematics",
           meshElements: "Dynamic moment distribution across 4-bar pivot axles under cantilevered goal load.",
           loadCases: "Platform climb impact shock and 25 N defensive side loads.",
-          maxStress: "112 MPa on primary aluminum 4-bar lift c-channels (Yield: 240 MPa).",
+          maxStress: "112 MPa on primary aluminium 4-bar lift c-channels (Yield: 240 MPa).",
           minFOS: "2.14 under dynamic shock load.",
-          deflection: "Under 1.2 mm lateral arm sway during full extension."
+          deflection: "Under 1.2 mm lateral arm sway during full extension.",
         },
         manufacturing: {
           processes: [
-            "Precision aluminum C-channel structural cutting and squaring",
+            "Precision aluminium C-channel structural cutting and squaring",
             "Delrin bushing precision reaming and low-friction shoulder bolt pivots",
             "Pneumatic tubing routing with high-flow solenoid manifold",
             "C++ autonomous pathing routines with optical shaft encoder odometry"
@@ -381,9 +381,9 @@ const PORTFOLIO_DATA = {
       category: "CAD & Software",
       items: [
         { name: "SolidWorks", desc: "Detailed mechanical design, stepped transmission shafts, spur gear assemblies, 2D engineering drawings with ISO limits and fits and keyway geometries." },
-        { name: "Autodesk Fusion", desc: "Parametric 3D solid modeling, modular enclosures, treat shooting mechanisms, 3D printing CAM." },
-        { name: "Autodesk Inventor", desc: "Kinematic mechanism assemblies, dynamic stress modeling, structural C-channel frames." },
-        { name: "Onshape", desc: "Cloud CAD collaboration, multi-part studio modeling, revision management." },
+        { name: "Autodesk Fusion", desc: "Parametric 3D solid modelling, modular enclosures, treat shooting mechanisms, 3D printing CAM." },
+        { name: "Autodesk Inventor", desc: "Kinematic mechanism assemblies, dynamic stress modelling, structural C-channel frames." },
+        { name: "Onshape", desc: "Cloud CAD collaboration, multi-part studio modelling, revision management." },
         { name: "Python & Arduino IDE", desc: "Data analysis, scientific computing, embedded C/C++ firmware, serial communications, motor PID tuning." }
       ]
     },
@@ -398,7 +398,7 @@ const PORTFOLIO_DATA = {
     {
       category: "Manufacturing & Prototyping",
       items: [
-        { name: "3D Printing (FDM / SLA)", desc: "Modular PLA/PETG/TPU mechanical enclosures, compliant intake fingers, slicer optimization, infill patterning." },
+        { name: "3D Printing (FDM / SLA)", desc: "Modular PLA/PETG/TPU mechanical enclosures, compliant intake fingers, slicer optimisation, infill patterning." },
         { name: "CNC Routing", desc: "In-house desktop CNC isolation milling for custom PCBs, acrylic optical diffusers, and polycarbonate panels." },
         { name: "Laser Cutting", desc: "Precision laser cutting of acrylic optical diffusers and custom enclosures for modular LED displays." },
         { name: "Component Soldering & Assembly", desc: "Component-level through-hole (THT) and surface-mount soldering, wiring harnesses, benchtop testing." },
