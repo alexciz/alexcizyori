@@ -247,129 +247,264 @@ class RebarBenderCadViewer {
         if (child.isMesh) {
           const name = ((child.name || '') + ' ' + (child.geometry && child.geometry.name ? child.geometry.name : '')).toLowerCase();
           const origPos = child.position.clone();
+          const tx = origPos.x;
+          const ty = origPos.y;
+          const tz = origPos.z;
 
           let explodeOffset = { x: 0, y: 0, z: 0 };
           let assignedMat = this.materials.frameSteel;
           let partCategory = 'frame';
 
-          // Component Classification & 4-Stage Explosion Offsets
-          if (name.includes('132s')) {
-            // 5.5 kW Electric Motor: Slides rearward (+Z) out of frame
-            explodeOffset = { x: 0, y: 0, z: 320 };
+          // 1. Frame C-Channels & Deck Plate (C-channels explode outward)
+          if (name.includes('channel100_3')) {
+            // Lower right bearing support C-channel: explodes +X
+            explodeOffset = { x: 250, y: 0, z: 0 };
+            assignedMat = this.materials.frameSteel;
+            partCategory = 'frame';
+          } else if (name.includes('channel4')) {
+            // Lower left bearing support C-channel: explodes -X
+            explodeOffset = { x: -180, y: 0, z: 0 };
+            assignedMat = this.materials.frameSteel;
+            partCategory = 'frame';
+          } else if (name.includes('channel100_1')) {
+            // Upper right bearing support C-channel: explodes +X
+            explodeOffset = { x: 180, y: 0, z: 0 };
+            assignedMat = this.materials.frameSteel;
+            partCategory = 'frame';
+          } else if (name.includes('channel2')) {
+            // Upper left bearing support C-channel: explodes -X
+            explodeOffset = { x: -250, y: 0, z: 0 };
+            assignedMat = this.materials.frameSteel;
+            partCategory = 'frame';
+          } else if (name.includes('channel100_4')) {
+            // Front lower cross C-channel: explodes +Z
+            explodeOffset = { x: 0, y: 0, z: 220 };
+            assignedMat = this.materials.frameSteel;
+            partCategory = 'frame';
+          } else if (name.includes('channel100_2')) {
+            // Rear lower cross C-channel: explodes -Z
+            explodeOffset = { x: 0, y: 0, z: -220 };
+            assignedMat = this.materials.frameSteel;
+            partCategory = 'frame';
+          } else if (name.includes('channelleg_1')) {
+            // Front-left leg C-channel
+            explodeOffset = { x: -140, y: 0, z: 180 };
+            assignedMat = this.materials.frameSteel;
+            partCategory = 'frame';
+          } else if (name.includes('channelleg_2')) {
+            // Front-right leg C-channel
+            explodeOffset = { x: 140, y: 0, z: 180 };
+            assignedMat = this.materials.frameSteel;
+            partCategory = 'frame';
+          } else if (name.includes('channel1') && !name.includes('100')) {
+            // Rear-left leg C-channel
+            explodeOffset = { x: -140, y: 0, z: -180 };
+            assignedMat = this.materials.frameSteel;
+            partCategory = 'frame';
+          } else if (name.includes('channelleg')) {
+            // Rear-right leg C-channel
+            explodeOffset = { x: 140, y: 0, z: -180 };
+            assignedMat = this.materials.frameSteel;
+            partCategory = 'frame';
+          } else if (name.includes('channel5')) {
+            // Upper front cross C-channel
+            explodeOffset = { x: 0, y: 100, z: 180 };
+            assignedMat = this.materials.frameSteel;
+            partCategory = 'frame';
+          } else if (name.includes('channel_1')) {
+            // Upper right tie C-channel
+            explodeOffset = { x: 180, y: 100, z: 0 };
+            assignedMat = this.materials.frameSteel;
+            partCategory = 'frame';
+          } else if (name.trim() === 'channel') {
+            // Upper left tie C-channel
+            explodeOffset = { x: -180, y: 100, z: 0 };
+            assignedMat = this.materials.frameSteel;
+            partCategory = 'frame';
+          } else if (name.includes('dtp')) {
+            // Top turntable deck plate
+            explodeOffset = { x: 0, y: 320, z: 0 };
+            assignedMat = this.materials.frameSteel;
+            partCategory = 'frame';
+
+          // 2. Bearings, Bearing Bolts, Nuts, Spacers & Grease Fittings
+          // All remain rigidly attached to their respective mounting C-channels!
+          } else if (
+            (Math.abs(tx - (-290.07)) < 8 && ty > 400) &&
+            (name.includes('housingsy') || name.includes('yar 211') || name.includes('55-100') || name.includes('1_4-28') || name.includes('bolt') || name.includes('nut'))
+          ) {
+            // Shaft 4 Left Bearing Assembly -> mounted on Channel2
+            explodeOffset = { x: -250, y: 0, z: 0 }; // Exactly matches Channel2
+            assignedMat = name.includes('housingsy') ? this.materials.bearingHousing : this.materials.hardwareZinc;
+            partCategory = (name.includes('housingsy') || name.includes('yar') || name.includes('55-100')) ? 'bearing' : 'hardware';
+          } else if (
+            (Math.abs(tx - (-157.17)) < 8 && ty > 400) &&
+            (name.includes('housingsy') || name.includes('yar 211') || name.includes('55-100') || name.includes('1_4-28') || name.includes('bolt') || name.includes('nut'))
+          ) {
+            // Shaft 4 Right Bearing Assembly -> mounted on Channel100_1
+            explodeOffset = { x: 180, y: 0, z: 0 }; // Exactly matches Channel100_1
+            assignedMat = name.includes('housingsy') ? this.materials.bearingHousing : this.materials.hardwareZinc;
+            partCategory = (name.includes('housingsy') || name.includes('yar') || name.includes('55-100')) ? 'bearing' : 'hardware';
+          } else if (
+            ((Math.abs(tx - 203.45) < 8 || Math.abs(tx - 198.05) < 8) && ty < 380) &&
+            (name.includes('housingsy') || name.includes('yet 209') || name.includes('yel 210') || name.includes('45-85') || name.includes('50-90') || name.includes('1_4-28') || name.includes('spacer') || name.includes('bolt') || name.includes('nut'))
+          ) {
+            // Shaft 2 & 3 Right Bearing Assemblies -> mounted on Channel100_3
+            explodeOffset = { x: 250, y: 0, z: 0 }; // Exactly matches Channel100_3
+            assignedMat = name.includes('housingsy') ? this.materials.bearingHousing : this.materials.hardwareZinc;
+            partCategory = (name.includes('housingsy') || name.includes('yet') || name.includes('yel') || name.includes('45-85') || name.includes('50-90')) ? 'bearing' : 'hardware';
+          } else if (
+            ((Math.abs(tx - 22.95) < 8 || Math.abs(tx - 16.35) < 8) && ty < 380) &&
+            (name.includes('housingsy') || name.includes('yet 209') || name.includes('yel 210') || name.includes('45-85') || name.includes('50-90') || name.includes('1_4-28') || name.includes('spacer') || name.includes('bolt') || name.includes('nut'))
+          ) {
+            // Shaft 2 & 3 Left Bearing Assemblies -> mounted on Channel4
+            explodeOffset = { x: -180, y: 0, z: 0 }; // Exactly matches Channel4
+            assignedMat = name.includes('housingsy') ? this.materials.bearingHousing : this.materials.hardwareZinc;
+            partCategory = (name.includes('housingsy') || name.includes('yet') || name.includes('yel') || name.includes('45-85') || name.includes('50-90')) ? 'bearing' : 'hardware';
+
+          // 3. Motor & Belt Drive Components
+          } else if (name.includes('132s')) {
+            // 5.5 kW Electric Motor
+            explodeOffset = { x: 0, y: 0, z: 300 };
             assignedMat = this.materials.motorHousing;
             partCategory = 'motor';
-            this.rotors.motorGroup.push(child);
           } else if (name.includes('spa-a902')) {
-            // Motor Input Pulley: Slides rearward with motor (+Z) and outward along shaft (-X)
-            explodeOffset = { x: -220, y: 0, z: 320 };
+            // Motor Input Pulley
+            explodeOffset = { x: -200, y: 0, z: 300 };
             assignedMat = this.materials.pulleyCast;
             partCategory = 'pulley';
             this.rotors.motorGroup.push(child);
           } else if (name.includes('bushing_1610')) {
-            // Motor Taper Bush: Slides with motor pulley
-            explodeOffset = { x: -270, y: 0, z: 320 };
+            // Motor Taper Bush
+            explodeOffset = { x: -250, y: 0, z: 300 };
             assignedMat = this.materials.hardwareZinc;
             partCategory = 'hardware';
           } else if (name.includes('06_011') || name.includes('06_580') || name.includes('tensioner')) {
-            // SE38 Tensioner Arm & Roller
-            explodeOffset = { x: -240, y: 140, z: 80 };
+            // SE38 Rubber Tensioner Unit & Roller
+            explodeOffset = { x: -220, y: 120, z: 160 };
             assignedMat = this.materials.tensioner;
             partCategory = 'tensioner';
+          } else if ((name.includes('hex bolt') || name.includes('nut_din')) && tz > 250) {
+            // Motor mounting bolts & nuts
+            explodeOffset = { x: 0, y: 0, z: 300 };
+            assignedMat = this.materials.hardwareZinc;
+            partCategory = 'hardware';
+
+          // 4. Shaft 2 & mounted parts (Tz ≈ 87, Ty ≈ 272.5) -> Explodes forward (+Z) & along X
+          } else if (name.includes('shaft2')) {
+            explodeOffset = { x: 0, y: 0, z: 120 };
+            assignedMat = this.materials.shaftSteel;
+            partCategory = 'shaft';
+            this.rotors.shaft2Group.push(child);
           } else if (name.includes('spa-a2802')) {
-            // Driven V-Belt Pulley: Slides outward along Shaft 2 (-X)
-            explodeOffset = { x: -280, y: 0, z: 0 };
+            explodeOffset = { x: -280, y: 0, z: 120 };
             assignedMat = this.materials.pulleyCast;
             partCategory = 'pulley';
             this.rotors.shaft2Group.push(child);
           } else if (name.includes('bushing_2517')) {
-            // Pulley 2517 Taper Bush
-            explodeOffset = { x: -330, y: 0, z: 0 };
+            explodeOffset = { x: -330, y: 0, z: 120 };
             assignedMat = this.materials.hardwareZinc;
             partCategory = 'hardware';
-          } else if (name.includes('shaft2')) {
-            // First Intermediate Shaft
-            explodeOffset = { x: 120, y: 0, z: 0 };
-            assignedMat = this.materials.shaftSteel;
-            partCategory = 'shaft';
-            this.rotors.shaft2Group.push(child);
           } else if (name.includes('yg4-22_40mm')) {
-            // Stage 1 Pinion (22T) on Shaft 2: Slides along +X
-            explodeOffset = { x: 220, y: 0, z: 0 };
+            explodeOffset = { x: 200, y: 0, z: 120 };
             assignedMat = this.materials.gearSteel;
             partCategory = 'gear';
             this.rotors.shaft2Group.push(child);
-          } else if (name.includes('housingsy 509') || name.includes('yet 209') || name.includes('45-85')) {
-            // SKF SY 45 Pillow Blocks (Shaft 2)
-            explodeOffset = { x: 260, y: 0, z: 0 };
-            assignedMat = this.materials.bearingHousing;
-            partCategory = 'bearing';
+          } else if (name.trim() === '14x9x56 key' && tz > 0) {
+            explodeOffset = { x: 180, y: 40, z: 120 };
+            assignedMat = this.materials.hardwareZinc;
+            partCategory = 'hardware';
+          } else if (name.includes('12x8x35 key')) {
+            explodeOffset = { x: -220, y: 40, z: 120 };
+            assignedMat = this.materials.hardwareZinc;
+            partCategory = 'hardware';
+          } else if (name.includes('endcap washer_2') || (name.includes('hex bolt') && Math.abs(tz - 87) < 5 && tx > 300)) {
+            explodeOffset = { x: 270, y: 0, z: 120 };
+            assignedMat = this.materials.hardwareZinc;
+            partCategory = 'hardware';
+
+          // 5. Shaft 3 & mounted parts (Tz ≈ -155, Ty ≈ 272.5) -> Explodes downward (-Y) & along X
           } else if (name.includes('shaft3')) {
-            // Second Intermediate Shaft: Drops slightly to separate gear train levels
-            explodeOffset = { x: 80, y: -100, z: 0 };
+            explodeOffset = { x: 0, y: -140, z: -40 };
             assignedMat = this.materials.shaftSteel;
             partCategory = 'shaft';
             this.rotors.shaft3Group.push(child);
           } else if (name.includes('yg4-99') && !name.includes('50mm')) {
-            // Stage 1 Driven Gear (99T) on Shaft 3: Slides along +X
-            explodeOffset = { x: 240, y: -100, z: 0 };
+            explodeOffset = { x: 200, y: -140, z: -40 };
             assignedMat = this.materials.gearSteel;
             partCategory = 'gear';
             this.rotors.shaft3Group.push(child);
           } else if (name.includes('yg4-22') && !name.includes('40mm')) {
-            // Stage 2 Pinion (22T) on Shaft 3: Slides along -X
-            explodeOffset = { x: -180, y: -100, z: 0 };
+            explodeOffset = { x: -180, y: -140, z: -40 };
             assignedMat = this.materials.gearSteel;
             partCategory = 'gear';
             this.rotors.shaft3Group.push(child);
-          } else if (name.includes('housingsy 510') || name.includes('yel 210') || name.includes('50-90')) {
-            // SKF SY 50 Pillow Blocks (Shaft 3)
-            explodeOffset = { x: 280, y: -100, z: 0 };
-            assignedMat = this.materials.bearingHousing;
-            partCategory = 'bearing';
+          } else if (name.includes('14x9x56 key_4')) {
+            explodeOffset = { x: 180, y: -100, z: -40 };
+            assignedMat = this.materials.hardwareZinc;
+            partCategory = 'hardware';
+          } else if (name.includes('14x9x56 key_2')) {
+            explodeOffset = { x: -160, y: -100, z: -40 };
+            assignedMat = this.materials.hardwareZinc;
+            partCategory = 'hardware';
+          } else if (name.includes('endcap washer_3') || (name.includes('hex bolt') && Math.abs(tz - (-155)) < 5 && tx > 300 && ty < 350)) {
+            explodeOffset = { x: 270, y: -140, z: -40 };
+            assignedMat = this.materials.hardwareZinc;
+            partCategory = 'hardware';
+          } else if (name.includes('endcap washer_1') || (name.includes('hex bolt') && Math.abs(tz - (-155)) < 5 && tx < -80 && ty < 350)) {
+            explodeOffset = { x: -250, y: -140, z: -40 };
+            assignedMat = this.materials.hardwareZinc;
+            partCategory = 'hardware';
+
+          // 6. Shaft 4 & mounted parts (Tz ≈ -153, Ty ≈ 514.5) -> Explodes upward (+Y) & along X
           } else if (name.includes('shaft4')) {
-            // Shaft 4: Lifts vertically (+Y)
-            explodeOffset = { x: 0, y: 120, z: 0 };
+            explodeOffset = { x: 0, y: 140, z: 0 };
             assignedMat = this.materials.shaftSteel;
             partCategory = 'shaft';
             this.rotors.shaft4Group.push(child);
-          } else if (name.includes('yg4-99 - 50mm') || (name.includes('yg4-99') && name.includes('50mm'))) {
-            // Stage 2 Driven Gear (99T) on Shaft 4: Slides along +X and lifts
-            explodeOffset = { x: 180, y: 120, z: 0 };
+          } else if (name.includes('yg4-99 - 50mm')) {
+            explodeOffset = { x: 180, y: 140, z: 0 };
             assignedMat = this.materials.gearSteel;
             partCategory = 'gear';
             this.rotors.shaft4Group.push(child);
-          } else if (name.includes('yh4-30') || (name.includes('30') && name.includes('fixed'))) {
-            // Stage 3 Pinion (30T) on Shaft 4: Slides along -X and lifts
-            explodeOffset = { x: -220, y: 120, z: 0 };
+          } else if (name.includes('yh4-30 fixed')) {
+            explodeOffset = { x: -200, y: 140, z: 0 };
             assignedMat = this.materials.gearSteel;
             partCategory = 'gear';
             this.rotors.shaft4Group.push(child);
-          } else if (name.includes('housingsy 511') || name.includes('yar 211') || name.includes('55-100')) {
-            // SKF SY 55 Pillow Blocks (Shaft 4)
-            explodeOffset = { x: 260, y: 120, z: 0 };
-            assignedMat = this.materials.bearingHousing;
-            partCategory = 'bearing';
+          } else if (name.includes('14x9x56 key_1')) {
+            explodeOffset = { x: 150, y: 180, z: 0 };
+            assignedMat = this.materials.hardwareZinc;
+            partCategory = 'hardware';
+          } else if (name.includes('14x9x56 key_3')) {
+            explodeOffset = { x: -170, y: 180, z: 0 };
+            assignedMat = this.materials.hardwareZinc;
+            partCategory = 'hardware';
+          } else if (name.includes('endcap washer_4') || (name.includes('hex bolt') && Math.abs(tz - (-153)) < 5 && tx > -50 && ty > 450 && ty < 600)) {
+            explodeOffset = { x: 250, y: 140, z: 0 };
+            assignedMat = this.materials.hardwareZinc;
+            partCategory = 'hardware';
+          } else if ((name.includes('endcap washer') && !name.includes('washer_')) || (name.includes('hex bolt') && Math.abs(tz - (-153)) < 5 && tx < -350 && ty > 450 && ty < 600)) {
+            explodeOffset = { x: -270, y: 140, z: 0 };
+            assignedMat = this.materials.hardwareZinc;
+            partCategory = 'hardware';
+
+          // 7. Final Stage Bull Gear / Turntable (Ty ≈ 847) -> Lifts high in +Y
           } else if (name.includes('yg4-135')) {
-            // Final Stage Bull Gear / Turntable: Lifts high in +Y and shifts along -X
-            explodeOffset = { x: -260, y: 280, z: 0 };
+            explodeOffset = { x: -60, y: 280, z: 0 };
             assignedMat = this.materials.gearSteel;
             partCategory = 'bullgear';
             this.rotors.turntableGroup.push(child);
-          } else if (name.includes('channel') || name.includes('dtp')) {
-            // Welded base C-channel frame: Anchored
-            explodeOffset = { x: 0, y: 0, z: 0 };
-            assignedMat = this.materials.frameSteel;
-            partCategory = 'frame';
-          } else if (name.includes('key')) {
-            // Drive Keys: Elevate out of keyways
-            explodeOffset = { x: 0, y: 160, z: 0 };
+          } else if (name.includes('18x11x56 key')) {
+            explodeOffset = { x: -60, y: 310, z: 0 };
             assignedMat = this.materials.hardwareZinc;
             partCategory = 'hardware';
-          } else if (name.includes('bolt') || name.includes('nut') || name.includes('washer') || name.includes('spacer') || name.includes('1_4-28')) {
-            // Fasteners and Retaining Endcaps
-            explodeOffset = { x: 0, y: 180, z: 0 };
+          } else if (name.includes('bigger endcap washer') || (name.includes('hex bolt') && ty > 700)) {
+            explodeOffset = { x: -60, y: 340, z: 0 };
             assignedMat = this.materials.hardwareZinc;
             partCategory = 'hardware';
+
+          // 8. Fallback
           } else {
             explodeOffset = { x: 0, y: 0, z: 0 };
             assignedMat = this.materials.frameSteel;
