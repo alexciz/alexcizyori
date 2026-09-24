@@ -94,7 +94,7 @@ const PORTFOLIO_DATA = {
     },
     {
       id: "smart-pet-companion-robot",
-      title: "Smart Pet Companion Robot (ESP32 & X-Drive)",
+      title: "Smart Pet Companion Robot",
       subtitle: "Mechatronics, PCB Design & Additive Manufacturing",
       category: "robotics",
       categoryLabel: "Robotics & Mechatronics",
