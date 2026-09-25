@@ -100,7 +100,7 @@
         </div>
         <div class="project-meta-item">
           <span>TOOLS:</span>
-          <strong>SolidWorks, AGMA/ISO 6336, Lathe Turning, MIG Welding</strong>
+          <strong>SolidWorks, Lathe Turning, MIG Welding</strong>
         </div>
       </div>
     </div>
@@ -273,7 +273,7 @@
         <div>
           <h3 style="font-size:1.1rem; margin-bottom:0.75rem">Gear &amp; Shaft Mechanics</h3>
           <p class="case-text">
-            Using AGMA and ISO gear formulations, bending stress and surface durability were evaluated across all stages. The final output shaft experiences <strong>5,103 N·m</strong> of design torque at <strong>10.3 RPM</strong> to deliver the required force to simultaneously bend 4× 16 mm rebars.
+            The final output shaft delivers <strong>5,103 N·m</strong> of design torque at <strong>10.3 RPM</strong> to simultaneously bend 4× 16 mm rebars.
           </p>
           <p class="case-text">
             Intermediate and output shafts were stepped from solid bar stock with generous transitional fillet radii (R2.5 mm / R3.5 mm) to mitigate stress concentrations. Shaft 4 was detailed and dimensioned using <strong>AISI 4140 HT Steel</strong>, specifying precision bearing journals (&Oslash;50 h7, &Oslash;55 k6, &Oslash;55 g6) and DIN 6885 P9 keyways.
@@ -357,7 +357,7 @@
       <h2 class="case-section-title">Manufacturing Routing &amp; Bill of Materials</h2>
 
       <p class="case-text">
-        Complete manufacturing routing plans were produced detailing machining operations, machine tool selection, cutting tools, feeds/speeds, and tolerance callouts:
+        Manufacturing routing plans and assembly sequences were produced detailing components, features, machine tools, and manufacturing operations:
       </p>
 
       <!-- DFM Operations Routing & 5-Step Assembly Sequence -->
@@ -477,18 +477,7 @@
       </div>
     </section>
 
-    <!-- 05 Lessons Learned -->
-    <section class="case-section">
-      <span class="case-section-kicker">05 — Engineering Lessons</span>
-      <h2 class="case-section-title">Critical Lessons &amp; Key Takeaways</h2>
 
-      <div class="case-callout-box">
-        <div class="case-callout-title">KEY DESIGN ITERATION: KEYWAY BEARING STRESS UNDER CYCLIC LOAD</div>
-        <p class="case-text" style="color:var(--text-primary); margin-bottom:0;">
-          The initial revision used a single parallel keyway on the final high-torque shaft. Analytical bearing stress calculations revealed compressive stresses on the key flank exceeding 220 MPa under sudden shock stall loads. <strong>Redesigned the final stage with dual 180° opposed parallel keys and increased the shaft shoulder transition radius from 1.5mm to 3.5mm</strong>, reducing localized notch stress concentration by 42% and eliminating long-term fretting fatigue risk.
-        </p>
-      </div>
-    </section>
 
         <!-- Project Bottom Navigation Buttons -->
     <div class="project-bottom-nav">
@@ -527,9 +516,9 @@
   </footer>
 
   <!-- Scripts -->
-  <script src="../js/data/portfolio-data.js"></script>
+  <script src="../js/data/portfolio-data.js?v=9"></script>
   <script src="../js/data/rebar-bender-model-data.js?v=4"></script>
-  <script src="../js/app.js"></script>
+  <script src="../js/app.js?v=3"></script>
   <script src="../js/rebar-bender-cad-viewer.js?v=4"></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {

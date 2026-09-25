@@ -61,7 +61,7 @@ const PORTFOLIO_DATA = {
         ],
         engineeringProcess: "Synthesized the gear train reduction stages across intermediate stepped transmission shafts to balance torque multiplication and gear pitch diameters. Modelled the complete mechanical assembly in SolidWorks, integrating the SPA 2-groove V-belt pulley set, tensioner idler mechanism, MOD4 spur gears, SKF pillow block bearings, and a rigid welded structural steel C-channel frame bedplate.",
         feaAnalysis: {
-          software: "Analytical Shaft Torsion & Bending Sizing / AGMA Gear Standards",
+          software: "Analytical Shaft Torsion & Bending Sizing",
           meshElements: "Stepped shaft bending & torsional sizing across Shafts 1 to 5 with transition fillets (R2.5mm / R3.5mm) to minimise stress concentrations.",
           loadCases: "Continuous bending torque up to 5,103 N·m at 10.3 RPM across 4× 16mm rebar simultaneous bend.",
           maxStress: "Sized against maximum dynamic torsion and bending limits with specified minimum shaft diameters (Ø38mm to Ø60mm).",
@@ -84,8 +84,8 @@ const PORTFOLIO_DATA = {
             { item: "Welded Base Frame", material: "Structural C-Channel Steel", qty: 1, unitCost: "£180.00" }
           ]
         },
-        testingValidation: "Verified 283.5:1 reduction kinematics analytically and through motion simulations. Generated complete manufacturing routing plans and 2D workshop drawings with full geometric tolerancing.",
-        lessonsLearned: "Initial single-keyway design on the final high-torque shaft had excessive bearing stress along the keyway flank. Swapped to dual 180° staggered parallel keys with increased shaft shoulder fillet radii, reducing localized peak stress by 42% and eliminating fretting risk.",
+        testingValidation: "Verified 283.5:1 reduction kinematics analytically and through motion simulations. Generated manufacturing routing plans, assembly sequences, and 2D workshop drawings with full geometric tolerancing.",
+        lessonsLearned: "Designed stepped shafts with generous transitional fillets to mitigate stress concentrations, and integrated custom recessed endcaps to absorb cumulative axial tolerance stacks across the assembly.",
         downloads: [
           { name: "Full SolidWorks CAD Assembly (STEP)", type: "cad", url: "#cad-rebar-bender" },
           { name: "Manufacturing Routing Plan & Drawings (PDF)", type: "pdf", url: "#pdf-routing-plan" }
