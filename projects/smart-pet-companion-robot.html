@@ -359,7 +359,7 @@
       <div class="case-callout-box">
         <div class="case-callout-title">MICROCONTROLLER TIMING JITTER &amp; WI-FI LATENCY</div>
         <p class="case-text" style="color:var(--text-primary); margin-bottom:0;">
-          The system was designed from the outset with a dual-microcontroller architecture—the ESP32 dedicated to Wi-Fi video streaming and web serving, and an Arduino Pro Mini handling real-time motor control and kinematics. Despite this hardware separation, <strong>Wi-Fi packet latency, frame buffer contention, and asynchronous UART transmission still introduce intermittent command jitter and motor stutter during teleoperation</strong>. Resolving this persistent jitter remains an active area of investigation, requiring fixed-rate command queueing, watchdog timeouts, or deterministic packet protocols to smooth motion during network lag.
+          The system was designed from the outset with a dual-microcontroller architecture—the ESP32 dedicated to Wi-Fi video streaming and web serving, and an Arduino Pro Mini handling real-time motor control and kinematics. Despite this hardware separation, <strong>Wi-Fi packet latency and frame buffer contention still introduce intermittent command jitter and motor stutter during teleoperation</strong>. Resolving this persistent jitter remains an active area of investigation, requiring fixed-rate command queueing, watchdog timeouts, or deterministic packet protocols to smooth motion during network lag.
         </p>
       </div>
     </section>
