@@ -259,16 +259,25 @@
 
       <div class="case-split equal">
         <div>
-          <h3 style="font-size:1.1rem; margin-bottom:0.75rem">Inverse Kinematics of 4-Wheel X-Drive</h3>
+          <h3 style="font-size:1.1rem; margin-bottom:0.75rem">Holonomic Kinematics &amp; Velocity Decomposition</h3>
           <p class="case-text">
-            The four 48mm rubber-roller omni wheels are arranged at 90° intervals (45° offset to chassis axes). The motor velocity vector equations for planar translation \((V_x, V_y)\) and rotation \(\omega\) are resolved in real-time on the Arduino microcontroller:
+            The drivetrain employs four 48 mm double-row rubber-roller omni wheels mounted at 90° intervals along the perimeter of the circular chassis plate, offset at 45° to the robot's primary coordinate axes. This orthogonal arrangement decouples planar translation \((V_x, V_y)\) from chassis yaw rotation \((\omega)\), allowing simultaneous 3-DOF planar motion (holonomic mobility with zero turning radius).
           </p>
-          <div style="background:var(--bg-secondary); border:1px solid var(--border-color); border-radius:var(--radius-sm); padding:1rem; font-family:var(--font-mono); font-size:0.82rem; margin-bottom:1rem;">
-            V_FL = (V_x · cos(45°) + V_y · sin(45°) + ω · R)<br>
-            V_FR = (-V_x · sin(45°) + V_y · cos(45°) + ω · R)<br>
-            V_BL = (V_x · sin(45°) - V_y · cos(45°) + ω · R)<br>
-            V_BR = (-V_x · cos(45°) - V_y · sin(45°) + ω · R)
+          <p class="case-text">
+            For each wheel \(i\) located at radius \(R\) from the chassis geometric centre with heading angle \(\theta_i \in \{45^\circ, 135^\circ, 225^\circ, 315^\circ\}\), the required wheel ground velocity \(v_i\) is resolved by projecting the body velocity vector onto the wheel's drive direction:
+          </p>
+          <div style="background:var(--bg-secondary); border:1px solid var(--border-color); border-radius:var(--radius-sm); padding:1rem; font-family:var(--font-mono); font-size:0.82rem; margin-bottom:1rem; line-height:1.6;">
+            <strong>Inverse Kinematics Formulation:</strong><br>
+            v_i = -V_x · sin(θ_i) + V_y · cos(θ_i) + ω · R<br><br>
+            <strong>Resolved Motor Velocities:</strong><br>
+            V_1 (FL, 45°)  = -0.7071 · V_x + 0.7071 · V_y + ω · R<br>
+            V_2 (FR, 135°) = -0.7071 · V_x - 0.7071 · V_y + ω · R<br>
+            V_3 (BR, 225°) =  0.7071 · V_x - 0.7071 · V_y + ω · R<br>
+            V_4 (BL, 315°) =  0.7071 · V_x + 0.7071 · V_y + ω · R
           </div>
+          <p class="case-text">
+            The target wheel velocities are normalized in firmware to prevent actuator saturation whenever the combined translational and rotational vectors exceed the maximum motor RPM, scaling all outputs proportionally to maintain true directional trajectory heading.
+          </p>
         </div>
 
         <div>
@@ -297,7 +306,7 @@
           </div>
           <h3 style="font-size:1.1rem; margin-bottom:0.5rem">In-House PCB Manufacturing</h3>
           <p class="case-text">
-            Designed schematic and 2-layer PCB layout using EasyPC, then exported Gerber files to CopperCAM. Machined the board on a desktop CNC router using a 0.8mm drill and 30° V-engraving isolation bit, eliminating offshore lead times. Integrated TB6612FNG dual motor drivers, LM2596 buck converter, and transistor switching circuits.
+            Designed the circuit schematic and 2-layer PCB layout, generating Gerber isolation toolpaths for in-house manufacturing. Machined the board on a desktop CNC router using a 0.8mm drill and 30° V-engraving isolation bit, eliminating offshore lead times. Integrated TB6612FNG dual motor drivers, LM2596 buck converter, and transistor switching circuits onto a single compact tray.
           </p>
         </div>
 
@@ -345,12 +354,12 @@
     <!-- 06 Engineering Lessons -->
     <section class="case-section">
       <span class="case-section-kicker">06 — Engineering Lessons</span>
-      <h2 class="case-section-title">Key Engineering Takeaways &amp; Iterations</h2>
+      <h2 class="case-section-title">Key Engineering Takeaways &amp; Ongoing Challenges</h2>
 
       <div class="case-callout-box">
-        <div class="case-callout-title">MICROCONTROLLER TIMING JITTER &amp; ARCHITECTURE SPLIT</div>
+        <div class="case-callout-title">MICROCONTROLLER TIMING JITTER &amp; WI-FI LATENCY</div>
         <p class="case-text" style="color:var(--text-primary); margin-bottom:0;">
-          The initial prototype attempted to execute HTTP video streaming, JPEG encoding, and 4-wheel PWM motor timers simultaneously on a single ESP32. Whenever Wi-Fi packets dropped, the CPU interrupt latency caused noticeable motor jitter and drift. <strong>Separating the tasks—dedicating an Arduino Pro Mini exclusively for motor inverse kinematics via high-frequency hardware timers while the ESP32 served purely as a video &amp; command bridge—completely eliminated control latency and jitter.</strong>
+          The system was designed from the outset with a dual-microcontroller architecture—the ESP32 dedicated to Wi-Fi video streaming and web serving, and an Arduino Pro Mini handling real-time motor control and kinematics. Despite this hardware separation, <strong>Wi-Fi packet latency, frame buffer contention, and asynchronous UART transmission still introduce intermittent command jitter and motor stutter during teleoperation</strong>. Resolving this persistent jitter remains an active area of investigation, requiring fixed-rate command queueing, watchdog timeouts, or deterministic packet protocols to smooth motion during network lag.
         </p>
       </div>
     </section>
@@ -391,7 +400,7 @@
     </div>
   </footer>
 
-  <script src="../js/data/portfolio-data.js?v=8"></script>
+  <script src="../js/data/portfolio-data.js?v=9"></script>
   <script src="../js/data/pet-robot-model-data.js"></script>
   <script src="../js/app.js?v=3"></script>
   <script src="../js/pet-robot-cad-viewer.js?v=4"></script>

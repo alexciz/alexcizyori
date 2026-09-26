@@ -144,7 +144,7 @@ const PORTFOLIO_DATA = {
           ]
         },
         testingValidation: "Tested Wi-Fi control range and streaming frame rate (25 FPS at SVGA resolution). Calibrated motor PID curves for smooth omnidirectional translation.",
-        lessonsLearned: "Early single-microcontroller architecture struggled to handle video encoding while maintaining jitter-free PWM motor timing. Offloading real-time inverse kinematics to a dedicated Arduino Pro Mini while keeping the ESP32 purely for Wi-Fi and camera streaming eliminated all motor stutter.",
+        lessonsLearned: "Operating dual microcontrollers separated camera encoding (ESP32) from real-time kinematics (Arduino Pro Mini), but Wi-Fi packet latency and asynchronous UART command transmission still introduce motor jitter during live teleoperation, highlighting the need for deterministic command queueing.",
         downloads: [
           { name: "Full Fusion Assembly & STL Files", type: "cad", url: "#cad-pet-robot" },
           { name: "PCB Schematic & Arduino Firmware (ZIP)", type: "code", url: "#code-pet-robot" }
