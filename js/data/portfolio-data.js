@@ -119,7 +119,7 @@ const PORTFOLIO_DATA = {
           "Integrated an ESP32 hosted web server for real time video streaming and remote control, generating control signals routed via PWM for motor drivers, and transistor switching circuits.",
           "Fabricated a custom PCB on a CNC router to house motor drivers, voltage regulators, and inter-board communications onto a single compact layout."
         ],
-        engineeringProcess: "Configured the kinematics for an X-drive chassis with four 45° offset omni wheels, allowing instantaneous translation in any direction while rotating. Designed the schematic and 2-layer PCB layout for motor drivers and voltage regulation, fabricating the board in-house on a desktop CNC router. Modelled the modular chassis, camera pan bracket, motorised feather teaser, and centrifugal treat-dispensing impeller in Autodesk Fusion.",
+        engineeringProcess: "Configured the kinematics for an X-drive chassis with four 45° offset omni wheels, allowing instantaneous translation in any direction while rotating. Designed the schematic and single-sided PCB layout for attached motor driver modules and power supply voltage regulation, fabricating the board in-house on a small CNC router. Modelled the modular chassis, camera pan bracket, motorised feather teaser, and centrifugal treat-dispensing impeller in Autodesk Fusion.",
         feaAnalysis: {
           software: "Fusion CAD & Kinematics",
           meshElements: "Dynamic velocity vector resolution for 4-wheel vector drive.",
@@ -131,7 +131,7 @@ const PORTFOLIO_DATA = {
         manufacturing: {
           processes: [
             "FDM 3D printing of chassis shell, motor brackets, and treat hopper (PLA/PETG)",
-            "Isolation milling of custom single-sided/dual-sided PCB on desktop CNC router",
+            "Isolation milling of custom single-sided PCB on a small CNC router",
             "THT soldering and firmware flashing (ESP32 Camera Server + Arduino Pro Mini motor controller)"
           ],
           bom: [
