@@ -171,7 +171,7 @@
       <h2 class="case-section-title">Design Evolution: V1 Baseline vs V2 Subsystem Refinements Rebuild</h2>
 
       <p class="case-text">
-        The overarching robot chassis architecture remained fundamentally robust across the season; the major rebuild focused on systematic subsystem redesigns: compliant 3D-printed intake interfaces, active optical sorting gates, and chamfered clamp kinematics.
+        The overarching robot chassis architecture remained fundamentally robust across the season; the major rebuild focused on systematic subsystem redesigns: intake compliance, active optical sorting gates, and articulated scoring mechanisms.
       </p>
 
       <div class="version-showcase-container">
@@ -181,43 +181,120 @@
           <div class="version-header">
             <div class="version-header-left">
               <span class="version-badge v1">VERSION 1.0</span>
-              <span class="version-title">Early-Season Baseline Architecture</span>
+              <span class="version-title">First Build of the Season &amp; Late-Stage V1 4-Bar Mechanism</span>
             </div>
             <span class="version-tagline">Initial Concept Setup · Core Subsystems Testbed</span>
           </div>
 
           <p class="case-text">
-            Initial build proved the multi-subsystem integration: rear mobile goal clamp, continuous conveyor belt intake, and articulated wall stake arm.
+            The initial build established the core platform: 6-motor 450 RPM drivetrain, rear pneumatic mobile goal clamp, and continuous ring conveyor intake. Towards the end of this build's life, chassis geometry modifications altered bot dimensions, creating a critical geometric clearance conflict: the wall stake arm could no longer reach the neutral wall stake while remaining short enough to fit inside the 18&quot; starting size constraint and stay clear of mobile goal scoring on the rear.
           </p>
 
-          <!-- V1 Media Frame -->
-          <div class="version-media-frame">
-            <img src="../assets/projects/vex-high-stakes.svg" alt="V1 High Stakes Subsystems Schematic">
-            <div class="version-media-caption">
-              <span>FIGURE 2.1 — V1 ARCHITECTURE: MOBILE GOAL CLAMP, CONVEYOR &amp; WALL STAKE ARM SCHEMATIC</span>
-              <span style="color:var(--accent)">V1 PROTOTYPE</span>
+          <!-- V1 Media Frame: Real Photos -->
+          <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:1.25rem; margin:1.75rem 0;">
+            <div class="version-media-frame" style="margin:0;">
+              <img src="../assets/projects/vex-high-stakes-v1-profile.jpg" alt="V1 High Stakes Robot Right Profile Elevation">
+              <div class="version-media-caption">
+                <span>FIGURE 2.1 — V1 ROBOT ELEVATION: CONVEYOR TOWER, PNEUMATIC CLAMP &amp; 450 RPM DRIVE</span>
+                <span style="color:var(--accent)">V1 BASELINE</span>
+              </div>
+            </div>
+            <div class="version-media-frame" style="margin:0;">
+              <img src="../assets/projects/vex-high-stakes-4bar-mechanism.jpg" alt="4-Bar Linkage Wall Stake Scoring Extension Mechanism">
+              <div class="version-media-caption">
+                <span>FIGURE 2.2 — STRING-ACTUATED 4-BAR EXTENSION LINKAGE ON WALL STAKE ARM</span>
+                <span style="color:#f59e0b">MECHANICAL WORKAROUND</span>
+              </div>
             </div>
           </div>
 
           <div class="version-details-grid">
             <div class="version-block">
-              <div class="version-block-title warn">⚠ Identified Failure Modes &amp; Bottlenecks</div>
-              <ul style="font-size:0.9rem; color:var(--text-secondary); padding-left:1.2rem; line-height:1.65">
-                <li><strong>Rigid Intake Bounce:</strong> Plastic ring elements bounced off rigid intake plates during high-speed drive approaches, dropping intake rate to ~78%.</li>
-                <li><strong>Manual Colour Sorting:</strong> Ingesting opponent rings into the conveyor required manual driver reversal, costing precious match seconds.</li>
-                <li><strong>Alignment Sensitivity:</strong> Standard rear clamp jaws required strict perpendicular alignment to latch onto mobile goals cleanly.</li>
-              </ul>
+              <div class="version-block-title warn">⚙ Geometric Conflict &amp; 4-Bar Linkage Solution</div>
+              <p style="font-size:0.9rem; color:var(--text-secondary); line-height:1.65; margin-bottom:0.75rem;">
+                <strong>The Challenge:</strong> Minor alterations to bot geometry meant a standard rigid arm could not reach the wall stake height while staying compact enough to comply with the 18&quot; sizing box and avoid obstructing rear mobile goal scoring.
+              </p>
+              <p style="font-size:0.9rem; color:var(--text-secondary); line-height:1.65;">
+                <strong>The Mechanical Solution:</strong> Transformed the ring holder on the wall stake arm into an <strong>expanding 4-bar linkage</strong>. The linkage was elastically tensioned downwards with rubber bands, with fixed strings anchored to geometry points whose relative distance shortens as the arm elevates. As the arm rotates upwards, the tensioned strings pull the linkage arms outwards, extending the ring holder forward exactly when needed for scoring.
+              </p>
             </div>
 
             <div class="version-block">
               <div class="version-block-title tech">⚙ V1 Technical Specifications</div>
               <ul style="font-size:0.9rem; color:var(--text-secondary); padding-left:1.2rem; line-height:1.65">
-                <li><strong>Intake Geometry:</strong> Rigid aluminium channel backing.</li>
-                <li><strong>Colour Filtering:</strong> Manual driver reaction.</li>
-                <li><strong>Clamp Lead-ins:</strong> Unchamfered aluminium plates.</li>
-                <li><strong>Wall Stake Scorer:</strong> Single-pivot articulated arm.</li>
+                <li><strong>Drivetrain:</strong> 6-motor 450 RPM direct drive on 2.75&quot; omni wheels.</li>
+                <li><strong>Mobile Goal Clamp:</strong> Rear pneumatic double-acting cylinder clamp.</li>
+                <li><strong>Wall Stake Scorer:</strong> Articulated arm with string-pulled 4-bar extending ring holder.</li>
+                <li><strong>Intake:</strong> Continuous conveyor chain intake with top scoring hook.</li>
               </ul>
             </div>
+          </div>
+
+          <!-- Video Testing Section: Working vs Failing / Tuning -->
+          <div style="margin-top:2.25rem; border-top:1px solid var(--border-color); padding-top:1.5rem;">
+            <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:0.5rem; margin-bottom:0.75rem;">
+              <h3 style="font-size:1.1rem; font-weight:700; color:var(--text-primary); margin:0;">Intake &amp; Scoring Kinematics Testing: Failure Analysis &amp; Tuning</h3>
+              <span style="font-family:var(--font-mono); font-size:0.78rem; color:var(--text-muted);">EMPIRICAL VALIDATION</span>
+            </div>
+            <p class="case-text" style="margin-bottom:1.25rem;">
+              During initial prototype testing, ring conveyor feeding exhibited inconsistent scoring and occasional drops. Systematic mechanical debugging identified four root causes: conveyor geometry misalignment, slack in chain tension, improper hook length, and lateral hook wobble at the scoring peak.
+            </p>
+
+            <div class="video-comparison-grid">
+              
+              <!-- Video 1: Scoring Working -->
+              <div class="video-showcase-card">
+                <div class="video-showcase-header status-pass">
+                  <span>✓ VERIFIED PASS — STABLE CONVEYOR SCORING</span>
+                  <span>1080P TESTING</span>
+                </div>
+                <div class="video-showcase-player">
+                  <video controls playsinline preload="metadata" poster="../assets/projects/vex-high-stakes-mogo-stacked.jpg">
+                    <source src="../assets/projects/vex-high-stakes-scoring-working.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+                <div class="video-showcase-body">
+                  <strong style="font-size:0.92rem; color:var(--text-primary);">Tuned Geometry &amp; Rigidised Scoring Hook</strong>
+                  <p class="video-showcase-desc">
+                    High-speed test demonstrating rings traversing the conveyor smoothly and dropping cleanly over the mobile goal post without stalling or deflecting sideways.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Video 2: Scoring Not Working / Arena Testing -->
+              <div class="video-showcase-card">
+                <div class="video-showcase-header status-fail">
+                  <span>⚠ IDENTIFIED FAILURE — INTAKE / HOOK INSTABILITY</span>
+                  <span>TEST CLIP</span>
+                </div>
+                <div class="video-showcase-player">
+                  <video controls playsinline preload="metadata">
+                    <source src="../assets/projects/vex-high-stakes-scoring-failing.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+                <div class="video-showcase-body">
+                  <strong style="font-size:0.92rem; color:var(--text-primary);">Pre-Tuning Wobble &amp; Trajectory Deflection</strong>
+                  <p class="video-showcase-desc">
+                    Testing clip capturing ring retention failure where hook compliance and chain slack caused rings to misalign or fail to seat on the goal post.
+                  </p>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- How We Fixed It Box -->
+            <div style="background:var(--bg-primary); border:1px solid var(--border-color); border-radius:var(--radius-md); padding:1.25rem; margin-top:1rem;">
+              <div class="version-block-title success" style="margin-bottom:0.5rem;">🔧 The Four Corrective Measures Implemented</div>
+              <ul style="font-size:0.88rem; color:var(--text-secondary); padding-left:1.2rem; line-height:1.65; margin:0;">
+                <li><strong>Conveyor Geometry Tuning:</strong> Realigned the entry and exit arc angles to maintain tangential contact with incoming rings.</li>
+                <li><strong>Chain Tension Adjustment:</strong> Eliminated slack along the conveyor run to eliminate backlash during rapid acceleration.</li>
+                <li><strong>Optimised Hook Length:</strong> Sized the scoring hook to engage ring inner diameters securely without hanging up on mobile goal posts.</li>
+                <li><strong>Base Support for Hook:</strong> Added a rigid reinforcement support at the base of the scoring hook to eliminate lateral wobble and deflection.</li>
+              </ul>
+            </div>
+
           </div>
         </div>
 
@@ -225,9 +302,9 @@
         <div class="pivot-divider">
           <div class="pivot-icon">⚡</div>
           <div class="pivot-text-wrap">
-            <div class="pivot-label">THE REBUILD TRIGGER — CHAMPIONSHIP SUBSYSTEM OVERHAUL</div>
+            <div class="pivot-label">THE REBUILD TRIGGER — SUBSYSTEM OVERHAUL</div>
             <div class="pivot-desc">
-              Preserved the validated core chassis geometry while executing a comprehensive subsystem overhaul to achieve zero-jam intake compliance, automated optical colour ejection, and omni-directional goal capture.
+              Preserved the validated core chassis geometry while executing a comprehensive subsystem overhaul to achieve zero-jam intake compliance, automated optical colour ejection, and robust mobile goal capture.
             </div>
           </div>
         </div>
@@ -237,7 +314,7 @@
           <div class="version-header">
             <div class="version-header-left">
               <span class="version-badge v2">VERSION 2.0</span>
-              <span class="version-title">Championship Subsystem Refinements Rebuild</span>
+              <span class="version-title">Competition Subsystem Refinements Rebuild</span>
             </div>
             <span class="version-tagline" style="color:var(--accent); font-weight:600">Current Generation System · High-Efficiency Subsystems</span>
           </div>
@@ -247,11 +324,20 @@
           </p>
 
           <!-- V2 Media Frame -->
-          <div class="version-media-frame">
-            <img src="../assets/projects/vex-high-stakes.jpg" alt="V2 High Stakes Robot on Arena Floor">
-            <div class="version-media-caption">
-              <span>FIGURE 2.2 — COMPETITION ROBOT: 450 RPM DRIVE, CONVEYOR INTAKE, ARTICULATED WALL STAKE ARM &amp; MOBILE GOAL CLAMP</span>
-              <span style="color:var(--brand-green); font-weight:700">✓ COMPETITION BUILD</span>
+          <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:1.25rem; margin:1.5rem 0 2rem;">
+            <div class="version-media-frame" style="margin:0;">
+              <img src="../assets/projects/vex-high-stakes.jpg" alt="V2 High Stakes Robot on Arena Floor">
+              <div class="version-media-caption">
+                <span>FIGURE 2.3 — COMPETITION ROBOT: 450 RPM DRIVE, CONVEYOR INTAKE &amp; PNEUMATIC CLAMP</span>
+                <span style="color:var(--brand-green); font-weight:700">✓ COMPETITION BUILD</span>
+              </div>
+            </div>
+            <div class="version-media-frame" style="margin:0;">
+              <img src="../assets/projects/vex-high-stakes-mogo-stacked.jpg" alt="Mobile Goal Full Ring Stack on Competition Arena">
+              <div class="version-media-caption">
+                <span>FIGURE 2.4 — ARENA MATCH: FULL 5-RING BLUE STACK ON REAR CLAMPED MOBILE GOAL</span>
+                <span style="color:var(--accent)">MATCH PERFORMANCE</span>
+              </div>
             </div>
           </div>
 
@@ -259,7 +345,7 @@
             <div class="version-block">
               <div class="version-block-title success">✓ Rebuild Engineering Solutions</div>
               <ul style="font-size:0.9rem; color:var(--text-secondary); padding-left:1.2rem; line-height:1.65">
-                <li><strong>Optimised Intake Compliance:</strong> Front flex wheels and optimised intake spacing grip rings consistently without jamming.</li>
+                <li><strong>Optimised Intake Compliance:</strong> Front flex wheels and tuned intake spacing grip rings consistently without jamming.</li>
                 <li><strong>Automated Optical Colour Sorting:</strong> Integrated V5 optical sensor along conveyor to automatically reject opposing alliance rings.</li>
                 <li><strong>Reinforced Clamp Jaws:</strong> Pneumatic cylinder leverage optimised for firm retention under heavy match defence.</li>
               </ul>
@@ -274,7 +360,6 @@
                 <li><strong>Colour Filtering:</strong> Autonomous optical sensor ring sorting.</li>
               </ul>
             </div>
-          </div>
           </div>
         </div>
 

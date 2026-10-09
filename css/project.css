@@ -810,5 +810,84 @@
   box-shadow: 0 0 8px var(--accent);
 }
 
+/* ==========================================================================
+   PROJECT VIDEO SHOWCASE & COMPARISON STYLES
+   Responsive HTML5 video container with caption and comparison grid
+   ========================================================================== */
+.video-comparison-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5rem;
+  margin: 1.75rem 0 2rem;
+}
+
+.video-showcase-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.video-showcase-header {
+  padding: 0.85rem 1.25rem;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 700;
+  border-bottom: 1px solid var(--border-color);
+  background: var(--bg-secondary);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.video-showcase-header.status-fail {
+  border-left: 4px solid #ef4444;
+  color: #ef4444;
+}
+
+.video-showcase-header.status-pass {
+  border-left: 4px solid var(--brand-green);
+  color: var(--brand-green);
+}
+
+.video-showcase-player {
+  background: #000000;
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.video-showcase-player.portrait {
+  aspect-ratio: 9 / 16;
+  max-height: 480px;
+}
+
+.video-showcase-player video {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.video-showcase-body {
+  padding: 1.25rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.video-showcase-desc {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+
 
 

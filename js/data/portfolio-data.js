@@ -178,7 +178,7 @@ const PORTFOLIO_DATA = {
           "Continuous chain conveyor to elevate rings smoothly onto mobile goal posts.",
           "Geared articulated arm with sufficient reach and positioning control to score wall stakes."
         ],
-        engineeringProcess: "Iterated through early season prototypes to establish a balanced meta architecture: configured an aggressive 450 RPM direct-geared base on 2.75\" omni wheels, optimised the intake entrance roller spacing for ring clearance, integrated an optical sensor along the chain conveyor for autonomous opposing-ring rejection, and tuned the articulated arm gear ratio.",
+        engineeringProcess: "Iterated through early season prototypes to establish a balanced meta architecture: configured an aggressive 450 RPM direct-geared base on 2.75\" omni wheels, rear pneumatic mobile goal clamp, and continuous ring conveyor. Solved a geometric conflict on the first build's wall stake arm—where geometry changes prevented reaching the stake while complying with the 18\" size box and avoiding mobile goal scoring—by designing a string-actuated 4-bar linkage ring holder elastically tensioned down that deploys forward as the arm lifts.",
         feaAnalysis: {
           software: "Fusion CAD & Finite Element Simulation",
           meshElements: "Mobile goal clamp mounting brackets and drivetrain chassis rails.",
@@ -200,8 +200,8 @@ const PORTFOLIO_DATA = {
             { item: "Pneumatic Sub-System", material: "SMC Double-Acting", qty: 2, unitCost: "£32.00" }
           ]
         },
-        testingValidation: "Achieved seamless 450 RPM field maneuverability, instantaneous mobile goal latching under match conditions, and autonomous optical ring rejection on the conveyor.",
-        lessonsLearned: "Proper intake roller compression and conveyor chain tensioning are critical to prevent ring jams during multi-ring ingestion sequences.",
+        testingValidation: "Diagnosed ring conveyor scoring failures through high-speed video analysis. Resolved scoring instability and drops by tuning conveyor geometry, tensioning chain slack, adjusting scoring hook length, and installing a rigid support at the hook base to eliminate wobble.",
+        lessonsLearned: "Preventing ring trajectory drops requires addressing both dynamic hook wobble and chain backlash. Implementing passive kinematic linkages, such as string-tensioned 4-bar extensions, resolves tight envelope constraints without adding motor mass.",
         downloads: [
           { name: "Full CAD Mechanism Package (STEP)", type: "cad", url: "#cad-highstakes" }
         ]
