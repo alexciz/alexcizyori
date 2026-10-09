@@ -592,6 +592,108 @@ body {
   color: #60a5fa;
 }
 
+/* Action Buttons & Track Controls */
+.action-buttons {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.btn-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  padding: 6px 12px;
+  border-radius: var(--radius-sm);
+  font-size: 12px;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  line-height: 1.2;
+}
+
+.btn-action.apply {
+  background: rgba(59, 130, 246, 0.12);
+  color: #60a5fa;
+  border: 1px solid rgba(59, 130, 246, 0.35);
+}
+
+.btn-action.apply:hover {
+  background: rgba(59, 130, 246, 0.24);
+  border-color: #3b82f6;
+  color: #93c5fd;
+  transform: translateY(-1px);
+}
+
+.btn-action.edit,
+.btn-action.track {
+  background-color: var(--bg-card);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.btn-action.edit:hover,
+.btn-action.track:hover {
+  background-color: var(--bg-surface-hover);
+  border-color: var(--border-focus);
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+.card-actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.btn-action-sm {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 4px 9px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  line-height: 1.2;
+}
+
+.btn-action-sm.apply {
+  background: rgba(59, 130, 246, 0.12);
+  color: #60a5fa;
+  border: 1px solid rgba(59, 130, 246, 0.35);
+}
+
+.btn-action-sm.apply:hover {
+  background: rgba(59, 130, 246, 0.24);
+  border-color: #3b82f6;
+  color: #93c5fd;
+}
+
+.btn-action-sm.edit,
+.btn-action-sm.track {
+  background-color: var(--bg-surface);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-color);
+}
+
+.btn-action-sm.edit:hover,
+.btn-action-sm.track:hover {
+  background-color: var(--bg-surface-hover);
+  border-color: var(--border-focus);
+  color: #ffffff;
+}
+
 .stage-select {
   background-color: var(--bg-card);
   color: var(--text-primary);
